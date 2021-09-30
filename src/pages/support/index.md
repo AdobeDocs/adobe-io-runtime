@@ -1,51 +1,21 @@
----
-title: Support - Adobe Analytics
-description: This is the support page of Adobe Analytics 
----
+<Hero slots="heading, text" />
 
-<Hero slots="heading, text" background="rgb(19, 93, 183)"/>
+# Resources and support
 
-# Support
+Adobe I/O Runtime is built on top of Apache OpenWhisk. This is why many of the resources written for Apache OpenWhisk apply to Adobe I/O Runtime, too: blogs, documentation and references, and so forth.
 
-Learn where to ask questions, report bugs, make feature requests, and spark discussions.
+## Resources
 
-## Feedback
+For a starter, a good resource to check is the [Apache OpenWhisk repository](https://github.com/apache/incubator-openwhisk/tree/master/docs).
 
-You've got a place to start discussions.
+## Social media
 
-<DiscoverBlock slots="image, heading, link, text" width="25%"/>
+You can follow up our team on [Twitter](https://twitter.com/adobeio), [Medium](https://medium.com/adobetech/tagged/platform), and [Youtube](https://www.youtube.com/channel/UCDtYqOjS9Eq9gacLcbMwhhQ).
 
-![Adobe Experience Cloud](experience_cloud.png)
+## Support
 
-### Developer forum
+If you have issues with Adobe I/O Runtime, you can use our [Adobe I/O Runtime Forum](https://forums.adobe.com/community/adobe-io/adobe-io-runtime).
 
-[Get started](https://adobe.io)
+If you have issues with the documentation, you can always submit a pull request.
 
-Open discussion and support with community experts and Adobe staff.
-
-<DiscoverBlock slots="link, text" width="25%"/>
-
-[Experience league](https://adobe.io) 
-
-Tutorials and videos for the whole community.
-
-<DiscoverBlock slots="link, text" width="25%"/>
-
-[Experience forum](https://adobe.io) 
-
-Forum to get help and help others
-
-## Community
-
-You've got a place to join the conversation.
-
-<DiscoverBlock slots="image, heading, link, text" width="100%"/>
-
-![Stack Overflow](stack-overflow.png)
-
-### Stack Overflow
-
-[Explore](https://adobe.io)
-
-Developer Q&A using a specific tag.
-
+Check the [FAQ](faq.md) for some of the most common questions.

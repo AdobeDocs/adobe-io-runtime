@@ -12,145 +12,204 @@
 
 module.exports = {
   siteMetadata: {
-    versions: [
-      {
-        title: 'v2.0',
-        selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/analytics-1.4-apis'
-      }
-    ],
+    home: {
+      title: "Adobe I/O Runtime",
+      path: "/runtime"
+    },
     pages: [
       {
-        title: 'Adobe Analytics',
+        title: 'Overview',
         path: '/'
       },
       {
         title: 'Guides',
-        path: '/guides/'
-      },
-      {
-        title: 'API Reference',
-        menu: [{
-          title: 'API Reference v2.0',
-          description: 'Adobe Analytics Reporting API',
-          path: '/api/index.md'
-        }, {
-          title: 'API Reference v1.4',
-          description: 'API Spec for the Adobe Marketing Cloud',
-          path: '/api/1.4.md'
-        }]
+        path: 'guides'
       },
       {
         title: 'Support',
-        path: '/support/'
+        path: 'support'
       }
     ],
     subPages: [
       {
-        title: 'Get Started',
-        path: '/guides/',
-        pages: [
+        "path": "guides/index.md",
+        "title": "Quickstart Guide"
+      },
+      {
+        "pages": [
           {
-            title: 'Overview',
-            path: '/guides/'
+            "path": "guides/overview/what_is_runtime.md",
+            "title": "What is Adobe I/O Runtime"
           },
           {
-            title: 'Creating an OAuth Client',
-            path: '/guides/creating_oauth_client/'
+            
+            "path": "guides/overview/usecases.md",
+            "title": "Use cases"
           },
           {
-            title: 'OAuth using cURL',
-            path: '/guides/oauth_using_curl/'
+            "path": "guides/overview/howitworks.md",
+            "title": "How Adobe I/O Runtime Works"
           },
           {
-            title: 'OAuth using POSTMAN',
-            path: '/guides/oauth_using_postman/'
+            "path": "guides/overview/entities.md",
+            "title": "Adobe I/O Runtime Entities"
           },
           {
-            title: 'JWT Authentication',
-            path: '/guides/jwt_authentication/'
+            "path": "guides/overview/getting_access.md",
+            "title": "Getting Access"
           }
-        ]
+        ],
+        "path": "guides/overview/index.md",
+        "title": "Overview"
       },
       {
-        title: 'Reporting API',
-        path: '/guides/reporting_api/',
-        pages: [
+        "pages": [
           {
-            title: 'Overview',
-            path: '/guides/reporting_api/'
+            "path": "guides/getting-started/setup.md",
+            "title": "Setting up Your Environment"
           },
           {
-            title: 'Reporting with breakdowns',
-            path: '/guides/reporting_api/reporting_breakdowns/',
-            pages: [
-              {
-                title: 'Reporting with single breakdowns',
-                path: '/guides/reporting_api/reporting_breakdowns/',
-              },
-              {
-                title: 'Reporting with multiple breakdowns',
-                path: '/guides/reporting_api/reporting_breakdowns/reporting_multiple_breakdowns/',
-              },
-            ]
+            "path": "guides/getting-started/deploy.md",
+            "title": "Deploying your First Adobe I/O Runtime Function"
           },
           {
-            title: 'Reporting tips and tricks',
-            path: '/guides/reporting_api/reporting_tips_tricks/'
+            "path": "guides/getting-started/activations.md",
+            "title": "Retrieve Action Invocation Results"
           }
-        ]
+        ],
+        "path": "guides/getting-started/index.md",
+        "title": "Getting Started with Adobe I/O Runtime"
       },
       {
-        title: 'Discovery API',
-        path: '/guides/discovery_api/'
-      },
-      {
-        title: 'Segments API',
-        path: '/guides/segments_api/'
-      },
-      {
-        title: 'Calculated Metrics API',
-        path: '/guides/calculated_metrics_api/'
-      },
-      {
-        title: 'Migrating',
-        path: '/guides/migrating/'
-      },
-      {
-        title: 'Overview',
-        path: '/support/',
-        header: true,
-        pages: [
+        "pages": [
           {
-            title: 'Help',
-            path: '/support/'
+            "path": "guides/using/creating_actions.md",
+            "title": "Creating Actions"
           },
           {
-            title: 'FAQ',
-            path: '/support/FAQ/'
+            "path": "guides/using/asynchronous_calls.md",
+            "title": "Asynchronous Calls"
           },
           {
-            title: 'How to contribute',
-            path: '/support/contribute/'
+            "path": "guides/using/throughput_tuning.md",
+            "title": "Throughput Tuning"
+          },
+          {
+            "path": "guides/using/security_general.md",
+            "title": "Security Guide"
+          },
+          {
+            "path": "guides/using/securing_web_actions.md",
+            "title": "Securing Web Actions"
+          },
+          {
+            "path": "guides/using/creating_rest_apis.md",
+            "title": "Creating REST APIs"
+          },
+          {
+            "path": "guides/using/using_packages.md",
+            "title": "Using Packages"
+          },
+          {
+            "path": "guides/using/logging_monitoring.md",
+            "title": "Logging & Monitoring"
+          },
+          {
+            "path": "guides/using/debugging.md",
+            "title": "Debugging"
+          },
+          {
+            "path": "guides/using/system_settings.md",
+            "title": "System Settings"
+          },
+          {
+            "path": "guides/using/ci-cd_pipeline.md",
+            "title": "CI/CD Pipeline"
           }
-        ]
+        ],
+        "path": "guides/using/index.md",
+        "title": "Using Adobe I/O Runtime"
       },
       {
-        title: 'Community',
-        path: '/support/community/',
-        header: true,
-        pages: [
+        "pages": [
           {
-            title: 'Information',
-            path: '/support/community/'
+            "path": "guides/reference/cli_use.md",
+            "title": "Using aio CLI"
+          },
+          {
+            "path": "guides/reference/wsk_use.md",
+            "title": "Using the wsk CLI"
+          },
+          {
+            "path": "guides/reference/environment_variables.md",
+            "title": "Environment Variables"
+          },
+          {
+            "path": "guides/reference/multiple_regions.md",
+            "title": "Multiple Regions"
+          },
+          {
+            "path": "guides/reference/prepackages.md",
+            "title": "Pre-installed packages"
+          },
+          {
+            "path": "guides/reference/runtimes.md",
+            "title": "Runtimes"
+          },
+          {
+            "path": "guides/reference/api_ref.md",
+            "title": "API Reference"
+          },
+          {
+            "path": "guides/reference/triggersrules.md",
+            "title": "Triggers & Rules"
+          },
+          {
+            "path": "guides/reference/sequences_compositions.md",
+            "title": "Sequences & Compositions"
+          },
+          {
+            "path": "guides/reference/packages.md",
+            "title": "Packages"
+          },
+          {
+            "path": "guides/reference/feeds.md",
+            "title": "Feeds"
           }
-        ]
+        ],
+        "path": "guides/reference/index.md",
+        "title": "Adobe I/O Runtime reference documentation"
+      },
+      {
+        "pages": [
+          {
+            "path": "guides/tools/cli_install.md",
+            "title": "Setting up the aio CLI"
+          },
+          {
+            "path": "guides/tools/wsk_install.md",
+            "title": "Setting up the wsk CLI"
+          },
+          {
+            "path": "guides/tools/wskdeploy_install.md",
+            "title": "Setting up the wskdeploy CLI"
+          }
+        ],
+        "path": "guides/tools/index.md",
+        "title": "Tools"
+      },
+      {
+        "pages": [
+          {
+            "path": "support/faq.md",
+            "title": "FAQ"
+          }
+        ],
+        "path": "support/index.md",
+        "title": "Resources & support"
       }
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`],
-  pathPrefix: process.env.PATH_PREFIX || '/dev-site-documentation-template/'
+  pathPrefix: process.env.PATH_PREFIX || '/runtime/docs/'
 };
