@@ -51,3 +51,23 @@ X-GW-Cache: HIT
 <InlineAlert slots="text"/>
 
 Encoded responses can't be cached, this means that `Content-Encoding` response header needs to be always empty in order for the response to be cached. 
+
+### Vary Header
+The caching layer supports the use of [Vary header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary) to enable caching based not only on URL and query parameters but on header fields.
+
+For example you here is some action that responds to certain header fields when doing some complex calculation:
+
+`curl -H "storeId: 1234" https://runtime-namespace-1.adobeioruntime.net/api/v1/web/store?query={products(pageSize: 10,filter:{ id:{ eq:"abcedefg"}}){items{name}}}`
+
+Could produce a response:
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Vary: storeId
+Cache-Control: max-age=120
+X-GW-Cache: MISS
+
+{"someBigData" : ["array"]}
+```
+
+That would add the `storeId` to the cache key such that subsequent requests with the same `storeId` in the headers will create a `HIT` up till the cahe control header settings and anytime the value varies, it will be a `MISS` and be stored under a new key with new cache control directives.
