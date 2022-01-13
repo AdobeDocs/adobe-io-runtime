@@ -33,4 +33,4 @@ You should get this output:
 }
 ```
 
-That&rsquo;s it! You&rsquo;re ready to begin developing on Adobe I/O Runtime. For ideas on what to next, see [Using Adobe I/O Runtime](../using-runtime/index.md 'Guides').
+That&rsquo;s it! You&rsquo;re ready to begin developing on Adobe I/O Runtime. For ideas on what to next, see [Using Adobe I/O Runtime](../using/index.md 'Guides').
