@@ -22,19 +22,19 @@ This documentation provides an overview of Adobe I/O Runtime as well as guides, 
 * [Deploying your First Adobe I/O Runtime Function](guides/getting-started/deploy.md)
 * [Retrieve Action Invocation Results](guides/getting-started/activations.md)
 
-[Guides](guides/using-runtime/index.md)
+[Guides](guides/using/index.md)
 
-* [Creating Actions](guides/using-runtime/creating_actions.md): actions, web actions, invoking and managing, setting parameters
-* [Asynchronous Calls](guides/using-runtime/asynchronous_calls.md): how to execute long running async (non-blocking) calls
-* [Throughput Tuning](guides/using-runtime/throughput_tuning.md): how to maximize the number of action invocations
-* [Security Guide](guides/using-runtime/security_general.md): discover potential security issues and how to address them
-* [Securing Web Actions](guides/using-runtime/securing_web_actions.md): learn how to control the access to web actions
-* [Creating REST APIs](guides/using-runtime/creating_rest_apis.md): learn to create REST APIs from web actions
-* [Using Packages](guides/using-runtime/using_packages.md): Working with packages
-* [Logging & Monitoring](guides/using-runtime/logging_monitoring.md): learn how to troubleshoot your actions
-* [Debugging](guides/using-runtime/debugging.md): advanced debugging for Node.js actions
-* [System Settings](guides/using-runtime/system_settings.md): see the system settings and constraints 
-* [CI/CD Pipeline](guides/using-runtime/ci-cd_pipeline.md): understand the tools you have to create a CI/CD Pipeline
+* [Creating Actions](guides/using/creating_actions.md): actions, web actions, invoking and managing, setting parameters
+* [Asynchronous Calls](guides/using/asynchronous_calls.md): how to execute long running async (non-blocking) calls
+* [Throughput Tuning](guides/using/throughput_tuning.md): how to maximize the number of action invocations
+* [Security Guide](guides/using/security_general.md): discover potential security issues and how to address them
+* [Securing Web Actions](guides/using/securing_web_actions.md): learn how to control the access to web actions
+* [Creating REST APIs](guides/using/creating_rest_apis.md): learn to create REST APIs from web actions
+* [Using Packages](guides/using/using_packages.md): Working with packages
+* [Logging & Monitoring](guides/using/logging_monitoring.md): learn how to troubleshoot your actions
+* [Debugging](guides/using/debugging.md): advanced debugging for Node.js actions
+* [System Settings](guides/using/system_settings.md): see the system settings and constraints 
+* [CI/CD Pipeline](guides/using/ci-cd_pipeline.md): understand the tools you have to create a CI/CD Pipeline
 
 [Reference Documentation](guides/reference/index.md)
 
