@@ -44,7 +44,7 @@ For Windows, you'll place the `.wskprops` in `C:\Users\<user>`.
 
 There are two ways you can configure your aio CLI: if you have Developer Role or System Administrator permissions, then you can sign in in aio CLI, and then the CLI will be able to retrieve the projects you have created in the Developer Console and select the workspace you want to work in.
 
-This [page](https://github.com/AdobeDocs/project-firefly/blob/master/getting_started/first_app.md#3-signing-in-from-cli) walks you through the steps.
+This [page](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) walks you through the steps.
 
 If you don't have the right permissions, but you have the namespace and the authorization for it, then you can manually configure aio CLI (see the next section).
 
