@@ -11,7 +11,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "body-parser": "1.19.0",
     "cls-hooked": "4.2.2",
     "redis": "3.1.2",
-    "node-fetch": "2.6.1"
+    "node-fetch": "2.6.7"
     "dnscache": "1.0.2"
 
 ### Node.js v12
@@ -21,7 +21,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "body-parser": "1.19.0",
     "cls-hooked": "4.2.2",
     "redis": "3.0.2",
-    "node-fetch": "2.6.0"
+    "node-fetch": "2.6.7"
     "dnscache": "1.0.2"
 
 ### Node.js v10
