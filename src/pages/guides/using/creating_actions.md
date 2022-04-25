@@ -164,11 +164,11 @@ In the URL above, the `default` in the path stands for the `default` package: if
 
 You can invoke the action like this:
 ```
-curl -L https://adobeioruntime.net/api/v1/web/[your namespace]/default/test -x GET
+curl -L https://adobeioruntime.net/api/v1/web/[your namespace]/default/test -X GET
 ```
 or
 ```
-curl https://[your namespace].adobeioruntime.net/api/v1/web/default/test -x GET
+curl https://[your namespace].adobeioruntime.net/api/v1/web/default/test -X GET
 ```
 **Note** the change in the URL here in comparison to what the `wsk` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `wsk` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing_web_actions.md) page.
 
