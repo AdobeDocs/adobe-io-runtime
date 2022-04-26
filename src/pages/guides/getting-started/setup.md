@@ -52,7 +52,7 @@ If you don't have the right permissions, but you have the namespace and the auth
 
 The `aio` CLI will pickup credentials from the exact same path as the wsk CLI ( `.wskprops` file )
 
-Additionally, the `aio` CLI allows the use .env files, so if you have multiple namespaces you can have a different set of credentials associated with each project/directory.  `aio` CLI always looks for a .env file in the current working directory before looking to the default location of .wskprops.
+Additionally, the `aio` CLI allows the use of .env files, so if you have multiple namespaces you can have a different set of credentials associated with each project/directory.  `aio` CLI always looks for a .env file in the current working directory before looking to the default location of .wskprops.
 
 
 ## Step 2: Testing the CLI is setup correctly
