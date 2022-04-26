@@ -24,7 +24,7 @@ and:
 
 ### Creating a Namespace and retrieving the credentials
 
-If your organization has access to I/O Runntime, then you manage namespaces in the [Developer Console](/console). Please note that you need Developer Role or System Administrator permissions in order to do this.
+If your organization has access to I/O Runtime, then you manage namespaces in the [Developer Console](/console). Please note that you need Developer Role or System Administrator permissions in order to do this.
 
 In the Developer Console:
 * Create a new `Project`
