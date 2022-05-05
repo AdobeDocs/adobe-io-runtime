@@ -1,6 +1,6 @@
 # Runtimes
 
-Adobe I/O Runtime supports Node.js versions 14, 12 and 10. Node v14 is the default image and the one used to create pre-warm cotainers. We encourage you to always update your actions to the latest version in order to take advantage of pre-warm containters feature.
+Adobe I/O Runtime supports Node.js versions 14, 12 and 10. Node v14 is the default image and the one used to create pre-warm containers. We encourage you to always update your actions to the latest version in order to take advantage of pre-warm containers feature.
 
 The following npm modules are pre-installed (if your action uses any of these modules, you don&rsquo;t have to package them together with action code):
 
