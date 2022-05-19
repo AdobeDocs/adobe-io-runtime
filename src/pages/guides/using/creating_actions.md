@@ -164,7 +164,7 @@ In the URL above, the `default` in the path stands for the `default` package: if
 
 You can invoke the action like this:
 ```
-curl https://adobeioruntime.net/api/v1/web/[your namespace]/default/test -X GET
+curl -L https://adobeioruntime.net/api/v1/web/[your namespace]/default/test -X GET
 ```
 or
 ```
