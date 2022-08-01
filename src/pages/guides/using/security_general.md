@@ -41,3 +41,8 @@ For web actions, see [Securing Web Actions](securing_web_actions.md).
 Due to the shared nature of any serverless system, it is necessary to review transport security to your function and how your function communicates with the world.
 
 All communications to the Runtime cluster are secured by HTTPS. Communications from your functions to any other service should also use HTTPS or some other secure channel whenever possible. While there is a network partition and no function should be able to see or route traffic directly to another, it is always best to also secure your communication channel as well.
+
+## Allowed Egress Ports
+Actions can call any external IP, however the number of ports that can be used, is limited. This is the list of ports that can be used for external API calls: 
+
+`80, 443, 636, 3306, 5432, 3000, 21, [200-299], [2000-2999], 4343, 8888, 25, 465, 587, 2181, 9092, 9094, [9096-9352], 11211, 5672, 15672, 5671, 9354, 9200, 9300, 8300, 8500, 8600, 8080, 8000, 4242, 30303, 9090, 2055, 6061, 6062, 922, 1433, 6379, 6380, 27016, 27017, 27018, 27019, 8088, 8089, 445, [10000-20000], 9093, 5400, 389, 6651, 8020, 50010, 60020, 53, 22, 53, 123, 2049, 143, 4317`
