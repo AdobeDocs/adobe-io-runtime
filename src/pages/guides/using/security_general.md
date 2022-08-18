@@ -16,7 +16,7 @@ Many things on the web rely on cookies. You can set cookies in two ways in Runti
 The use of cookies directly from web actions on Runtime is discouraged. For further reading, please see [Securing Web Actions](securing_web_actions.md).
 
 ## Secrets
-Secrets fall into two different categories and must be handled in specific ways based on those categories. 
+Secrets fall into two different categories and must be handled in specific ways based on those categories.
 
 ### Runtime Namespace Details
 Namespace credentials should be treated with the utmost care. These credentials allow full access to the namespace: _do not share this information with customers using the action._ If the design of the system requires these credentials to be stored inside the action or passed in as parameters to your action, _consider some other design._ Leaking of these credentials will allow an attacker full access to the namespace, and _the owner of the namespace is responsible for any costs accrued_ during that time.
@@ -41,3 +41,8 @@ For web actions, see [Securing Web Actions](securing_web_actions.md).
 Due to the shared nature of any serverless system, it is necessary to review transport security to your function and how your function communicates with the world.
 
 All communications to the Runtime cluster are secured by HTTPS. Communications from your functions to any other service should also use HTTPS or some other secure channel whenever possible. While there is a network partition and no function should be able to see or route traffic directly to another, it is always best to also secure your communication channel as well.
+
+## Allowed Egress Ports
+Actions can call any external IP, however only the following ports are allowed:
+
+`21, 22, 25, 53, 80, 123, 143, [200-299], 389, 443, 445, 465, 587, 636, 1433, [2000-2999], 3000, 3306, 4242, 4317, 4343, 5400, 5432, 5671, 5672, 6061, 6062, 6379, 6380, 6651, 8000, 8020, 8080, 8085, 8088, 8089, 8300, 8500, 8600, 9090, 9092, 9093, 9094, [9096-9352], 9354, [10000-20000], 27016, 27017, 27018, 27019, 30303, 50010, 60020`

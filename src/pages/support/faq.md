@@ -22,7 +22,7 @@ When a new Node version is added to the system, the [old versions](../guides/ref
 
 When retrieving data from some external systems your code might need to connect to a SFTP server, SMTP server, or HTTP service. As long as that system uses one of following ports, your code should work fine:
 
-`22`, `25`, `53`, `80`, `123`, `443`, `445`,  `465`, `587`, `922`, `993`, `2181`, `3000`, `3306`, `4242`, `5432`, `5671`, `5672`, `6061`, `6062`, `6379`, `6380`, `8000`, `8080`, `8088`, `8300`, `8500`, `8600`, `9090`, `9092`, `9093`, `9094`, `9096`, `9200`, `9300`, `10000`, `11211`, `15672`, `20000`, `27017`, `27018`, `27019`, `30303`.
+`21, 22, 25, 53, 80, 123, 143, [200-299], 389, 443, 445, 465, 587, 636, 1433, [2000-2999], 3000, 3306, 4242, 4317, 4343, 5400, 5432, 5671, 5672, 6061, 6062, 6379, 6380, 6651, 8000, 8020, 8080, 8085, 8088, 8089, 8300, 8500, 8600, 9090, 9092, 9093, 9094, [9096-9352], 9354, [10000-20000], 27016, 27017, 27018, 27019, 30303, 50010, 60020`.
 
 If you have a need for a port that is not in this list, please share with us the use case.
 
