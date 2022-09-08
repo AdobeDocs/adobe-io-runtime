@@ -4,7 +4,7 @@ Adobe I/O Runtime supports Node.js versions 16, 14, 12 and 10. Node v16 is the d
 
 The following npm modules are pre-installed (if your action uses any of these modules, you don&rsquo;t have to package them together with action code):
 
-### Node.js v16.15.0
+### Node.js v16.17.0
 
     "express": "4.18.1",
     "openwhisk": "3.21.6",
@@ -14,7 +14,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "dnscache": "1.0.2",
     "prom-client": "13.2.0"
 
-### Node.js v14.16.1
+### Node.js v14.20.0
 
     "express": "4.17.1",
     "openwhisk": "3.21.6",
@@ -25,7 +25,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "dnscache": "1.0.2",
     "prom-client": "12.0.0"
 
-### Node.js v12.22.1
+### Node.js v12.22.12
 
     "express": "4.17.1",
     "openwhisk": "3.21.6",
