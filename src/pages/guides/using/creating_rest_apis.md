@@ -29,7 +29,7 @@ When creating or updating a REST API, it can take up to 5 minutes to see the cha
 ## Using wsk CLI
 
 Using the `wsk api create` command, you create each API endpoint one-by-one. This command allows you to set a base path, path, method, and response type. We will set:
-
+Below are sample commands try creating resouce before using below 
 ```
 wsk api create /pet-store /pet post createPet --response-type http
 wsk api create /pet-store /pet get getPet --response-type http
