@@ -46,3 +46,9 @@ All communications to the Runtime cluster are secured by HTTPS. Communications f
 Actions can call any external IP, however only the following ports are allowed:
 
 `21, 22, 25, 53, 80, 123, 143, [200-299], 389, 443, 445, 465, 587, 636, 1433, [2000-2999], 3000, 3306, 4242, 4317, 4343, 5400, 5432, 5671, 5672, 6061, 6062, 6379, 6380, 6651, 8000, 8020, 8080, 8085, 8088, 8089, 8300, 8500, 8600, 9090, 9092, 9093, 9094, [9096-9352], 9354, [10000-20000], 27016, 27017, 27018, 27019, 30303, 50010, 60020`
+
+## Secure Communication with Backend Services 
+Runtime does not expose egress IPs due to security reasons. 
+If customers need a way to securely communicate with their backend services, they can use a proxy in between their system and Runtime. See [Configuring Proxy](https://www.adobe.io/authentication/auth-methods.html](https://github.com/AdobeDocs/adobe-io-runtime/edit/docimprovements-updates/src/pages/guides/reference/configuringproxy.md).
+
+
