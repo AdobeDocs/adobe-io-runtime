@@ -44,6 +44,12 @@ You can find more information about the regions and how you can check where your
 **Which limits are imposed onto actions?**  
 All available limits (and the default values) are listed here: [System Settings](../guides/using/system_settings.md). Notable limits are the timeout for functions and the maximum payload that can get posted to a function.
 
+## Allow Listing 
+**Does Runtime allow IP Whitelisting to connect to external service?**  
+IP allow listing is not allowed. We suggest configuring proxy. One such example is by using Mutual TLS (mTLS) between I/O Runtime actions and an external service.. We have an example documented here: [Configuring Proxy](../guides/reference/configuringproxy.md). 
+
+
+
 ## Developer Support
 You can use the [Adobe I/O Runtime Forums](https://forums.adobe.com/community/adobe-io/adobe-io-runtime) for developer support related questions. 
 
