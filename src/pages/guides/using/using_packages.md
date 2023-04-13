@@ -248,6 +248,31 @@ packages
 /<yourNamespace>/helloMyName                                             private
 ```
 
+### Un-sharing packages 
+
+If you wish to make your package private again, you can update the package at any time. To un-share a package: 
+
+`aio runtime package update hellopackage --shared no` 
+
+You can easily verify your package is private:
+
+`aio runtime package get hellopackage`
+
+```
+...
+"publish": false
+...
+```
+
+If you list your packages again, the package you made private will be listed as such:
+
+```
+packages
+/<yourNamespace>/hellopackage                                            private
+/<yourNamespace>/helloMyName                                             private
+```
+
+
 Others can now use your package just as you can, so long as you give them the fully qualified name of the package, including your namespace.
 
 ## Shared Packages and Permissions
