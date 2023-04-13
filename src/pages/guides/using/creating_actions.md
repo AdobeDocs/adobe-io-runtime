@@ -198,11 +198,13 @@ On failed web action invocations, the error code and message should be wrapped i
 function main(params) {
     try {
         throw new Error("Boom!")
-    } catch (error) {
+    } catch (err) {
         return {
             error: {
                 statusCode: 500,
-                body: `Something went wrong: ${error}`
+                body: {
+                    payload: `Something went wrong: ${err}`
+                }
             }
         }
     }
@@ -226,8 +228,8 @@ function doSomethingAsync() {
             setTimeout(() => {
                 new Error("Something went wrong");
             }, 1000);
-        } catch (error) {
-            reject(error);
+        } catch (err) {
+            reject(err);
         }
     });
 }
@@ -244,13 +246,10 @@ function doSomethingAsync() {
     });
 }
 ```
-This code will execute correctly and the error will be handled. 
+This code will execute correctly and the error will be handled.     
 
-In general when an asynchronous operation is performed, there is a chance that something could go wrong, such as a network error, a database connection issue, or an unexpected input. If an error occurs but is not handled, the node process will be terminated. Therefore, it is important to handle any potential errors that may occur within the callback function to prevent these issues.
-
-One way to handle errors is to use a try-catch block inside the callback function. This allows you to catch any errors that may occur and handle them in a specific way, such as logging an error message or retrying the operation.
-
-In summary, it is important to always handle errors inside the callback function passed to setTimeout or any other async function to ensure the reliability and stability of the program.
+In general when an asynchronous operation is performed, there is a chance that something could go wrong, such as a network error, a database connection issue, or an unexpected input. 
+If an error occurs but is not handled, the node process will be terminated. Therefore, it is important to always handle errors inside the callback function passed to setTimeout or any other async function to ensure the reliability and stability of the program.
 
 
 ### HTTP context
