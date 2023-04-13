@@ -216,7 +216,7 @@ It is extremely important to handle errors in your action code. It is actually i
 
 In the event of an unhandled async errors, the action will be terminated and the container running that action will be destroyed. This means that all in flight activations will be failed and, the next invocation of the action will incur the overhead of creating a new container.
 
-The following examples will help you to handle errors in your action code.
+The following examples will show incorrect and correct handling of async errors:
 
 #### Incorrect handling of async errors
 ```javascript
