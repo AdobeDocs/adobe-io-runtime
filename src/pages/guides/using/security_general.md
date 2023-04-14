@@ -30,10 +30,14 @@ If you need to store secrets your functions use, it's best to place them in some
 
 If you run the CLI command for getting an action or package, you’d get a listing for the names of the default params while the values will be listed as a hash instead of the actual value.
 
-## Authorization and Authentication
+## Authentication and Authorization
 
-When invoking functions on the command line, your namespace and key are authenticated with Runtime and we examine if you authorized to perform the requested action; if so, it proceeds. Beside the possibility of forwarding along the namespace and key, Runtime does not provide any facility out of the box to authenticate or authorize users of the function. In the future, Container-Native Applications may provide a facility for these types of things: for example, creating and validating [IMS tokens](https://www.adobe.io/authentication/auth-methods.html).
+When invoking functions on the command line, your namespace and key are authenticated with Runtime and we examine if you authorized to perform the requested action; if so, it proceeds. 
 
+### Adobe IMS Authentication
+You could use the [aio-lib-ims](https://github.com/adobe/aio-lib-ims) library to authenticate your actions with Adobe IMS. Or you could use [App Builder to authenticate your actions against Adobe IMS](https://developer.adobe.com/app-builder/docs/guides/security/#authentication-and-authorization-handling). 
+
+### Securing web actions
 For web actions, see [Securing Web Actions](securing_web_actions.md).
 
 ## Transport Security
