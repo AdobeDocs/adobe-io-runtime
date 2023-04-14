@@ -172,6 +172,8 @@ curl https://[your namespace].adobeioruntime.net/api/v1/web/default/test -X GET
 ```
 **Note** the change in the URL here in comparison to what the `wsk` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `wsk` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing_web_actions.md) page.
 
+### Successful response
+
 When creating actions to be used as web actions, you might want to send the response that follows the HTTP response structure (status code, headers, body). For example, our sample function could be rewritten:
 ```javascript
 function main(params) {
@@ -186,8 +188,69 @@ function main(params) {
 
 exports.main = main;
 ```
-
 You can also set cookies or cache control headers, perform a HTTP redirect, and so forth.
+
+### Unsuccessful response 
+
+On failed web action invocations, the error code and message should be wrapped in an `error` object, as this would allow the system to interpret the response as an `applicationError`. 
+
+```javascript
+function main(params) {
+    try {
+        throw new Error("Boom!")
+    } catch (err) {
+        return {
+            error: {
+                statusCode: 500,
+                body: {
+                    payload: `Something went wrong: ${err}`
+                }
+            }
+        }
+    }
+}
+
+exports.main = main;
+```
+
+### Dealing with errors in general
+It is extremely important to handle errors in your action code. It is actually impossible to recover from an unhandled async error in Node.js. Please refer to the Node.js documentation related to [uncaughtExceptions](https://nodejs.org/api/process.html#event-uncaughtexception).
+
+In the event of an unhandled async errors, the action will be terminated and the container running that action will be destroyed. This means that all in flight activations will be failed and, the next invocation of the action will incur the overhead of creating a new container.
+
+The following examples will show incorrect and correct handling of async errors:
+
+#### Incorrect handling of async errors
+```javascript
+function doSomethingAsync() {
+    return new Promise((resolve, reject) => {
+        try {
+            setTimeout(() => {
+                new Error("Something went wrong");
+            }, 1000);
+        } catch (err) {
+            reject(err);
+        }
+    });
+}
+```
+This code will fail to handle the error and the action will be terminated; here the error is generated not while the executor is running, but later. So the try catch block will not be able to catch the error. 
+
+#### Correct handling of async errors
+```javascript
+function doSomethingAsync() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(new Error("Something went wrong"));
+        }, 1000);
+    });
+}
+```
+This code will execute correctly and the error will be handled.     
+
+In general when an asynchronous operation is performed, there is a chance that something could go wrong, such as a network error, a database connection issue, or an unexpected input. 
+If an error occurs but is not handled, the node process will be terminated. Therefore, it is important to always handle errors inside the callback function passed to setTimeout or any other async function to ensure the reliability and stability of the program.
+
 
 ### HTTP context
 
