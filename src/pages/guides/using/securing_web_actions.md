@@ -15,7 +15,7 @@ wsk action update my-secure-web-action main.js --web true --web-secure this-is-t
 
 Once you&rsquo;ve enabled Basic Authentication, you&rsquo;ll have to pass *X-Require-Wisk-Auth* header, and the secret you set, when invoking the web action. Assuming that your web action is created in the default package, this is how you&rsquo;ll invoke it:
 ```
-curl -X GET -H "X-Require-Whisk-Auth: this-is-the-secret-hash" https://[your-namespaces].adobeioruntime.net/api/v1/web/default/my-secure-web-action
+curl -X GET -H "X-Require-Whisk-Auth: <this-is-the-secret-hash>" https://[your-namespaces].adobeioruntime.net/api/v1/web/default/my-secure-web-action
 ```
 
 If you fail in adding the authentication header or the secret is wrong, you will get an error:
@@ -29,7 +29,7 @@ If you fail in adding the authentication header or the secret is wrong, you will
 ## Non Web Action
 If your action is not a web action, you can still use your namespace credentials, base64 encoded, to call any of the actions in your namespace, as follows:
 ```
-curl -X POST -H "Authorization: Basic base64-namepsace-auth" https://[your-namespaces].adobeioruntime.net/api/v1/default/my-secure-action
+curl -X POST -H "Authorization: Basic <base64-namepsace-auth>" https://[your-namespaces].adobeioruntime.net/api/v1/default/my-secure-action
 ```
     
 ## Cookies

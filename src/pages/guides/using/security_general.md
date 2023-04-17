@@ -35,7 +35,7 @@ If you run the CLI command for getting an action or package, you’d get a listi
 When invoking functions on the command line, your namespace and key are authenticated with Runtime and we examine if you authorized to perform the requested action; if so, it proceeds. 
 
 ### Adobe IMS Authentication
-You could use the [aio-lib-ims](https://github.com/adobe/aio-lib-ims) library to authenticate your actions with Adobe IMS. Or you could use [App Builder to authenticate your actions against Adobe IMS](https://developer.adobe.com/app-builder/docs/guides/security/#authentication-and-authorization-handling). 
+Your action could include the [aio-lib-ims](https://github.com/adobe/aio-lib-ims) library to authenticate with Adobe IMS. Or you could use [App Builder to authenticate your actions against Adobe IMS](https://developer.adobe.com/app-builder/docs/guides/security/#authentication-and-authorization-handling). 
 
 ### Securing web actions
 For web actions, see [Securing Web Actions](securing_web_actions.md).
