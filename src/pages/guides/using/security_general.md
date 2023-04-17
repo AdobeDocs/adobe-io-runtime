@@ -53,7 +53,7 @@ It is always a good idea to use a CDN in front of your web actions, as it improv
 
 You could secure your web action using any CDN by following these steps: 
 
-1. Choose a CDN provider: There are several CDN providers available, including Cloudflare, Fastly, Akamai, and others. Choose a provider that meets your needs and sign up for their service.
-2. Configure the CDN: Once you have signed up for the CDN service, configure it to point to Runtime’s domain name: `adobeioruntime.net`. This can usually be done through the CDN provider's web interface or API.
+1. Choose a CDN provider: There are several CDN providers available such as Cloudflare, Fastly, Akamai, and others. Choose a provider that meets your needs and sign up for their service.
+2. Configure the CDN: Once you have signed up for the CDN service, configure it to point to Runtime’s domain name: `<your-namespace>.adobeioruntime.net`. This can usually be done through the CDN provider's web interface or API.
 3. Configure your action to use a security header. See: [Securing Web Actions](securing_web_actions.md). 
 4. Configure the CDN to add the `X-Require-Whisk-Auth` security header, with the secret hash value, for all requests made to the secured web actions.
