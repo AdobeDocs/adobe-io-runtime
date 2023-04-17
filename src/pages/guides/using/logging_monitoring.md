@@ -69,7 +69,7 @@ function main(params) {
     newrelic.recordMetric('Custom/RunEndpointDuration', durationInMilliseconds);
 }
 ```
-You need to package the new relic agent as part of your action code and deploy the action as .zip file. 
+You need to package the new relic agent as part of your action code and deploy the action as [.zip file](creating_actions#deploying-zip-actions). 
 
 
 ## Debugging Locally
