@@ -12,5 +12,6 @@ In this section you&rsquo;ll find references for APIs, command line tools, and e
 * [Triggers & Rules](triggersrules.md): working with triggers and rules
 * [Feeds](feeds.md): working with feeds
 * [Sequences & Compositions](sequences_compositions.md): orchestrating actions
+* [Configuring Proxy](configuringproxy.md): Secure Communication with Backend Services.
 
 
