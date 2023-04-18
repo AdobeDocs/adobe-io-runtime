@@ -53,4 +53,4 @@ Actions can call any external IP, however only the following ports are allowed:
 
 ## Secure Communication with Backend Services 
 Runtime does not expose egress IPs due to security reasons. 
-If customers need a way to securely communicate with their backend services, they can use a proxy in between their system and Runtime. See [Configuring Proxy](https://www.adobe.io/authentication/auth-methods.html](https://github.com/AdobeDocs/adobe-io-runtime/edit/docimprovements-updates/src/pages/guides/reference/configuringproxy.md).
+If customers need a way to securely communicate with their backend services, they can use a proxy in between their system and Runtime. See [Configuring Proxy](https://www.adobe.io/authentication/auth-methods.html). 
