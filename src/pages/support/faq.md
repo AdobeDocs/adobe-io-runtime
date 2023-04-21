@@ -3,19 +3,20 @@
 
 ## Getting Access
 **How can I get access to I/O Runtime?**  
-I/O Runtime is offering production service level since June 2019. You can find [here](../guides/overview/getting_access.md) information about how to get access.
+Adobe I/O Runtime is no longer available as a standalone trial. Adobe Customers & Partners who want to try Adobe I/O Runtime may request access to our Adobe Developer App Builder trial. You can sign up for trial [here](https://developer.adobe.com/app-builder/trial/).
 
 ## Supported Programming Languages
 **Which languages are supported in I/O Runtime?**  
 For now, Adobe I/O Runtime only supports Node.js. We might add support for other languages in the future.
 
 ### Node version 14 - Default Image
-The NPM modules available with this image can be found [here](../guides/reference/runtimes.md#nodejs-v14).
+The NPM modules available with this image can be found [here](../guides/reference/runtimes.md#nodejs-v16).
 
-We encourage you to always update your actions to the latest version in order to take advantage of pre-warm containters feature.
+### Will I need to update the Nodejs versions for my actions every time?
+We encourage you to always update your actions to the latest version supported in order to take advantage of pre-warm containters feature.
 
 ### Older Versions
-When a new Node version is added to the system, the [old versions](../guides/reference/runtimes.md) are still available. This means that your actions will still work. We encourage you to always update your actions to the latest version in order to take advantage of pre-warm containers feature.
+When a new Node version is added to the system, the [old versions](../guides/reference/runtimes.md) are still available. This means that your actions will still work. However, we encourage you to always update your actions to the latest version in order to take advantage of pre-warm containers feature.
 
 ## What ports are open
 **Are there any restrictions when it comes to ports and outbound connections?**
@@ -26,13 +27,35 @@ When retrieving data from some external systems your code might need to connect 
 
 If you have a need for a port that is not in this list, please share with us the use case.
 
-## Price
-**What does it cost to use Adobe I/O Runtime?**  
-There are two ways you can get access to I/O Runtime: commercial offering and free trial. If you want to buy, please work with your Adobe account manager. If you are interested in the trial, check this [page](../guides/overview/getting_access.md).
+## How can I see usgae reports for my Runtime namespace?
+Runtime currently does not offer usage reports but it is planned to be available in the future. To obtain usage reports for your namespace, kindly reach out to your account manager.
 
-## Usage Quotas
-**What usage quotas are in place for Adobe I/O Runtime?**  
-There are presently no usage quotas on Adobe I/O Runtime.
+To request usage reports for your namespace, please follow these steps:
+1. Contact your account manager and request for the usage report.
+2. Provide your namespace details to the account manager.
+3. The account manager will provide you with the usage report once it becomes available.
+
+Note: The availability of usage reports is currently not offered by Runtime but it is in the product roadmap. We appreciate your patience and understanding as we continue to improve our services.
+
+## How can I get access to the I/O Runtime activation logs?
+I/O Runtime doesn’t offer a configuration to send activations and logs to an external system, something like Splunk, Datadog or New Relic. This is something we are considering to offer in the future.
+
+Although there is no out-of-the-box integration, there are still ways you can push data from I/O Runtime to an external tool in order to monitor and debug your actions. See [Logging & Monitoring] (https://developer.adobe.com/runtime/docs/guides/using/logging_monitoring/#3rd-party-tools)
+
+## While executing actions, continue to receive ``` "error": "Too many requests in the last minute (count: 73, allowed: 72)."}```  with status code 429. What should I do?
+There is a default throttling limit of 600 activations per minute and 100 concurrent activations for every namespace. These values can be increased per request. To request increase the namespace limits, please follow these steps:
+
+1. Loga a support ticket [here](https://experienceleague.adobe.com/?lang=en&support-tab=home#support).
+2. Provide your namespace and needed limits.
+3. The support team will provide you with an update once limis are updated.
+
+## Does Adobe I/O runtime offers DDoS protection?
+No, Runtime doesn’t offer DDoS protection out of the box, however Runtime can be easily integrated with a CDN, which is specialized in DDoS and WAF protection. See [Security Guide] (https://developer.adobe.com/runtime/docs/guides/using/security_general/#using-a-content-delivery-network-cdn)
+
+## Price
+**What does it cost to use I/O Runtime?**  
+I/O Runtime is included with App Builder. You can sign up for App builder trial [here](https://developer.adobe.com/app-builder/trial/). To purchase App builder please contact your Account manager. 
+
 
 ## Multiple Region Support
 **Where we execute your actions**
@@ -47,3 +70,5 @@ All available limits (and the default values) are listed here: [System Settings]
 ## Developer Support
 You can use the [Adobe I/O Runtime Forums](https://forums.adobe.com/community/adobe-io/adobe-io-runtime) for developer support related questions. 
 
+## Customer Support 
+You can log tickets using the [Experience league Support] (https://experienceleague.adobe.com/?lang=en&support-tab=home#support) for issues. 
