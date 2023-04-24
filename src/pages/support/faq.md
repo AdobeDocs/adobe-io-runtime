@@ -42,7 +42,7 @@ I/O Runtime doesn’t offer a configuration to send activations and logs to an e
 
 Although there is no out-of-the-box integration, there are still ways you can push data from I/O Runtime to an external tool in order to monitor and debug your actions. See [Logging & Monitoring] (https://developer.adobe.com/runtime/docs/guides/using/logging_monitoring/#3rd-party-tools)
 
-## While executing actions, continue to receive ``` "error": "Too many requests in the last minute (count: 73, allowed: 72)."}```  with status code 429. What should I do?
+## While executing actions, continue to receive ``` "error": "Too many requests in the last minute```  with status code 429. What should I do?
 There is a default throttling limit of 600 activations per minute and 100 concurrent activations for every namespace. These values can be increased per request. To request increase the namespace limits, please follow these steps:
 
 1. Loga a support ticket [here](https://experienceleague.adobe.com/?lang=en&support-tab=home#support).
