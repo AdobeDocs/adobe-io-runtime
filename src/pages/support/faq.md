@@ -9,7 +9,7 @@ Adobe I/O Runtime is no longer available as a standalone trial. Adobe Customers 
 **Which languages are supported in I/O Runtime?**  
 For now, Adobe I/O Runtime only supports Node.js. We might add support for other languages in the future.
 
-### Node version 14 - Default Image
+### Node version 16 - Default Image
 The NPM modules available with this image can be found [here](../guides/reference/runtimes.md#nodejs-v16).
 
 ### Will I need to update the Nodejs versions for my actions every time?
