@@ -11,7 +11,7 @@ npm install -g @adobe/aio-cli
 After this, you can run help to see all the commands and verify that you are all set:
 
 ```
-aio -h
+aio help
 ```
 
 If you want to update to the latest versions of any updated plugins, please reinstall the cli:
