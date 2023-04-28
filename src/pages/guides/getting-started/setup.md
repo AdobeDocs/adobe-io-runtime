@@ -20,7 +20,7 @@ Try to run these commands to check that `aio` and `wsk` were properly installed:
 
 and:
 
-`aio -h`
+`aio help`
 
 ### Creating a Namespace and retrieving the credentials
 
