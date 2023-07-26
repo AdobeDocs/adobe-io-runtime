@@ -2,10 +2,10 @@
 
 Actions are executed in one of four regions on Azure:
 
-* `Australia East` (australiaeast)
-* `East US 2` (eastus2)
-* `Southeast Asia` (southeastasia)
-* `West Europe` (westeurope)
+* `Australia East` (australiaeast) | New South Wales
+* `East US 2` (eastus2) | Virgina
+* `Southeast Asia` (southeastasia) | Singapore
+* `West Europe` (westeurope) | Netherlands
 
 ## How do we execute your action?
 
