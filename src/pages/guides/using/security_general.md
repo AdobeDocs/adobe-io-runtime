@@ -64,4 +64,6 @@ You could secure your web action using any CDN by following these steps:
 
 ## Secure Communication with Backend Services 
 Runtime does not expose egress IPs due to security reasons. 
-If customers need a way to securely communicate with their backend services, they can use a proxy in between their system and Runtime. See [Configuring Proxy](../reference/configuringproxy.md)
+If customers need a way to securely communicate with their backend services, they can use a proxy in between their system and Runtime. For more information, see the "[Configuring a Secure Proxy](../reference/configuringproxy.md)" guide.
+
+Runtime ingress IPs are not static. In order to facilitate operational changes, the IP(s) returned when looking up I/O Runtime endpoints may change. It is critical that clients honor the TTL returned by I/O Runtime DNS records to ensure seamless and uninterrupted service availability. When the IP(s) associated with these endpoints change due to operational adjustments, clients relying on outdated IP addresses can experience service disruptions, increased latency, and/or network connectivity issues. How clients go about honoring a TTL is implementation-specific, but in general, clients should not cache DNS records for longer than the specified TTL.
