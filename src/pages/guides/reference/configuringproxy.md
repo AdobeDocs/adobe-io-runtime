@@ -1,8 +1,10 @@
 ## Configuring a Secure Proxy 
 
-Runtime does not expose egress IPs due to security reasons. If customers need a way to securely communicate with their backend services, they can use a proxy in between their backend service and I/O Runtime.
+Runtime does not expose egress IPs due to security reasons. If a customer needs a way to secure the communication with their downstream services using IP whitelisting, they can use a proxy in between their backend service and I/O Runtime.
 
 This can be done by the addition of a proxy component (in this example, an AWS EC2 instance running nginx). The proxy component will have a fixed IP address, therefore enabling the use of an IP allowlist to secure your backend service. The communication between I/O Runtime and the proxy component will be secured via mutual TLS (mTLS) communication. 
+
+![](../../img/configure-proxy.png)
 
 The following steps outline how to:
 * Configure the NGINX proxy component to support mutual TLS (mTLS)
@@ -47,6 +49,8 @@ _**Prerequisite:** An EC2 instance with NGINX installed. The [official NGINX doc
     ```
     $ curl -ki --cert /etc/nginx/conf.d/mtls_client.crt --key /etc/nginx/conf.d/mtls_client.key https://localhost/
     ```
+    * _(Optional)_ [Create an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html) from your running AWS instance in order to preserve your changes.
+
 7. In your AppBuilder app, you will need to make changes to wire the mTLS client key and certificate
     * **`.env`:** Add the following lines with paths to your mtls client certificate files.
         ```
