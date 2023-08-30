@@ -4,7 +4,7 @@ Adobe I/O Runtime supports Node.js versions 18, 16, and 14. Node v18 is the defa
 
 The following npm modules are pre-installed (if your action uses any of these modules, you don&rsquo;t have to package them together with action code):
 
-### Node.js v18.14.0
+### Node.js v18.14.2
 
     "express": "4.18.2",
     "openwhisk": "3.21.7",
