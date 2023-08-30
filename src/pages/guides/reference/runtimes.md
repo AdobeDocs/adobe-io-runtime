@@ -44,4 +44,7 @@ or
 ```
 wsk action create actionName fromFile.js --kind nodejs:16 
 ```
-We will publish these images on GitHub and Docker Hub.
+These images are on Docker Hub:
+1. [Node 18](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v18/tags)
+2. [Node 16](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v16/tags)
+3. [Node 14](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v14/tags)
