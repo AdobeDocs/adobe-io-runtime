@@ -9,13 +9,13 @@ I/O Runtime is offering production service level since June 2019. You can find [
 **Which languages are supported in I/O Runtime?**  
 For now, Adobe I/O Runtime only supports Node.js. We might add support for other languages in the future.
 
-### Node version 14 - Default Image
-The NPM modules available with this image can be found [here](../guides/reference/runtimes.md#nodejs-v14).
+### Node version 18 - Default Image
+The NPM modules available with this image can be found [here](../guides/reference/runtimes.md#nodejs-v18).
 
 We encourage you to always update your actions to the latest version in order to take advantage of pre-warm containters feature.
 
 ### Older Versions
-When a new Node version is added to the system, the [old versions](../guides/reference/runtimes.md) are still available. This means that your actions will still work. We encourage you to always update your actions to the latest version in order to take advantage of pre-warm containers feature.
+When a new Node version is added to the system, the old versions are still available. This means that your actions will still work. However, you won't be able to create new actions with these versions. We encourage you to always update your actions to the latest version in order to take advantage of the pre-warm containers feature.
 
 ## Networking
 **Are there any restrictions when it comes to ports and outbound connections?**
@@ -40,7 +40,7 @@ There are presently no usage quotas on Adobe I/O Runtime.
 
 ## Multiple Region Support
 **Where we execute your actions**
-I/O Runtime runs in Azure in multiple regions. We deploy your code in all regions and execute it in the closest region to the caller (latency-based routing). You can't restrict the execution to a specific region only.
+I/O Runtime runs in multiple regions. We deploy your code in all regions and execute it in the closest region to the caller (latency-based routing). You can't restrict the execution to a specific region only.
 
 You can find more information about the regions and how you can check where your actions are being executed here - [Multiple Regions](../guides/reference/multiple_regions.md).
 
