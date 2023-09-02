@@ -153,6 +153,81 @@ curl -i -X OPTIONS https://adobeioruntime.net/...
 
 ## Securing the API endpoints
 
+### Oauth (using the Adobe Identity Management System)
+
+An action can be configured to require IMS validation for the incoming requests, by using the following command: 
+```bash
+wsk action update <action_name> --web true -a require-ims-auth true
+```
+
+Once the IMS authentication requirement has been enabled for an action, the only way allow access to the action is by configuring a list of IMS `scops` or `client ids` that are allowed to invoke the action. 
+The following snippet illustrates how to configure access, by using a standard swagger file, and the `security` object:
+
+```json
+{
+    "basePath": "/v2",
+    "paths": {
+      "/ims-secure-endpoint": {
+        "get": {
+          "operationId": "your-namespaces/default/my-ims-secure-web-action.json",        
+          "security": [
+            {
+              "scopes_auth": [
+                "write:pets",
+                "read:pets"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "securityDefinitions": {
+        "scopes_auth": {
+          "type": "oauth2",
+          "authorizationUrl": "https://ims-na1-stg1.adobelogin.com/ims/validate_token/v1?client_id=ioruntime&type=access_token",
+          "flow": "implicit",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          }
+        }
+    }
+}
+```
+Please make sure that you configure the security object to be named `scopes_auth` as shown above. This will enable scope validation for the API endpoint, and it will accept requests with access tokens that have the scopes `write:pets` OR `read:pets`.
+
+Once the swagger file has been published, this endpoint can be used to call the action `your-namespaces/default/my-ims-secure-web-action`: 
+```bash
+curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-secure-endpoint
+```
+
+`Client_id` validation can be enabled too, by adding `clientids_auth` to the `security` object as follows:
+```json
+{
+    "basePath": "/v2",
+    "paths": {
+      "/ims-secure-endpoint": {
+        "get": {
+          "operationId": "your-namespaces/default/my-ims-secure-web-action.json",        
+          "security": [
+            {
+              "clientids_auth": [
+                "zookeeper",
+                "dogwalker"
+              ]
+            }
+          ]
+        }
+      }
+    }
+}
+```
+This configuration will make the action accept requests with access tokens that have the client_id's `zookeeper` OR `dogwalker`.
+
+> Note: Both `scopes_auth` and `clientids_auth` can be used at the same time. In this case, the action will accept requests with access tokens that have the scopes `write:pets` OR `read:pets` AND the client_id's `zookeeper` OR `dogwalker`.
+
+### Basic Authentication
+
 You secure an API the same way you&rsquo;d do it for web actions. You can read more about this on the [Securing Web Actions](securing_web_actions.md) page.
 
 Once you&rsquo;ve enabled basic authentication for an action, you&rsquo;d have to pass the `X-Require-Whisk-Auth` header and the secret you chose when making an API call. 

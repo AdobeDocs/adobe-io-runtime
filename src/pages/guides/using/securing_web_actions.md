@@ -2,6 +2,8 @@
 
 By default, a web action can be invoked by anyone knowing the action&rsquo;s URL. If you want to restrict the access, you either use Basic Authentication or you build your own authentication layer.
 
+## Basic Authentication
+
 Here is how you can enable Basic Authentication for a web action:
 ```
 // create a web action with Basic Authentication on
@@ -25,6 +27,22 @@ If you fail in adding the authentication header or the secret is wrong, you will
   "code": "OWGYkWwCUT7Ta6hWpfZWTQqRsfvcFTku"
 }
 ```
+
+## Oauth (using the Adobe Identity Management System)
+Here is how you can enable IMS Authentication for a web action:
+
+```
+// create a web action with IMS Authentication on
+wsk action create my-ims-secure-web-action main.js --web true -a require-ims-auth true
+```
+or
+```
+// update an existing web action to enable IMS Authentication
+wsk action update my-ims-secure-web-action main.js --web true -a require-ims-auth true
+```
+
+To access the action, you will need to configure a security swagger API route for the action, as documented in the Securing the API endpoints [section](https://developer.adobe.com/runtime/docs/guides/using/creating_rest_apis/#securing-the-api-endpoints).  
+
 
 ## Cookies
 
