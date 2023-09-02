@@ -41,10 +41,10 @@ or
 wsk action update my-ims-secure-web-action main.js --web true -a require-ims-auth true
 ```
 
-To access the action, you will need to configure a security swagger API route for the action, as documented in the Securing the API endpoints [section](https://developer.adobe.com/runtime/docs/guides/using/creating_rest_apis/#securing-the-api-endpoints).  
+To interact with the action, it's necessary to set up a security configuration in your Swagger API route for that action. Detailed instructions on how to do this can be found in the documentation titled "[Securing the API Endpoints](https://developer.adobe.com/runtime/docs/guides/using/creating_rest_apis/#securing-the-api-endpoints).".  
 
 
-# Non Web Action
+# Non Web Actions
 If your action is not a web action, you can still use your namespace credentials, base64 encoded, to call any of the actions in your namespace, as follows:
 ```
 curl -X POST -H "Authorization: Basic <base64-namepsace-auth>" https://[your-namespaces].adobeioruntime.net/api/v1/default/my-secure-action

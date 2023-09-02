@@ -155,13 +155,14 @@ curl -i -X OPTIONS https://adobeioruntime.net/...
 
 ### Oauth (using the Adobe Identity Management System)
 
-An action can be configured to require IMS validation for the incoming requests, by using the following command: 
+You can configure an action to require IMS validation for incoming requests using the following command: 
 ```bash
 wsk action update <action_name> --web true -a require-ims-auth true
 ```
 
-Once the IMS authentication requirement has been enabled for an action, the only way allow access to the action is by configuring a list of IMS `scops` or `client ids` that are allowed to invoke the action. 
-The following snippet illustrates how to configure access, by using a standard swagger file, and the `security` object:
+Once IMS authentication has been enabled for an action, the only way to allow access to the action is by specifying a list of IMS scopes or client IDs that are permitted to invoke the action. 
+
+The following code snippet demonstrates how to configure access using a standard Swagger file and the `security` object:
 
 ```json
 {
@@ -194,14 +195,14 @@ The following snippet illustrates how to configure access, by using a standard s
     }
 }
 ```
-Please make sure that you configure the security object to be named `scopes_auth` as shown above. This will enable scope validation for the API endpoint, and it will accept requests with access tokens that have the scopes `write:pets` OR `read:pets`.
+Ensure that you name the security object as scopes_auth as shown above. This enables scope validation for the API endpoint, allowing requests with access tokens that have the scopes `write:pets` OR `read:pets`.
 
-Once the swagger file has been published, this endpoint can be used to call the action `your-namespaces/default/my-ims-secure-web-action`: 
+After publishing the Swagger file, you can use this endpoint to call the action `your-namespaces/default/my-ims-secure-web-action` as follows: 
 ```bash
 curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-secure-endpoint
 ```
 
-`Client_id` validation can be enabled too, by adding `clientids_auth` to the `security` object as follows:
+You can also enable `client_id` validation by adding `clientids_auth` to the security object, like this:
 ```json
 {
     "basePath": "/v2",
@@ -222,9 +223,9 @@ curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeiorunti
     }
 }
 ```
-This configuration will make the action accept requests with access tokens that have the client_id's `zookeeper` OR `dogwalker`.
+This configuration allows the action to accept requests with access tokens that have the client IDs `zookeeper` OR `dogwalker`.
 
-> Note: Both `scopes_auth` and `clientids_auth` can be used at the same time. In this case, the action will accept requests with access tokens that have the scopes `write:pets` OR `read:pets` AND the client_id's `zookeeper` OR `dogwalker`.
+> Note that you can use both `scopes_auth` and `clientids_auth` simultaneously. In this case, the action will accept requests with access tokens that have both the scopes `write:pets` OR `read:pets` AND the client IDs `zookeeper` OR `dogwalker`.
 
 ### Basic Authentication
 
