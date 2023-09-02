@@ -47,7 +47,30 @@ I/O Runtime doesn’t offer a configuration to send activations and logs to an e
 
 Although there is no out-of-the-box integration, there are still ways you can push data from I/O Runtime to an external tool in order to monitor and debug your actions. 
 
-One tool that made it easy to do this is [Epsagon](https://epsagon.com/?utm_source=adobe.io&utm_medium=referral&utm_campaign=adobe_io_docs). Epsagon built an integration for OpenWhisk based systems (I/O Runtime is built on top of the open source project OpenWhisk) that makes super easy to see your activations, errors, latency information and logs in their system. Check this [guide](https://docs.epsagon.com/docs/openwhisk?utm_source=adobe.io&utm_medium=referral&utm_campaign=adobe_io_docs) or this [video presentation](https://www.youtube.com/watch?v=4iprbivqrxQ&t=1517s) if you want to find more. 
+#### Epsagon
+One tool that made it easy to do this is [Epsagon](https://epsagon.com/?utm_source=adobe.io&utm_medium=referral&utm_campaign=adobe_io_docs). Epsagon built an integration for OpenWhisk based systems (I/O Runtime is built on top of the open source project OpenWhisk) that makes super easy to see your activations, errors, latency information and logs in their system. Check this [guide](https://docs.epsagon.com/docs/openwhisk?utm_source=adobe.io&utm_medium=referral&utm_campaign=adobe_io_docs) or this [video presentation](https://www.youtube.com/watch?v=4iprbivqrxQ&t=1517s) if you want to find more.
+
+#### New Relic
+Another tool that can be used to monitor your actions is New Relic, which offers a Node.js agent that can be used to monitor your actions. Check this [guide](https://docs.newrelic.com/docs/agents/nodejs-agent/getting-started/introduction-new-relic-nodejs) to learn more.
+
+For example if you want to send to New Relic the execution time for one action, you could build your action code as follows:
+```
+const newrelic = require('newrelic');
+
+function main(params) {
+    const start = Date.now();
+    
+    // your action code here
+    
+    const end = Date.now();
+    const durationInMilliseconds = end - start;
+    
+    // send duration to New Relic
+    newrelic.recordMetric('Custom/RunEndpointDuration', durationInMilliseconds);
+}
+```
+You need to package the new relic agent as part of your action code and deploy the action as [.zip file](creating_actions#deploying-zip-actions). 
+
 
 ## Debugging Locally
 
