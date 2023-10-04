@@ -1,3 +1,3 @@
 # Getting Access
 
-Adobe I/O Runtime is no longer available as a standalone trial. Adobe Customers & Partners who want to try Adobe I/O Runtime may request access to our Adobe Developer App Builder trial. [Click here](https://developer.adobe.com/app-builder/docs/overview/getting_access/) for more information.
+Adobe I/O Runtime is part of Adobe Developer App Builder. Adobe Customers & Partners who want to try Adobe I/O Runtime as well as all the other features of App Builder like storage and custom events, may sign up for an [App Builder trial](https://developer.adobe.com/appbuilder-trial).
