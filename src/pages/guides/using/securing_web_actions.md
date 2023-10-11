@@ -32,13 +32,13 @@ If you fail in adding the authentication header or the secret is wrong, you will
 Here is how you can enable IMS Authentication for a web action:
 
 ```
-// create a web action with IMS Authentication on
-wsk action create my-ims-secure-web-action main.js --web true -a require-ims-auth true
+// create a web action with Require Validation on
+wsk action create my-requir-validation-web-action main.js --web true -a require-validation true
 ```
 or
 ```
-// update an existing web action to enable IMS Authentication
-wsk action update my-ims-secure-web-action main.js --web true -a require-ims-auth true
+// update an existing web action to enable Require Validation
+wsk action update my-require-validation-web-action main.js --web true -a require-validation true
 ```
 
 To interact with the action, it's necessary to set up a security configuration in your Swagger API route for that action. Detailed instructions on how to do this can be found in the documentation titled "[Securing the API Endpoints](https://developer.adobe.com/runtime/docs/guides/using/creating_rest_apis/#securing-the-api-endpoints).".  

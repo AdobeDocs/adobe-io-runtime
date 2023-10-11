@@ -157,7 +157,7 @@ curl -i -X OPTIONS https://adobeioruntime.net/...
 
 You can configure an action to require IMS validation for incoming requests using the following command: 
 ```bash
-wsk action update <action_name> --web true -a require-ims-auth true
+wsk action update <action_name> --web true -a require-validation true
 ```
 
 Once IMS authentication has been enabled for an action, the only way to allow access to the action is by specifying a list of IMS scopes or client IDs that are permitted to invoke the action. 
@@ -173,10 +173,12 @@ The following code snippet demonstrates how to configure access using a standard
           "operationId": "your-namespaces/default/my-ims-secure-web-action.json",        
           "security": [
             {
-              "scopes_auth": [
-                "write:pets",
-                "read:pets"
-              ]
+              "scopes_auth": {
+                "scopes" : [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
             }
           ]
         }
@@ -195,40 +197,101 @@ The following code snippet demonstrates how to configure access using a standard
     }
 }
 ```
-Ensure that you name the security object as scopes_auth as shown above. This enables scope validation for the API endpoint, allowing requests with access tokens that have the scopes `write:pets` OR `read:pets`.
+This enables scope validation for the API endpoint, allowing requests with access tokens that have the scopes `write:pets` OR `read:pets`.
+>Ensure that there is a `securityDefinitions` defined with type `oauth2`. You can use any authorization provider by providing a `authorizationUrl`, however if left empty, IMS, will be used as default.
 
-After publishing the Swagger file, you can use this endpoint to call the action `your-namespaces/default/my-ims-secure-web-action` as follows: 
+After publishing the Swagger file, you can use this endpoint to call the action `your-namespaces/default/my-require-validation-web-action` as follows: 
 ```bash
-curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-secure-endpoint
+curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-validation-endpoint
 ```
 
-You can also enable `client_id` validation by adding `clientids_auth` to the security object, like this:
+You can also enable `client_id` validation by adding `clientIds` to the security object, like this:
 ```json
 {
     "basePath": "/v2",
     "paths": {
-      "/ims-secure-endpoint": {
+      "/ims-validation-endpoint": {
         "get": {
-          "operationId": "your-namespaces/default/my-ims-secure-web-action.json",        
+          "operationId": "your-namespaces/default/my-require-validation-web-action.json",
           "security": [
             {
-              "clientids_auth": [
-                "zookeeper",
-                "dogwalker"
-              ]
+              "scopes_auth": {
+                "clientIds": [
+                  "zookeeper",
+                  "dogwalker"
+                ]
+              }
             }
           ]
         }
       }
+    },
+    "securityDefinitions": {
+        "scopes_auth": {
+          "type": "oauth2",
+          "authorizationUrl": "https://ims-na1-stg1.adobelogin.com/ims/validate_token/v1?client_id=ioruntime&type=access_token",
+          "flow": "implicit",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          },
+          "clientIds": {
+            "zookeeper": "Client ID for Zookeeper",
+            "dogwalker": "Client ID for Dogwalker"
+          }          
+        }
     }
 }
 ```
 This configuration allows the action to accept requests with access tokens that have the client IDs `zookeeper` OR `dogwalker`.
 
-> Note that you can use both `scopes_auth` and `clientids_auth` simultaneously. In this case, the action will accept requests with access tokens that have both the scopes `write:pets` OR `read:pets` AND the client IDs `zookeeper` OR `dogwalker`.
+> Note that you can use both `scopes` and `clientIds` simultaneously. In this case, the action will accept requests with access tokens that have both the scopes `write:pets` OR `read:pets` AND the client IDs `zookeeper` OR `dogwalker`.
 
 ### Basic Authentication
 
 You secure an API the same way you&rsquo;d do it for web actions. You can read more about this on the [Securing Web Actions](securing_web_actions.md) page.
 
-Once you&rsquo;ve enabled basic authentication for an action, you&rsquo;d have to pass the `X-Require-Whisk-Auth` header and the secret you chose when making an API call. 
+Once you&rsquo;ve enabled basic authentication for an action, you&rsquo;d have to pass the `X-Require-Whisk-Auth` header and the secret you chose when making an API call.
+
+### IP Whitelisting / Blacklisting
+
+Endpoints can also be configured to only allow/block requests from specific IP addresses. This can be done by adding the `ip_whitelist` or `ip_blacklisting` to the `security` definition as follows:
+
+```json
+{
+    "basePath": "/v2",
+    "paths": {
+      "/ip-validation-endpoint": {
+        "get": {
+          "operationId": "your-namespaces/default/my-require-validation-web-action.json",
+          "security": [
+            {
+              "ip_whitelist": ["192.150.10.210", "192.168.0.1"]
+            },
+            {
+              "ip_blacklist": ["192.150.10.10"]
+            }            
+          ]
+        }
+      }
+    },
+    "securityDefinitions": {
+      "ip_whitelist": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "IPWhitelist",
+        "description": ""
+      },
+      "ip_blacklisting": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "IPBlacklisting",
+        "description": ""
+      }      
+    }
+}
+```
+
+This configuration allows the action to accept requests from clients with the IP addresses "192.150.10.210" and "192.168.0.1", and block requests from "192.150.10.10"
+
+> Make sure that the `my-require-validation-web-action` is configured to be a web action with `-a require-validation true`, otherwise the action can be accessed publicly without any restrictions on the non api url. 
