@@ -197,7 +197,13 @@ The following code snippet demonstrates how to configure access using a standard
     }
 }
 ```
-This enables scope validation for the API endpoint, allowing requests with access tokens that have the scopes `write:pets` OR `read:pets`.
+This enables scope validation for the API endpoint, allowing requests with access tokens that have the scopes `write:pets` OR `read:pets`. Requests that do not have the required scopes in the access token will be rejected with the following error message: 
+```json
+{
+  "error_code":"401015",
+  "message":"Scope mismatch"
+}
+```
 >Ensure that there is a `securityDefinitions` defined with type `oauth2`. You can use any authorization provider by providing a `authorizationUrl`, however if left empty, the IMS token validation URL will be used as default.
 
 After publishing the Swagger file, you can use this endpoint to call the action `your-namespaces/default/my-require-validation-web-action` as follows: 
@@ -243,7 +249,13 @@ You can also enable `client_id` validation by adding `clientIds` to the security
     }
 }
 ```
-This configuration allows the action to accept requests with access tokens that have the client IDs `zookeeper` OR `dogwalker`.
+This configuration allows the action to accept requests with access tokens that have the client IDs `zookeeper` OR `dogwalker`. Requests that do not have the client ID in the access token will be rejected with the following error message: 
+```json
+{
+  "error_code":"403201",
+  "message":"Client ID not allowed to call this service"
+}
+```
 
 > Note that you can use both `scopes` and `clientIds` simultaneously. In this case, the action will accept requests with access tokens that have both the scopes `write:pets` OR `read:pets` AND the client IDs `zookeeper` OR `dogwalker`.
 
@@ -292,6 +304,20 @@ Endpoints can also be configured to only allow/block requests from specific IP a
 }
 ```
 
-This configuration allows the action to accept requests from clients with the IP addresses "192.150.10.210" and "192.168.0.1", and block requests from "192.150.10.10"
+This configuration allows the action to accept requests from clients with the IP addresses "192.150.10.210" and "192.168.0.1", and block requests from "192.150.10.10". 
 
+Requests that do not have the requests originating from the IP addresses in the whitelist will be rejected with the following error message:
+```json
+{
+  "error_code":"403013",
+  "message":"Your IP is not whitelisted"
+}
+```
+Requests that do have the requests originating from the IP addresses in the blacklist will be rejected with the following error message:
+```json
+{
+  "error_code":"403012",
+  "message":"Your IP is blacklisted"
+}
+```
 > Make sure that the `my-require-validation-web-action` is configured to be a web action with `-a require-validation true`, otherwise the action can be accessed publicly without any restrictions on the non api url. 
