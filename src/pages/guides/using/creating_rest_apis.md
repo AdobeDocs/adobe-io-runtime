@@ -155,9 +155,9 @@ curl -i -X OPTIONS https://adobeioruntime.net/...
 
 ### Oauth (using the Adobe Identity Management System)
 
-You can configure an action to require IMS validation for incoming requests using the following command: 
+An action can be configured to require IMS validation for incoming requests using the following command: 
 ```bash
-wsk action update <action_name> --web true -a require-validation true
+wsk action create <action_name> --web true -a require-validation true
 ```
 
 Once IMS authentication has been enabled for an action, the only way to allow access to the action is by specifying a list of IMS scopes or client IDs that are permitted to invoke the action. 
@@ -229,7 +229,7 @@ You can also enable `client_id` validation by adding `clientIds` to the security
     "securityDefinitions": {
         "scopes_auth": {
           "type": "oauth2",
-          "authorizationUrl": "https://ims-na1-stg1.adobelogin.com/ims/validate_token/v1?client_id=ioruntime&type=access_token",
+          "authorizationUrl": "",
           "flow": "implicit",
           "scopes": {
             "write:pets": "modify pets in your account",
@@ -253,9 +253,9 @@ You secure an API the same way you&rsquo;d do it for web actions. You can read m
 
 Once you&rsquo;ve enabled basic authentication for an action, you&rsquo;d have to pass the `X-Require-Whisk-Auth` header and the secret you chose when making an API call.
 
-### IP Whitelisting / Blacklisting
+### IP Whitelist / Blacklist
 
-Endpoints can also be configured to only allow/block requests from specific IP addresses. This can be done by adding the `ip_whitelist` or `ip_blacklisting` to the `security` definition as follows:
+Endpoints can also be configured to only allow/block requests from specific IP addresses. This can be done by adding the `ip_whitelist` or `ip_blacklist` to the `security` definition as follows:
 
 ```json
 {
@@ -282,10 +282,10 @@ Endpoints can also be configured to only allow/block requests from specific IP a
         "name": "IPWhitelist",
         "description": ""
       },
-      "ip_blacklisting": {
+      "ip_blacklist": {
         "type": "apiKey",
         "in": "header",
-        "name": "IPBlacklisting",
+        "name": "IPBlacklist",
         "description": ""
       }      
     }
