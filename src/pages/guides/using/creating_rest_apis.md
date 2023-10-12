@@ -187,7 +187,7 @@ The following code snippet demonstrates how to configure access using a standard
     "securityDefinitions": {
         "scopes_auth": {
           "type": "oauth2",
-          "authorizationUrl": "https://ims-na1-stg1.adobelogin.com/ims/validate_token/v1?client_id=ioruntime&type=access_token",
+          "authorizationUrl": "",
           "flow": "implicit",
           "scopes": {
             "write:pets": "modify pets in your account",
@@ -198,7 +198,7 @@ The following code snippet demonstrates how to configure access using a standard
 }
 ```
 This enables scope validation for the API endpoint, allowing requests with access tokens that have the scopes `write:pets` OR `read:pets`.
->Ensure that there is a `securityDefinitions` defined with type `oauth2`. You can use any authorization provider by providing a `authorizationUrl`, however if left empty, IMS, will be used as default.
+>Ensure that there is a `securityDefinitions` defined with type `oauth2`. You can use any authorization provider by providing a `authorizationUrl`, however if left empty, the IMS token validation URL will be used as default.
 
 After publishing the Swagger file, you can use this endpoint to call the action `your-namespaces/default/my-require-validation-web-action` as follows: 
 ```bash
