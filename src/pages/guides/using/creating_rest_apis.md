@@ -157,7 +157,7 @@ curl -i -X OPTIONS https://adobeioruntime.net/...
 
 An action can be configured to require IMS validation for incoming requests using the following command: 
 ```bash
-wsk action create <action_name> --web true -a require-validation true
+wsk action create <action_name> --web true -a require-gw-validation true
 ```
 >Note: Any Oauth provider can be used for token validation by providing a `authorizationUrl` in the Swagger file. However, if left empty, the IMS token validation URL will be used as default. 
 
@@ -204,7 +204,7 @@ This enables scope validation for the API endpoint, allowing requests with acces
 }
 ```
 
-After publishing the Swagger file, this endpoint `your-namespaces/default/my-require-validation-web-action` can be used to call the action: 
+After publishing the Swagger file, this endpoint `your-namespaces/default/my-require-gw-validation-web-action` can be used to call the action: 
 ```bash
 curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-validation-endpoint
 ```
@@ -216,7 +216,7 @@ curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeiorunti
     "paths": {
       "/ims-validation-endpoint": {
         "get": {
-          "operationId": "your-namespaces/default/my-require-validation-web-action.json",
+          "operationId": "your-namespaces/default/my-require-gw-validation-web-action.json",
           "security": [
             {
               "clientids_auth": []
@@ -265,7 +265,7 @@ Endpoints can also be configured to only allow/block requests from specific IP a
     "paths": {
       "/ip-validation-endpoint": {
         "get": {
-          "operationId": "your-namespaces/default/my-require-validation-web-action.json",
+          "operationId": "your-namespaces/default/my-require-gw-validation-web-action.json",
           "x-ip-allowlist": ["192.150.10.210", "192.168.0.1"],
           "x-ip-disallowlist": ["192.150.10.10"]
         }
@@ -290,4 +290,4 @@ Requests that have the requests originating from the IP addresses in the disallo
   "message":"Access from your IP address is not authorized"
 }
 ```
-> Make sure that the `my-require-validation-web-action` is configured to be a web action with `-a require-validation true`, otherwise the action can be accessed publicly without any restrictions on the non api url. 
+> Make sure that the `my-require-gw-validation-web-action` is configured to be a web action with `-a require-gw-validation true`, otherwise the action can be accessed publicly without any restrictions on the non api url. 
