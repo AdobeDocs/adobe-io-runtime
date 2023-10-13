@@ -159,6 +159,7 @@ An action can be configured to require IMS validation for incoming requests usin
 ```bash
 wsk action create <action_name> --web true -a require-validation true
 ```
+>Note: Any Oauth provider can be used for token validation by providing a `authorizationUrl` in the Swagger file. However, if left empty, the IMS token validation URL will be used as default. 
 
 Once IMS authentication has been enabled for an action, the only way to allow access to the action is by specifying a list of IMS scopes or client IDs that are permitted to invoke the action. 
 
@@ -173,12 +174,10 @@ The following code snippet demonstrates how to configure access using a standard
           "operationId": "your-namespaces/default/my-ims-secure-web-action.json",        
           "security": [
             {
-              "scopes_auth": {
-                "scopes" : [
+              "scopes_auth": [
                   "write:pets",
                   "read:pets"
                 ]
-              }
             }
           ]
         }
@@ -204,14 +203,13 @@ This enables scope validation for the API endpoint, allowing requests with acces
   "message":"Scope mismatch"
 }
 ```
->Ensure that there is a `securityDefinitions` defined with type `oauth2`. You can use any authorization provider by providing a `authorizationUrl`, however if left empty, the IMS token validation URL will be used as default.
 
-After publishing the Swagger file, you can use this endpoint to call the action `your-namespaces/default/my-require-validation-web-action` as follows: 
+After publishing the Swagger file, this endpoint `your-namespaces/default/my-require-validation-web-action` can be used to call the action: 
 ```bash
 curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-validation-endpoint
 ```
 
-You can also enable `client_id` validation by adding `clientIds` to the security object, like this:
+`client_id` validation can be enabled by adding `x-client-ids` with a list of clients that are allowed to invoke the action. The clientId list has to be added to the `security definition` object in the Swagger. Also make sure to add the security definition key to the method `security` object, otherwise the validation won't be enabled for that method: 
 ```json
 {
     "basePath": "/v2",
@@ -221,19 +219,14 @@ You can also enable `client_id` validation by adding `clientIds` to the security
           "operationId": "your-namespaces/default/my-require-validation-web-action.json",
           "security": [
             {
-              "scopes_auth": {
-                "clientIds": [
-                  "zookeeper",
-                  "dogwalker"
-                ]
-              }
+              "clientids_auth": []
             }
           ]
         }
       }
     },
     "securityDefinitions": {
-        "scopes_auth": {
+        "clientids_auth": {
           "type": "oauth2",
           "authorizationUrl": "",
           "flow": "implicit",
@@ -241,10 +234,7 @@ You can also enable `client_id` validation by adding `clientIds` to the security
             "write:pets": "modify pets in your account",
             "read:pets": "read your pets"
           },
-          "clientIds": {
-            "zookeeper": "Client ID for Zookeeper",
-            "dogwalker": "Client ID for Dogwalker"
-          }          
+          "x-client-ids": ["zookeeper", "dogwalker"]
         }
     }
 }
@@ -256,8 +246,7 @@ This configuration allows the action to accept requests with access tokens that 
   "message":"Client ID not allowed to call this service"
 }
 ```
-
-> Note that you can use both `scopes` and `clientIds` simultaneously. In this case, the action will accept requests with access tokens that have both the scopes `write:pets` OR `read:pets` AND the client IDs `zookeeper` OR `dogwalker`.
+> Note that botho `scope` and `client_id` validation can be enabled at the same time. In this case, the request will be rejected if the access token does not have the required scope OR client ID.
 
 ### Basic Authentication
 
@@ -265,9 +254,9 @@ You secure an API the same way you&rsquo;d do it for web actions. You can read m
 
 Once you&rsquo;ve enabled basic authentication for an action, you&rsquo;d have to pass the `X-Require-Whisk-Auth` header and the secret you chose when making an API call.
 
-### IP Whitelist / Blacklist
+### IP Allow-list / Disallow-list
 
-Endpoints can also be configured to only allow/block requests from specific IP addresses. This can be done by adding the `ip_whitelist` or `ip_blacklist` to the `security` definition as follows:
+Endpoints can also be configured to only allow/block requests from specific IP addresses. This can be done by adding the `x-ip-allowlist` or `x-ip-disallowlist` to the method definition as follows:
 
 ```json
 {
@@ -276,48 +265,28 @@ Endpoints can also be configured to only allow/block requests from specific IP a
       "/ip-validation-endpoint": {
         "get": {
           "operationId": "your-namespaces/default/my-require-validation-web-action.json",
-          "security": [
-            {
-              "ip_whitelist": ["192.150.10.210", "192.168.0.1"]
-            },
-            {
-              "ip_blacklist": ["192.150.10.10"]
-            }            
-          ]
+          "x-ip-allowlist": ["192.150.10.210", "192.168.0.1"],
+          "x-ip-disallowlist": ["192.150.10.10"]
         }
       }
-    },
-    "securityDefinitions": {
-      "ip_whitelist": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "IPWhitelist",
-        "description": ""
-      },
-      "ip_blacklist": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "IPBlacklist",
-        "description": ""
-      }      
     }
 }
 ```
 
-This configuration allows the action to accept requests from clients with the IP addresses "192.150.10.210" and "192.168.0.1", and block requests from "192.150.10.10". 
+This configuration allows the action to accept requests from clients with the IP addresses "192.150.10.210" or "192.168.0.1", and block requests from "192.150.10.10". 
 
 Requests that do not have the requests originating from the IP addresses in the whitelist will be rejected with the following error message:
 ```json
 {
   "error_code":"403013",
-  "message":"Your IP is not whitelisted"
+  "message":"Access from your IP address is not authorized"
 }
 ```
-Requests that do have the requests originating from the IP addresses in the blacklist will be rejected with the following error message:
+Requests that have the requests originating from the IP addresses in the disallow list, will be rejected with the following error message:
 ```json
 {
   "error_code":"403012",
-  "message":"Your IP is blacklisted"
+  "message":"Access from your IP address is not authorized"
 }
 ```
 > Make sure that the `my-require-validation-web-action` is configured to be a web action with `-a require-validation true`, otherwise the action can be accessed publicly without any restrictions on the non api url. 
