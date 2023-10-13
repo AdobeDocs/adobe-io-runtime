@@ -246,7 +246,8 @@ This configuration allows the action to accept requests with access tokens that 
   "message":"Client ID not allowed to call this service"
 }
 ```
-> Note that botho `scope` and `client_id` validation can be enabled at the same time. In this case, the request will be rejected if the access token does not have the required scope OR client ID.
+> Note that both `scope` and `client_id` validation can be enabled at the same time. In this case, the request will be rejected if the access token does not have the required scope AND client ID.
+> In case no validation is enabled for the endpoint's verb, by removing the `security` object from the method definition, the action can be invoked publicly without any restrictions on the API url.
 
 ### Basic Authentication
 
