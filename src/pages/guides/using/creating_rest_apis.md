@@ -160,6 +160,8 @@ An action can be configured to require IMS validation for incoming requests usin
 wsk action create <action_name> --web true -a require-gw-validation true
 ```  
 
+#### Scopes validation
+
 Once IMS authentication has been enabled for an action, the only way to allow access to the action is by specifying a list of IMS scopes or client IDs that are permitted to invoke the action. 
 
 The following code snippet demonstrates how to configure access using a standard Swagger file and the `security` object:
@@ -208,6 +210,8 @@ After publishing the Swagger file, this endpoint `your-namespaces/default/my-req
 curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-validation-endpoint
 ```
 
+#### Client ID validation
+
 `client_id` validation can be enabled by adding `x-client-ids` with a list of clients that are allowed to invoke the action. The clientId list has to be added to the `security definition` object in the Swagger. Also make sure to add the security definition key to the method `security` object, otherwise the validation won't be enabled for that method: 
 ```json
 {
@@ -249,7 +253,9 @@ This configuration allows the action to accept requests with access tokens that 
 > 
 > In case no validation is enabled for the endpoint's verb, by removing the `security` object from the method definition, the action can be invoked publicly without any restrictions on the API url.
 > 
-> By default, the IMS token validation URL will be used for token validation so "authorizationUrl" can be left empty. However, if you want to use a different Oauth provider, you can specify the `authorizationUrl` in the `securityDefinition` object. Only one external security provider can be configured, and it needs to be defined in the first `securityDefinition` object in the Swagger file.  
+> By default, the IMS token validation URL will be used for token validation so "authorizationUrl" can be left empty. However, if you want to use a different Oauth provider, you can specify the `authorizationUrl` in the `securityDefinition` object. Only one external security provider can be configured, and it needs to be defined in the first `securityDefinition` object in the Swagger file.
+> 
+> Please allow a 5minute window for the changes to take effect.
 
 ### Basic Authentication
 
