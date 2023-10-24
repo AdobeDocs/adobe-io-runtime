@@ -2,6 +2,8 @@
 
 By default, a web action can be invoked by anyone knowing the action&rsquo;s URL. If you want to restrict the access, you either use Basic Authentication or you build your own authentication layer.
 
+## Basic Authentication
+
 Here is how you can enable Basic Authentication for a web action:
 ```
 // create a web action with Basic Authentication on
@@ -26,7 +28,23 @@ If you fail in adding the authentication header or the secret is wrong, you will
 }
 ```
 
-## Non Web Action
+## Oauth (using the Adobe Identity Management System)
+Here is how you can enable IMS Authentication for a web action:
+
+```
+// create a web action with Require Validation on
+wsk action create my-requir-validation-web-action main.js --web true -a require-validation true
+```
+or
+```
+// update an existing web action to enable Require Validation
+wsk action update my-require-validation-web-action main.js --web true -a require-validation true
+```
+
+To interact with the action, it's necessary to set up a security configuration in your Swagger API route for that action. Detailed instructions on how to do this can be found in the documentation titled "[Securing the API Endpoints](https://developer.adobe.com/runtime/docs/guides/using/creating_rest_apis/#securing-the-api-endpoints).".  
+
+
+# Non Web Actions
 If your action is not a web action, you can still use your namespace credentials, base64 encoded, to call any of the actions in your namespace, as follows:
 ```
 curl -X POST -H "Authorization: Basic <base64-namepsace-auth>" https://[your-namespaces].adobeioruntime.net/api/v1/default/my-secure-action
