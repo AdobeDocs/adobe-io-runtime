@@ -34,10 +34,6 @@ Yes, the IP addresses returned when looking up an Adobe I/O Runtime endpoint's D
 **What does it cost to use Adobe I/O Runtime?**  
 There are two ways you can get access to I/O Runtime: commercial offering and free trial. If you want to buy, please work with your Adobe account manager. If you are interested in the trial, check this [page](../guides/overview/getting_access.md).
 
-## Usage Quotas
-**What usage quotas are in place for Adobe I/O Runtime?**  
-There are presently no usage quotas on Adobe I/O Runtime.
-
 ## Multiple Region Support
 **Where we execute your actions**
 I/O Runtime runs in multiple regions. We deploy your code in all regions and execute it in the closest region to the caller (latency-based routing). You can't restrict the execution to a specific region only.
