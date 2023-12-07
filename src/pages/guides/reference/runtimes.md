@@ -1,8 +1,18 @@
 # Runtimes
 
-Adobe I/O Runtime supports Node.js versions 18, 16, and 14. Node v18 is the default image and the one used to create pre-warm containers. We encourage you to always update your actions to the latest version in order to take advantage of the pre-warm containers feature.
+Adobe I/O Runtime supports Node.js versions 20, 18, 16, and 14. Node v18 is the default image and the one used to create pre-warm containers. We encourage you to always update your actions to the latest version in order to take advantage of the pre-warm containers feature.
 
 The following npm modules are pre-installed (if your action uses any of these modules, you don&rsquo;t have to package them together with action code):
+
+### Node.js v20.7.0
+
+    "express": "4.18.2",
+    "openwhisk": "3.21.7",
+    "body-parser": "1.20.2",
+    "redis": "4.6.9",
+    "node-fetch": "3.3.2",
+    "dnscache": "1.0.2",
+    "prom-client": "14.2.0"
 
 ### Node.js v18.14.2
 
@@ -38,13 +48,14 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 This is how you can specify explicitly a kind:
 ```
-wsk action create actionName fromFile.js --kind nodejs:18 
+wsk action create actionName fromFile.js --kind nodejs:20 
 ```
 or
 ```
 wsk action create actionName fromFile.js --kind nodejs:16 
 ```
 These images are on Docker Hub:
-1. [Node 18](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v18/tags)
-2. [Node 16](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v16/tags)
-3. [Node 14](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v14/tags)
+1. [Node 20](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v20/tags)
+2. [Node 18](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v18/tags)
+3. [Node 16](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v16/tags)
+4. [Node 14](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v14/tags)
