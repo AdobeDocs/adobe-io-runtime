@@ -1,6 +1,6 @@
 # Asynchronous Calls - Creating Long Running Actions
 
-When you call a web action or a REST API, the system executes them as synchronous calls (blocking calls) and it waits up to 60 seconds for the action to complete. In many instances, this might just work perfect. However, if your action needs more time to complete the job, than the answer is to use an async call instead of a sync call, as async calls can use up to 60 minutes to complete the work. 
+When you call a web action or a REST API, the system executes them as synchronous calls (blocking calls) and it waits up to 60 seconds for the action to complete. In many instances, this might just work perfect. However, if your action needs more time to complete the job, than the answer is to use an async call instead of a sync call, as async calls can use up to 180 minutes to complete the work. 
 
 Because web actions and APIs are always executed synchronous, you will have to separate the work that needs more time (the async call) from the piece that is executed synchronous. You have two options to do this.
 
