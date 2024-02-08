@@ -26,23 +26,23 @@ Let&rsquo;s see how you can create this API, assuming you have the web actions a
 
 When creating or updating a REST API, it can take up to 5 minutes to see the changes. 
 
-## Using wsk CLI
+## Using aio CLI
 
-Using the `wsk api create` command, you create each API endpoint one-by-one. This command allows you to set a base path, path, method, and response type. We will set:
+Using the `aio runtime api create` command, you create each API endpoint one-by-one. This command allows you to set a base path, path, method, and response type. We will set:
 
 ```
-wsk api create /pet-store /pet post createPet --response-type http
-wsk api create /pet-store /pet get getPet --response-type http
-wsk api create /pet-store /pet/{id} get getPet --response-type http
-wsk api create /pet-store /pet/{id} put updatePet --response-type http
-wsk api create /pet-store /pet/{id} delete deletePet --response-type http
+aio runtime api create /pet-store /pet post createPet --response-type http
+aio runtime api create /pet-store /pet get getPet --response-type http
+aio runtime api create /pet-store /pet/{id} get getPet --response-type http
+aio runtime api create /pet-store /pet/{id} put updatePet --response-type http
+aio runtime api create /pet-store /pet/{id} delete deletePet --response-type http
 ```
 You can quickly see the API you&rsquo;ve defined, including the fully qualified path, by running this command:
 ```
-wsk api list /pet-store
+aio runtime api list /pet-store
 ```
 
-Please note, that at this time `wsk api list` is not implemented. Instead, you have to use `wsk api list /enter-base-path`.
+Please note, that at this time `aio runtime api list` is not implemented. Instead, you have to use `aio runtime api list /enter-base-path`.
 
 Here is an example of calling one of the endpoints:
 ```
@@ -52,23 +52,23 @@ or
 ```
 curl https://<YOUR-NAMESPACE>.adobeioruntime.net:443/apis/pet-store/pet/2345 -X GET
 ```
-**Note** the change in the URL here in comparison to what the `wsk` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `wsk` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing_web_actions.md) page.
+**Note** the change in the URL here in comparison to what the `aio` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `aio` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing_web_actions.md) page.
 
 In the example above, the `{di}` value, 2335, will be mapped to a {payload.id}.
 
 
 ## Using Swagger files
 
-A neat feature when working with REST APIs is the support for Swagger files. This works for creating a new REST API from scratch or, if you already used the `wsk` CLI to create one,  saving the API as a Swagger definition file that you can use later on to restore the API.
+A neat feature when working with REST APIs is the support for Swagger files. This works for creating a new REST API from scratch or, if you already used the `aio` CLI to create one,  saving the API as a Swagger definition file that you can use later on to restore the API.
 
 Continuing the example above, if you run this command, you&rsquo;ll create a Swagger definition file on your machine out of the pet-store API:
 ```
-wsk api get /pet-store > pet-store-swagger.json
+aio runtime api get /pet-store > pet-store-swagger.json
 ```
 
 Suppose that you want to restore or create the same API, maybe in some other namespace. All you have to is to run:
 ```
-wsk api create --config-file pet-store-swagger.json
+aio runtime api create --config-file pet-store-swagger.json
 ```
 This will work as long as the actions are already created in that namespace.
 
@@ -135,14 +135,14 @@ function main(params) {
 The web action must be created and configured for the CORS request:
 
 ```bash
-wsk action create handleCorsRequest ./cors-action.js --web true -a web-custom-options true
+aio runtime action create handleCorsRequest ./cors-action.js --web true -a web-custom-options true
 
-wsk api create /pet-store /pet options handleCorsRequest --response-type http
+aio runtime api create /pet-store /pet options handleCorsRequest --response-type http
 ```
 
 To test the CORS request get the URL of the action, and invoke it:
 ```bash
-wsk api list /pet-store
+aio runtime api list /pet-store
 # get the URL for the options action and invoke it
 curl -i -X OPTIONS https://adobeioruntime.net/...
 # it should return
@@ -157,7 +157,7 @@ curl -i -X OPTIONS https://adobeioruntime.net/...
 
 An action can be configured to require IMS validation for incoming requests using the following command: 
 ```bash
-wsk action create <action_name> --web true -a require-gw-validation true
+aio runtime action create <action_name> --web true -a require-gw-validation true
 ```  
 
 #### Scopes validation
