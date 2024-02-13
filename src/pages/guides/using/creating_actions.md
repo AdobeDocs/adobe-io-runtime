@@ -4,7 +4,7 @@ For your code to execute as an *action* on Adobe I/O Runtime, your code has to c
 - You either call your function *main* or you export the entry point as *main*. This is the function that will be executed when it is invoked.
 - Your function accepts valid JSON objects as input and produces valid JSON objects as output, if needed
 
-You have to configure two tools on your machine to create and invoke actions from your machine: **aio CLI** and **wskdeploy CLI.** Refer to the [aio CLI](../tools/cli_install.md) page for how to install and configure it. 
+You have to configure **aio CLI** on your machine to create and invoke actions. Refer to the [aio CLI](../tools/cli_install.md) page for how to install and configure it. 
 
 Let&rsquo;s assume you have this function available on your machine:
 ```javascript
