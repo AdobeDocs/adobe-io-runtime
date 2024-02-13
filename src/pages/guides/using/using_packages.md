@@ -10,7 +10,7 @@ Everything you access in Runtime exists within a namespace. Your namespace is gi
 
 Packages not only bundle actions and feeds; they provide the means to share a common set of parameters across all entities in the package. Creating a package is simple. You can create a package in the Runtime CLI in one step:
 
-`wsk package create hellopackage`
+`aio rt:package:create hellopackage`
 
 This creates a package in your namespace. You&rsquo;ll get the following acknowledgement:
 
@@ -20,7 +20,7 @@ ok: created package hellopackage
 
 You can now get a summary of the package:
 
-`wsk package get --summary hellopackage`
+`aio rt:package:get hellopackage`
 
 This produces the following result:
 
@@ -41,7 +41,7 @@ function main(params) {
 
 Add this action to the package with the following command:
 
-`wsk action create hellopackage/hello hello.js`
+`aio rt:action:create hellopackage/hello hello.js`
 
 Here&rsquo;s the response from the CLI:
 
@@ -68,7 +68,7 @@ You can&rsquo;t add a package to a package; in other words, you can&rsquo;t nest
 
 Invoking an action is also straightforward; you just need to preface the action&rsquo;s name with its package.
 
-`wsk action invoke --result hellopackage/hello --param name <your name>`
+`aio rt:action:invoke --result hellopackage/hello --param name <your name>`
 
 You should get this output:
 
@@ -82,7 +82,7 @@ You should get this output:
 
 Notice in the package summary the statements `(parameters: none defined)`. You can add default parameters to a package, and all entities in the package will inherit them:
 
-`wsk package update hellopackage --param name Patricia`
+`aio rt:package:update hellopackage --param name Patricia`
 
 ```
 ok: updated package hellopackage
@@ -98,7 +98,7 @@ If you run the CLI command for getting an action or package, you’d get a listi
 
 You can see what parameters have been added to a package (note the `summary` flag is left out; you&rsquo;ll get a complete report):
 
-`wsk package get hellopackage`
+`aio rt:package:get hellopackage`
 
 In the response, you&rsquo;ll see:
 
@@ -116,7 +116,7 @@ ok: got package hellopackage
 
 You can also verify that your actions inherit the parameters you set for the package:
 
-`wsk action get hellopackage/hello`
+`aio rt:action:get hellopackage/hello`
 
 You&rsquo;ll see in the response:
 
@@ -132,7 +132,7 @@ ok: got action hello
 ...
 ```
 
-If you get the package summmary again, you&rsquo;ll see the default parameters listed:
+If you get the package summary again, you&rsquo;ll see the default parameters listed:
 
 ```
 package /<yourNamespace>/hellopackage: Returns a result based on parameter name
@@ -145,7 +145,7 @@ The asterisk next to &ldquo;name&rdquo; in the parameters list for the package i
 
 Now, if you invoke the action without specifying any parameters, you can see that it inherits from the package&rsquo;s parameters:
 
-`wsk action invoke --result hellopackage/hello`
+`aio rt:action:invoke --result hellopackage/hello`
 
 ```json
 {
@@ -155,7 +155,7 @@ Now, if you invoke the action without specifying any parameters, you can see tha
 
 Of course, you can also override those parameters by supplying your own values:
 
-`wsk action invoke --result hellopackage/hello --param name Jennifer`
+`aio rt:action:invoke --result hellopackage/hello --param name Jennifer`
 
 ```json
 {
@@ -165,7 +165,7 @@ Of course, you can also override those parameters by supplying your own values:
 
 You can also override a package&rsquo;s default parameters for a given action by setting default parameters specifically for that action:
 
-`wsk action update hellopackage/hello --param name Christine`
+`aio rt:action:update hellopackage/hello --param name Christine`
 
 ```
 ok: updated action hellopackage/hello
@@ -175,7 +175,7 @@ ok: updated action hellopackage/hello
 
 Depending on how you use your package, you may find you need to invoke an action with default parameters, without, or with a different set of default parameters. In such cases, rather than create a set of default parameters directly on the package, you can create a _package binding:_ a named set of default parameters associated with a package.
 
-`wsk package bind hellopackage helloMyName --param name`&nbsp;_`<your name>`_
+`aio rt:package:bind hellopackage helloMyName --param name`&nbsp;_`<your name>`_
 
 ```
 ok: created binding helloMyName
@@ -189,7 +189,7 @@ Package bindings are very useful for another reason: there&rsquo;s no way to rem
 
 Each package binding is used as if it were a package itself. To call an action in the package associated with a given binding, use the name of the binding in your invocation instead of the name of the package:
 
-`wsk action invoke --result helloMyName/hello`
+`aio rt:action:invoke --result helloMyName/hello`
 
 ```json
 {
@@ -203,13 +203,13 @@ The output above reads `Hello Christine` because we've defined a default value a
 
 You can also substitute the name of the binding for the package name in other package commands:
 
-`wsk package get --summary helloMyName`
+`aio rt:package:get helloMyName`
 
 ## Browsing packages
 
 Over time, you&rsquo;ll develop many packages, and you may want to see them all. Of course there&rsquo;s a CLI command for this:
 
-`wsk package list`
+`aio rt:package:list`
 
 This lists all the packages in the given namespace. Run it on yours now, and you should see both your package and the binding you created:
 
@@ -223,7 +223,7 @@ packages
 
 Once you&rsquo;re sure your package is ready for others to use, you can share it. Notice that the packages listed when you browsed your namespace are shown as `private`; only you can see them. To share a package:
 
-`wsk package update hellopackage --shared yes`
+`aio rt:package:update hellopackage --shared yes`
 
 ```
 ok: updated package hellopackage
@@ -231,7 +231,7 @@ ok: updated package hellopackage
 
 You can easily verify your package is shared:
 
-`wsk package get hellopackage`
+`aio rt:package:get hellopackage`
 
 ```
 ok: got package hellopackage
@@ -252,11 +252,11 @@ packages
 
 If you wish to make your package private again, you can update the package at any time. To un-share a package: 
 
-`aio runtime package update hellopackage --shared no` 
+`aio rt:package:update hellopackage --shared no` 
 
 You can easily verify your package is private:
 
-`aio runtime package get hellopackage`
+`aio rt:package:get hellopackage`
 
 ```
 ...

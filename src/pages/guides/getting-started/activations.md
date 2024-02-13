@@ -1,6 +1,6 @@
 # Retrieve Action Invocation Results
 
-The activation record contains information that helps you understand what happened: activation ID (the unique indentifier), namespace and action name, logs (if any), response (a dictionary that contains the status, success, and result).
+The activation record contains information that helps you understand what happened: activation ID (the unique identifier), namespace and action name, logs (if any), response (a dictionary that contains the status, success, and result).
 
 ## Activations TTL
 
@@ -12,7 +12,7 @@ Thus, if you don't see any activations or not seeing an activation you know that
 
 Assuming that you&rsquo;ve invoked an action called `hello`, this is how you retrieve the latest activations:
 
-`wsk activation list`
+`aio rt:activation:list`
 
 The result will be a list of activation IDs (if any) and the action invoked for each:
 
@@ -22,10 +22,10 @@ c76dbe66e9b04ad5adbe66e9b06ad541 hello
 []...]
 ```
 
-You can retrieve the whole activation record by running `wsk activation get <activation id>`:
+You can retrieve the whole activation record by running `aio rt:activation:get <activation id>`:
 
 ```
-wsk activation get e9932762894d4ccf932762894d6ccff4
+aio rt:activation:get e9932762894d4ccf932762894d6ccff4
 ok: got activation e9932762894d4ccf932762894d6ccff4
 {
     "namespace": "your-namespace",
@@ -84,10 +84,10 @@ Or you can extract a specific part from the activation record:
 
 ```
 // just the result
-wsk activation result <activation ID>
+aio rt:activation:result <activation ID>
 
 // just the logs
-wsk activation logs <activation ID>
+aio rt:activation:logs <activation ID>
 ```
 
 ## Retrieving Activations for Blocking Successful Calls
@@ -111,11 +111,11 @@ X-OW-EXTRA-LOGGING: on
 
 When you execute a non-blocking action (async action), the action returns immediately the activation ID. If you query for the result or logs before the action finished the execution you get an error:
 ```
-wsk activation get 1d24121f91384740a4121f91389740f0
+aio rt:activation:get 1d24121f91384740a4121f91389740f0
 error: Unable to get activation '1d24121f91384740a4121f91389740f0': The requested resource does not exist. (code myM2aaCufgIcnjnrbNIHztNmhL2HvFia)
 
 
-wsk activation logs c8c4f354c1824f2c84f354c182ef2cdb
+aio rt:activation:logs c8c4f354c1824f2c84f354c182ef2cdb
 error: Unable to get logs for activation 'c8c4f354c1824f2c84f354c182ef2cdb': The requested resource does not exist. (code nCPo4KRbYmvOTcwPQVfDJdrwtJpv1c3d)
 ```
 
