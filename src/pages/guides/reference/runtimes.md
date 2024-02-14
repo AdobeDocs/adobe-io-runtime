@@ -48,11 +48,11 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 This is how you can specify explicitly a kind:
 ```
-wsk action create actionName fromFile.js --kind nodejs:20 
+aio rt:action:create actionName fromFile.js --kind nodejs:20 
 ```
 or
 ```
-wsk action create actionName fromFile.js --kind nodejs:16 
+aio rt:action:create actionName fromFile.js --kind nodejs:18 
 ```
 These images are on Docker Hub:
 1. [Node 20](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v20/tags)

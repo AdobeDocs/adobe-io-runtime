@@ -7,12 +7,12 @@ By default, a web action can be invoked by anyone knowing the action&rsquo;s URL
 Here is how you can enable Basic Authentication for a web action:
 ```
 // create a web action with Basic Authentication on
-wsk action create my-secure-web-action main.js --web true --web-secure this-is-the-secret-hash
+aio rt:action:create my-secure-web-action main.js --web true --web-secure this-is-the-secret-hash
 ```
 or
 ```
 // update an existing web action to enable Basic Authenticationn or change the secret
-wsk action update my-secure-web-action main.js --web true --web-secure this-is-the-secret-hash
+aio rt:action:update my-secure-web-action main.js --web true --web-secure this-is-the-secret-hash
 ```
 
 Once you&rsquo;ve enabled Basic Authentication, you&rsquo;ll have to pass *X-Require-Wisk-Auth* header, and the secret you set, when invoking the web action. Assuming that your web action is created in the default package, this is how you&rsquo;ll invoke it:
@@ -33,12 +33,12 @@ Here is how you can enable IMS Authentication for a web action:
 
 ```
 // create a web action with Require Validation on
-wsk action create my-requir-validation-web-action main.js --web true -a require-gw-validation true
+aio rt:action:create my-requir-validation-web-action main.js --web true -a require-gw-validation true
 ```
 or
 ```
 // update an existing web action to enable Require Validation
-wsk action update my-require-validation-web-action main.js --web true -a require-gw-validation true
+aio rt:action:update my-require-validation-web-action main.js --web true -a require-gw-validation true
 ```
 
 To interact with the action, it's necessary to set up a security configuration in your Swagger API route for that action. Detailed instructions on how to do this can be found in the documentation titled "[Securing the API Endpoints](https://developer.adobe.com/runtime/docs/guides/using/creating_rest_apis/#securing-the-api-endpoints).".  

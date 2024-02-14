@@ -15,10 +15,10 @@ Assuming that you have two actions created in a package called `my-package`:
 ```
 
 You can create a sequence using the `--sequence` flag in addition to the usual command for creating an action (make sure you add the namespace to the action name; otherwise you'd see an error about not being authorized to access those resources):
-`wsk action create mySequence --sequence /[your-namespace]/my-package/actionA,/[your-namespace]/my-package/actionB`
+`aio rt:action:create mySequence --sequence /[your-namespace]/my-package/actionA,/[your-namespace]/my-package/actionB`
 
 You can invoke this as any other action. For example:
-`wsk action invoke --result mySequence`
+`aio rt:action:invoke --result mySequence`
 
 ### Sequences and Timeout
 
@@ -63,7 +63,7 @@ Time to deploy:
 deploy compositionA myComp.json
 ```
 
-This creates a composition called `compositionA`. You can invoke this, as any other action - `wsk action invoke compositionA`. When you do this, first action `a` is invoked. Then, if `a` was successful, then action `b` is invoked; if not, action `c` is invoked.
+This creates a composition called `compositionA`. You can invoke this, as any other action - `aio rt:action:invoke compositionA`. When you do this, first action `a` is invoked. Then, if `a` was successful, then action `b` is invoked; if not, action `c` is invoked.
 
 More information:
 * Apache OpenWhisk Composer [home page]( https://github.com/apache/incubator-openwhisk-composer)
