@@ -34,11 +34,11 @@ Save it as **hello.js.** This function will print "Hello World" to stdout and re
 
 Next, you need to upload this function to Runtime as an action. In the CLI, type the following command:
 
-`wsk action create helloAction <path>/hello.js`
+`aio rt:action:create helloAction <path>/hello.js`
 
 Now that the action is created, it&rsquo;s ready to be invoked via an HTTP call or associated with a trigger. For this exercise, however, you&rsquo;ll invoke it directly, again by means of the CLI:
 
-`wsk action invoke helloAction --result`
+`aio rt:action:invoke helloAction --result`
 
 ### Trace the process
 

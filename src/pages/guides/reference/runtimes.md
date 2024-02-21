@@ -1,6 +1,6 @@
 # Runtimes
 
-Adobe I/O Runtime supports Node.js versions 20, 18, 16, and 14. Node v18 is the default image and the one used to create pre-warm containers. We encourage you to always update your actions to the latest version in order to take advantage of the pre-warm containers feature.
+Adobe I/O Runtime supports the three latest Node.js versions (see the [Node.js release schedule](https://nodejs.org/en/about/previous-releases#release-schedule) for details). We encourage you to always update your actions to the latest version in order to take advantage of latest security updates and the pre-warms feature, that dramatically improves cold-start times.
 
 The following npm modules are pre-installed (if your action uses any of these modules, you don&rsquo;t have to package them together with action code):
 
@@ -48,11 +48,11 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 This is how you can specify explicitly a kind:
 ```
-wsk action create actionName fromFile.js --kind nodejs:20 
+aio rt:action:create actionName fromFile.js --kind nodejs:20 
 ```
 or
 ```
-wsk action create actionName fromFile.js --kind nodejs:16 
+aio rt:action:create actionName fromFile.js --kind nodejs:18 
 ```
 These images are on Docker Hub:
 1. [Node 20](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v20/tags)

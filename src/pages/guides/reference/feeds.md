@@ -17,15 +17,15 @@ Beyond these parameters, the feed action can take any others you choose; these s
 
 Once you've got the feed action, you create the feed when you create the trigger itself, simply by using the --feed parameter. For example, let's assume you want to set up a feed for receiving updates to the user's location coming from your mobile app, and you&rsquo;ve created a feed action named `userLocChange` in a package in your namespace called `userLoc`. To create the feed for managing location updates, you could issue the following command in the CLI:
 
-`wsk trigger create trigLocUpdate --feed userLoc/userLocChange <optional parameters for the feed action>`
+`aio rt:trigger:create trigLocUpdate --feed userLoc/userLocChange <optional parameters for the feed action>`
 
 This command creates a trigger named `trigLocUpdate` and then do something like this:
 
-`wsk action invoke userLoc/userLocChange --param lifecycleEvent CREATE --param triggerName trigLocUpdate --param authKey <yourauthKey> --param <optional parameters>`
+`aio rt:action:invoke userLoc/userLocChange --param lifecycleEvent CREATE --param triggerName trigLocUpdate --param authKey <yourauthKey> --param <optional parameters>`
 
 This invokes the feed action `userLocChange`, which then sets up the stream of events from your mobile app aimed at the trigger `trigLocUpdate`.
 
-You can use the `--feed` parameter to execute similar functions on feed actions within the `wsk trigger delete`, `wsk trigger update`, and `wsk trigger get` commands.
+You can use the `--feed` parameter to execute similar functions on feed actions within the `aio rt:trigger:delete`, `aio rt:trigger:update`, and `aio rt:trigger:get` commands.
 
 ## Feed implementation patterns
 

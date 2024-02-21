@@ -43,7 +43,7 @@ So, with these rules, both images taken by the user and images sent or received 
 ## Creating and firing triggers
 Creating triggers is easy. Consider a trigger to update a user&rsquo;s location; every time the trigger is fired, it sends the user&rsquo;s name and GPS coordinates. To create the trigger in the CLI:
 
-`wsk trigger create updateLoc`
+`aio rt:trigger:create updateLoc`
 
 ```
 ok: created trigger updateLoc
@@ -51,7 +51,7 @@ ok: created trigger updateLoc
 
 And, just as with packages and actions, you can list the triggers you&rsquo;ve created:
 
-`wsk trigger list`
+`aio  rt:trigger:list`
 
 ```
 triggers
@@ -60,7 +60,7 @@ triggers
 
 That was simple; but then, all you&rsquo;ve really done here is create a label for a channel through which events can be passed to the system. You can fire this trigger just as simply, specifying the parameters:
 
-`wsk trigger fire updateLoc --param name Jocasta latitude 38.316667 longitude 23.316667`
+`aio rt:trigger:fire updateLoc --param name Jocasta latitude 38.316667 longitude 23.316667`
 
 ```
 ok: triggered updateLoc with id 94dddb5ef8ca46e9ba4648eeb9bda80f
@@ -81,11 +81,11 @@ function main(params) {
 
 Now you can create the rule linking the trigger to the action:
 
-`wsk rule create greetLoc updateLoc helloLoc`
+`aio rt:rule:create greetLoc updateLoc helloLoc`
 
 This creates a rule named `greetLoc` that executes `helloLoc` every time the trigger `updateLoc` is fired. Now, fire the trigger again:
 
-`wsk trigger fire updateLoc --param name Jocasta latitude 38.316667 longitude 23.316667`
+`aio rt:trigger:fire updateLoc --param name Jocasta latitude 38.316667 longitude 23.316667`
 
 ```
 ok: triggered updateLoc with id 00e0dd4cce3f43768dabb99d67731b50
@@ -93,11 +93,11 @@ ok: triggered updateLoc with id 00e0dd4cce3f43768dabb99d67731b50
 
 To see what happened as a result, you can check your activations. You can list them easily:
 
-`wsk activation list`
+`aio rt:activation:list`
 
 Your `hello` action should be first on the list. If the list is long, though, you may want to just show the most recent activation:
 
-`wsk activation list --limit 1 helloLoc`
+`aio rt:activation:list --limit 1 helloLoc`
 
 ```
 activations
@@ -105,7 +105,7 @@ a48069e1da3c4aa9bc48ac979c5ee140             helloLoc
 ```
 To see the results of this activation:
 
-`wsk activation result a48069e1da3c4aa9bc48ac979c5ee140`
+`aio rt:activation:result a48069e1da3c4aa9bc48ac979c5ee140`
 ```
 {
     payload: "Hello, Jocasta, I see you are at latitude 38.316667, longitude 23.316667"
@@ -116,14 +116,14 @@ So, the helloLoc action received the parameters from updateLoc and returned the 
 
 Finally, to stop a rule, you can disable it:
 
-`wsk rule disable greetLoc
+`aio rt:rule:disable greetLoc`
 
 ## Rules on triggers and rules
 Triggers, rules and actions can be combined in different ways: you can associate a trigger with multiple actions by using a different rule for each action, and an action can be the target of multiple triggers, again by creating a rule for each trigger. You cannot, however, link a trigger to more than one action with a single rule, nor can you link more than one trigger to an action with a single rule.
 
 Triggers and rules stand outside packages; you cannot place either in a package. You can, however, create a rule that addresses an action in a package. Suppose the `helloLoc` action is in a package named `manageLoc`:
 
-`wsk rule create greetLoc updateLoc /manageLoc/helloLoc`
+`aio rt:rule:create greetLoc updateLoc /manageLoc/helloLoc`
 
 `
 

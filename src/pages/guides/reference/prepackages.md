@@ -9,13 +9,13 @@ These are the packages that are pre-installed and available to any I/O Runtime u
 You can get details about the content of a package by running this command:
 
 ```
-wsk package get --summary /whisk.system/alarms
+aio rt:package:get /whisk.system/alarms
 ```
 
 You can execute any of the actions defined in a shared package by using the fully qualified name. For example:
 
 ```
-wsk action invoke /whisk.system/alarms/alarm
+aio rt:action:invoke /whisk.system/alarms/alarm
 ```
 
 Alternatively, you can bind any of this packages to your namespace; see the [Packages page](../reference/packages.md). When you bind a package, you can set your own default parameters (if there are any parameters) and run the actions as being local to your namespace.
@@ -40,7 +40,7 @@ The alarms package contains:
 To create a trigger on an interval-based schedule that will fire every 10 minutes until January 31, 2020 (`my-interval` is the name of the trigger):
 
 ```
-wsk trigger create my-interval \
+aio rt:trigger:create my-interval \
   --feed /whisk.system/alarms/interval \
   --param minutes 10 \
   --param trigger_payload "{\"name\":\"Vlad\",\"place\":\"Transylvania\"}" \
@@ -50,7 +50,7 @@ wsk trigger create my-interval \
 To create a trigger that fires once:
 
 ```
-wsk trigger create my-interval \
+aio rt:trigger:create my-interval \
   --feed /whisk.system/alarms/once \
   --param trigger_payload "{\"name\":\"Vlad\",\"place\":\"Transylvania\"}" \
   --param stopDate "2020-01-31T23:59:00.000Z"
@@ -59,7 +59,7 @@ wsk trigger create my-interval \
 
 Finally, to create a trigger that fires on a time-based schedule using cron (it fires every hour):
 ```
-wsk trigger create my-interval \
+aio rt:trigger:create my-interval \
   --feed /whisk.system/alarms/alarm \
   --param cron "0 * * * *" \
   --param trigger_payload "{\"name\":\"Vlad\",\"place\":\"Transylvania\"}" \
