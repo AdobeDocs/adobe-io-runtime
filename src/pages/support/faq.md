@@ -3,7 +3,7 @@
 
 ## Getting Access
 **How can I get access to I/O Runtime?**  
-I/O Runtime is offering production service level since June 2019. You can find [here](../guides/overview/getting_access.md) information about how to get access.
+Runtime is now part of App Builder. There are more details [here](../guides/overview/getting_access.md) about how to get access.
 
 ## Supported Programming Languages
 **Which languages are supported in I/O Runtime?**  
@@ -30,9 +30,9 @@ If you have a need for a port that is not in this list, please share with us the
 
 Yes, the IP addresses returned when looking up an Adobe I/O Runtime endpoint's DNS record can change at any time. To avoid issues with connecting and routing to the platform, clients should not cache DNS-lookup responses for Adobe I/O Runtime endpoints beyond the TTL of the DNS record. For more information, see "[Secure Communication with Backend Services](../guides/using/security_general.md#secure-communication-with-backend-services)" in the [Security Guide](../guides/using/security_general.md).
 
-## Price
-**What does it cost to use Adobe I/O Runtime?**  
-There are two ways you can get access to I/O Runtime: commercial offering and free trial. If you want to buy, please work with your Adobe account manager. If you are interested in the trial, check this [page](../guides/overview/getting_access.md).
+## Usage Quotas
+**What usage quotas are in place for Adobe I/O Runtime?**  
+Runtime In terms of quotas for Runtime and other consumption features of App Builder like storage, etc., customers should refer to the number of units they purchased.Runtime, as part of App Builder, For information how much capacity is included  what is included 
 
 ## Multiple Region Support
 **Where we execute your actions**
