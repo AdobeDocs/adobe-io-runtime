@@ -90,6 +90,8 @@ aio rt:action:update test first-function.js --param name "Runtime"
 
 Now, you can run the action without any parameters, and it will use the default one you&rsquo;ve set. If you set a parameter when invoking, this will overwrite the default one.
 
+> Important!  When updating an action's params using `--param <key> <value>` as above, you must specify ALL of the parameters.  All previous values will be overwritten.
+
 ### Default parameters set on package
 
 When you create an action, it is always created in a package. If you don&rsquo;t specify a package, the *default* package is used. Similar to how you set default parameters at the action level, you can specify default parameters at the package level.
