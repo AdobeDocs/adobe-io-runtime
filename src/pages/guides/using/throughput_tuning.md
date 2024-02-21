@@ -8,7 +8,7 @@ This enables you to avoid cold-start issues. When the system doesn't have any co
 
 You can set any value between `1` and `500`. In the example below, the limit is set to `100`:
 ```
-wsk action create actionName fileName.js -c 100
+aio rt:action:create actionName fileName.js -c 100
 ```
 
 Some considerations to keep in mind:

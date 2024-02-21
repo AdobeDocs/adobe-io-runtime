@@ -15,7 +15,7 @@ This is similar to the function used as an example in [How Adobe I/O Runtime Wor
 
 Next, open a command-line window and navigate to the folder where you saved the function. Type the following command to create an action from this function:
 
-`wsk action create hello hello.js`
+`aio rt:action:create hello hello.js`
 
 This command uploads the code contained in `hello.js` and stores it in Runtime as an action named `hello`. That&rsquo;s really all there is to it: your function is deployed. If the command is successful, you should see the following acknowledgement in the command-line window:
 
@@ -23,7 +23,7 @@ This command uploads the code contained in `hello.js` and stores it in Runtime a
 
 Now, to test the function, invoke it as an action:
 
-`wsk action invoke --result hello --param name <your name>`
+`aio rt:action:invoke --result hello --param name <your name>`
 
 You should get this output:
 

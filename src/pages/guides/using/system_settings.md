@@ -37,7 +37,7 @@ The system has a pool of containers with these settings waiting to be used for a
 ## Timeout
 
 If you want to change the default timeout setting, you need to do it explicitly. This is how you increase the timeout to 5 minutes:
-`wsk action create action-name source.js -t 300000`
+`aio rt:action:create action-name source.js -t 300000`
 
 When you plan on increasing the timeout to more than one minute, you should be aware of:
 1. Blocking calls (web actions for example) will timeout in one minute regardless of the timeout set and return an error to the caller. However, the action execution continues until it finishes or the timeout value is exceeded (at this point you get a developer error as the result). You will retrieve the result by polling for activationId and use the right activationId to get the result

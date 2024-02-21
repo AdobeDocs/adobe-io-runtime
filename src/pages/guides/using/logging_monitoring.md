@@ -1,18 +1,18 @@
 # Logging and Monitoring
 
-The `wsk` CLI offers a number of tools you can use to debug your actions while running them on Adobe I/O Runtime.
+The `AIO` CLI offers a number of tools you can use to debug your actions while running them on Adobe I/O Runtime.
 
 You can retrieve the latest activations in a namespace by running:
 ```
-wsk activation list
+aio rt:activation:list
 ```
 Having an activation ID, you can retrieve the activation result running:
 ```
-wsk activation get <activation ID>
+aio rt:activation:get <activation ID>
 ```
 If you send data to logs from your actions (using `console.log()` in your code), you&rsquo;ll get this information as part of the activation record, inside the `logs` field. The shortcut command to get the logs is:
 ```
-wsk activation logs <activation ID>
+aio rt:activation:logs <activation ID>
 //output sample
 2018-11-14T22:23:00.002Z       stdout: 1542234180001: param = John Doe
 ```
@@ -33,7 +33,7 @@ X-OW-EXTRA-LOGGING: on
 
 ## Understanding The Error Codes
 
-When you have action invocations that fail, sometimes the best way to understand the reason behind the failing is to take a look at the error object part of the activation record - running `wsk activation get <activationId>` you will get the activation record.
+When you have action invocations that fail, sometimes the best way to understand the reason behind the failing is to take a look at the error object part of the activation record - running `aio rt:activation:get <activationId>` you will get the activation record.
 
 The following are the possible values and the meaning for `error` in `response.status`:
 * `success`: everything is okay (status is true)
