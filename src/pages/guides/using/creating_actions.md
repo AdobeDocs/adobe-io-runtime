@@ -194,10 +194,10 @@ You can also set cookies or cache control headers, perform a HTTP redirect, and 
 
 ### Unsuccessful response 
 
-On failed web action invocations, the error code and message should be wrapped in an `error` object, as this would allow the system to interpret the response as an `applicationError`. 
+On failed action invocations, the error code and message should be wrapped in an `error` object, as this would allow the system to interpret the response as an `applicationError`. 
 
 ```javascript
-function main(params) {
+async function main(params) {
     try {
         throw new Error("Boom!")
     } catch (err) {
