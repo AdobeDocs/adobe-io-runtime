@@ -42,7 +42,6 @@ module.exports = {
             "title": "What is Adobe I/O Runtime"
           },
           {
-            
             "path": "guides/overview/usecases.md",
             "title": "Use cases"
           },
@@ -125,6 +124,10 @@ module.exports = {
           {
             "path": "guides/using/ci-cd_pipeline.md",
             "title": "CI/CD Pipeline"
+          },
+          {
+            "path": "guides/using/troubleshooting.md",
+            "title": "Troubleshooting"
           }
         ],
         "path": "guides/using/index.md",
