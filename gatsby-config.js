@@ -42,7 +42,6 @@ module.exports = {
             "title": "What is Adobe I/O Runtime"
           },
           {
-
             "path": "guides/overview/usecases.md",
             "title": "Use cases"
           },
