@@ -40,7 +40,7 @@ The whole purpose of the system is to execute the code the user has created. Let
 
 The flow above describes what is happening inside of a cluster but we have multiple clusters, deployed in different regions. I/O Runtime is running in multiple Amazon regions today.  We plan on adding Azure clusters in the future. We route a call to one of the clusters using latency-based routing – the cluster closest to the caller gets the request. Behind the scene, customer’s code is pushed transparently to all clusters.
 
-## Zoom In – What's Happening When Actions Are Invoked
+## Zoom In – What Is Happening When Actions Are Invoked
 
 Let’s zoom in on what exactly happens when an action invocation request is accepted by I/O Runtime (ActivationId was issued). There are mainly two concepts that are relevant to a developer: activation lifecycle and container lifecycle - activation is our terminology for an action invocation and container is what is used to run the action.
 
