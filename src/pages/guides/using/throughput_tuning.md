@@ -48,7 +48,7 @@ One way to verify if a response is returned from the cache or not is by checking
 X-GW-Cache: HIT
 ```
 
-Only requests sent to `/api/v1/web/` with 200, 301 and 302 can be cached.
+Only requests sent to `/api/v1/web/` with 200, 301 and 302 response codes can be cached.
 
 <InlineAlert slots="text"/>
 
