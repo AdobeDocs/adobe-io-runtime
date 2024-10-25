@@ -68,7 +68,7 @@ aio rt:api:get /pet-store > pet-store-swagger.json
 
 Suppose that you want to restore or create the same API, maybe in some other namespace. All you have to is to run:
 ```
-aio rt:api:create --config-file pet-store-swagger.json
+aio rt:api:create --config-file=pet-store-swagger.json
 ```
 This will work as long as the actions are already created in that namespace.
 
