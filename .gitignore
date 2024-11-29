@@ -12,7 +12,7 @@ node_modules
 package.lock
 yarn-error.log
 .pnp.*
-.yarn/*
+.yarn/**
 
 # keep in repo
 !.gitignore
