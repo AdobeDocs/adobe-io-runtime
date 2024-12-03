@@ -12,7 +12,7 @@ aio rt:action:create actionName fileName.js -c 100
 ```
 
 Some considerations to keep in mind:
-1. A container is kept warm after an invocation finished for 10 minutes. This means that for 10 minutes you can be 99% you don't get cold-starts when executing the same action
+1. A container is kept warm after an invocation finished for 5 minutes. This means that for 5 minutes you can be 99% you don't get cold-starts when executing the same action
 2. Depending on how much memory/resources your action consumes, you can use a smaller or a higher value. A good average number to start with is `200`. You should experiment to make sure the value you choose is working 
 3. Make sure that your code is working when being executed in parallel. Using global variables to store values that are different between invocations is a recipe for disaster
 4. If your Action works on some large data that is not different between invocations, then using a global variable can maximize the chances that the next execution can reuse it. However your code should handle the situation where the variable is not initialized
