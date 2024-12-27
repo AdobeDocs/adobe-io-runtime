@@ -6,9 +6,9 @@
     - [Adobe I/O Runtime](/runtime)
 
 - pages:
-    - [Overview](/)
-    - [Guides](guides)
-    - [Support](support)
+    - [Overview](index.md)
+    - [Guides](guides/index.md)
+    - [Support](support/index.md)
 
 - subPages:
     - [Quickstart Guide](guides/index.md) 
