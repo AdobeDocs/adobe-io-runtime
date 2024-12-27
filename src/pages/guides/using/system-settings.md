@@ -2,6 +2,7 @@
 
 When creating actions or debugging issues, it is important to know the system settings and limitations. Here are the ones you should consider when designing your actions.
 
+
 | Limit | Description | Configurable | Default         |  Range  | 
 |---|---| --- |-----------------| --- |
 | timeout | A container is not allowed to run longer than N milliseconds. Blocking calls (like web actions) can't run longer than 60,000 milliseconds (1 minute). Non-blocking calls can run up to 3,600,000 milliseconds | per action | 60,000 milliseconds | 100ms - 3,600,000ms  |
@@ -22,7 +23,7 @@ When creating actions or debugging issues, it is important to know the system se
 
 ## Sequences and Timeout
 
-Sequences that are invoked in a blocking manner (for example web actions have a hard limit for timeout and this limit can't be changed 60 seconds. Essentially, adding up the execution time taken by each action has to be 60 seconds or less.
+Sequences that are invoked in a blocking manner (for example web actions have a hard limit for timeout and this limit can't be changed 60 seconds). Essentially, adding up the execution time taken by each action has to be 60 seconds or less.
 
 Although the system lets you set a higher timeout on the sequence, this value is ignored and the 60 seconds limit per action is enforced.
 

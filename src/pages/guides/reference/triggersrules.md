@@ -71,7 +71,7 @@ So, the trigger has been fired&mdash;but nothing happened. You haven&rsquo;t set
 ## Creating and using rules
 To link your trigger with an action, you need to create a rule. To do so, you need the name of your trigger, the name of the action you&rsquo;re going to execute when the trigger is fired, and a name for your rule itself. 
 
-To give your trigger an appropriate action, create an action named `helloLoc` using the following code. (See [Deploying your first Adobe I/O Runtime function](../gettingstarted/deploy.md "Deploying your first function") for instructions on creating an action):
+To give your trigger an appropriate action, create an action named `helloLoc` using the following code. (See [Deploying your first Adobe I/O Runtime function](../getting-started/deploy.md "Deploying your first function") for instructions on creating an action):
 
 ```js
 function main(params) {

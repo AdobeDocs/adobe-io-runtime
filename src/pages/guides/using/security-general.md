@@ -13,7 +13,7 @@ Parameters sent to actions are not sanitized by the Runtime system. All these in
 ## Cookies
 Many things on the web rely on cookies. You can set cookies in two ways in Runtime: from JavaScript on the page via [document.cookie](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie) calls, or via passing a [Header object from a web action](https://github.com/apache/incubator-openwhisk/blob/master/docs/webactions.md#web-actions) that contains a Set-Cookie header directive. Due to the way Runtime hosts your functions, there are some particular concerns for function developers.
 
-The use of cookies directly from web actions on Runtime is discouraged. For further reading, please see [Securing Web Actions](securing_web_actions.md).
+The use of cookies directly from web actions on Runtime is discouraged. For further reading, please see [Securing Web Actions](securing-web-actions.md).
 
 ## Secrets
 Secrets fall into two different categories and must be handled in specific ways based on those categories.
@@ -38,7 +38,7 @@ When invoking functions on the command line, your namespace and key are authenti
 Your action could include the [aio-lib-ims](https://github.com/adobe/aio-lib-ims) library to authenticate with Adobe IMS. Or you could use [App Builder to authenticate your actions against Adobe IMS](https://developer.adobe.com/app-builder/docs/guides/security/#authentication-and-authorization-handling). 
 
 ### Securing web actions
-For web actions, see [Securing Web Actions](securing_web_actions.md).
+For web actions, see [Securing Web Actions](securing-web-actions.md).
 
 ## Transport Security
 
@@ -59,7 +59,7 @@ You could secure your web action using any CDN by following these steps:
 
 1. Choose a CDN provider: There are several CDN providers available such as Cloudflare, Fastly, Akamai, and others. Choose a provider that meets your needs and sign up for their service.
 2. Configure the CDN: Once you have signed up for the CDN service, configure it to point to Runtime’s domain name: `<your-namespace>.adobeioruntime.net`. This can usually be done through the CDN provider's web interface or API.
-3. Configure your action to use a security header. See: [Securing Web Actions](securing_web_actions.md). 
+3. Configure your action to use a security header. See: [Securing Web Actions](securing-web-actions.md). 
 4. Configure the CDN to add the `X-Require-Whisk-Auth` security header, with the secret hash value, for all requests made to the secured web actions.
 
 ## Secure Communication with Backend Services 

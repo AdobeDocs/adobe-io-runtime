@@ -9,19 +9,21 @@ Be aware that in the unlikely event that the agent is killed by I/O Runtime whil
 ## Installing `wskdebug`
 
 You'll need Node.js, version 10 or newer, and a local [Docker environment](https://www.docker.com/products/docker-desktop). You can grab `wskdebug` from this [GitHub repo](https://github.com/adobe/wskdebug) or use npm to install it:
+
 ```
 npm install -g @adobe/wskdebug
 ```
 
 Next, assuming that you have Docker configured locally, you need to run the wskdebug in Terminal in order to pull on your machine the latest image used by I/O Runtime to execute Node.js actions:
+
 ```
  wskdebug --inspect-brk=11932 <ACTION NAME> <FULL PATH TO THE SOURCE FILE> -l 
 ```
 
-
 ## Visual Studio Code Example
 
 Before you can debug your action code, open the source file for your action and create the [launch.json](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations) with this content:
+
 ```
 "configurations": [
         {
@@ -36,6 +38,7 @@ Before you can debug your action code, open the source file for your action and 
         }
     ]
 ```
+
 Next, go back to your action code and place breakpoints and then launch the debugger. Once the debugger was launched (keep an eye on the Debug Console window), you just need to invoke the action. Once invoked, the first breakpoint will be hit and you can inspect the variables step over/next. You can even change the code and once is saved, it is automatically re-executed.
 
 For more details about how `wskdebug` works, its limitations and how you can use it to its full potential, please read the [official docs](https://github.com/adobe/wskdebug).

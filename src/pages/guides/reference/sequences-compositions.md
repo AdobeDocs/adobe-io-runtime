@@ -9,6 +9,7 @@ If you want to execute a tree of actions, where you want to be able to evaluate 
 ## Sequences
 
 Assuming that you have two actions created in a package called `my-package`:
+
 ```
 /my-package/actionA
 /my-package/actionB
@@ -26,7 +27,7 @@ When invoking a sequence in a blocking manner, there is a hard limit for timeout
 
 If we apply this limitation to the example above, then `actionA` and `actionB` have a total budget of 60 seconds. Although the system lets you set a higher timeout on the sequnce `mySequence`, this value is ignored and the 60 seconds limit is enforced.
 
-If one of your actions needs more than 60 seconds, then the only solution is to invoke a non-blocking action using the OpenWhisk npm module. So, using the same example, you could have `actionA` calling another action in a non-blocking manner. You can see an example of how to do this [here](../guides/asynchronous_calls.md).
+If one of your actions needs more than 60 seconds, then the only solution is to invoke a non-blocking action using the OpenWhisk npm module. So, using the same example, you could have `actionA` calling another action in a non-blocking manner. You can see an example of how to do this [here](../using/asynchronous-calls.md).
 
 You can read more about sequences on the [OpenWhisk documentation page](https://github.com/apache/incubator-openwhisk/blob/master/docs/actions.md#creating-action-sequences).
 

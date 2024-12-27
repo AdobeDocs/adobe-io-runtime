@@ -3,7 +3,7 @@
 
 ## Getting Access
 **How can I get access to I/O Runtime?**  
-Runtime is now part of App Builder. There are more details [here](../guides/overview/getting_access.md) about how to get access.
+Runtime is now part of App Builder. There are more details [here](../guides/overview/getting-access.md) about how to get access.
 
 ## Supported Programming Languages
 **Which languages are supported in I/O Runtime?**  
@@ -28,7 +28,7 @@ If you have a need for a port that is not in this list, please share with us the
 
 **Do the ingress IP addresses for Adobe I/O Runtime ever change?**
 
-Yes, the IP addresses returned when looking up an Adobe I/O Runtime endpoint's DNS record can change at any time. To avoid issues with connecting and routing to the platform, clients should not cache DNS-lookup responses for Adobe I/O Runtime endpoints beyond the TTL of the DNS record. For more information, see "[Secure Communication with Backend Services](../guides/using/security_general.md#secure-communication-with-backend-services)" in the [Security Guide](../guides/using/security_general.md).
+Yes, the IP addresses returned when looking up an Adobe I/O Runtime endpoint's DNS record can change at any time. To avoid issues with connecting and routing to the platform, clients should not cache DNS-lookup responses for Adobe I/O Runtime endpoints beyond the TTL of the DNS record. For more information, see "[Secure Communication with Backend Services](../guides/using/security-general.md#secure-communication-with-backend-services)" in the [Security Guide](../guides/using/security-general.md).
 
 ## Usage Quotas
 **What usage quotas are in place for Adobe I/O Runtime?**  
@@ -38,11 +38,11 @@ Runtime In terms of quotas for Runtime and other consumption features of App Bui
 **Where we execute your actions**
 I/O Runtime runs in multiple regions. We deploy your code in all regions and execute it in the closest region to the caller (latency-based routing). You can't restrict the execution to a specific region only.
 
-You can find more information about the regions and how you can check where your actions are being executed here - [Multiple Regions](../guides/reference/multiple_regions.md).
+You can find more information about the regions and how you can check where your actions are being executed here - [Multiple Regions](../guides/reference/multiple-regions.md).
 
 ## System Limits
 **Which limits are imposed onto actions?**  
-All available limits (and the default values) are listed here: [System Settings](../guides/using/system_settings.md). Notable limits are the timeout for functions and the maximum payload that can get posted to a function.
+All available limits (and the default values) are listed here: [System Settings](../guides/using/system-settings.md). Notable limits are the timeout for functions and the maximum payload that can get posted to a function.
 
 ## Developer Support
 You can use the [Adobe I/O Runtime Forums](https://forums.adobe.com/community/adobe-io/adobe-io-runtime) for developer support related questions. 

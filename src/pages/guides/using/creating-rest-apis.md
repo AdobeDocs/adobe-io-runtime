@@ -52,7 +52,7 @@ or
 ```
 curl https://<YOUR-NAMESPACE>.adobeioruntime.net:443/apis/pet-store/pet/2345 -X GET
 ```
-**Note** the change in the URL here in comparison to what the `aio` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `aio` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing_web_actions.md) page.
+**Note** the change in the URL here in comparison to what the `aio` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `aio` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing-web-actions.md) page.
 
 In the example above, the `{di}` value, 2335, will be mapped to a {payload.id}.
 
@@ -197,7 +197,9 @@ The following code snippet demonstrates how to configure access using a standard
     }
 }
 ```
+
 This enables scope validation for the API endpoint, allowing requests with access tokens that have the scopes `write:pets` OR `read:pets`. Requests that do not have the required scopes in the access token will be rejected with the following error message: 
+
 ```json
 {
   "error_code":"401015",
@@ -206,6 +208,7 @@ This enables scope validation for the API endpoint, allowing requests with acces
 ```
 
 After publishing the Swagger file, this endpoint `your-namespaces/default/my-require-gw-validation-web-action` can be used to call the action: 
+
 ```bash
 curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeioruntime.net/api/v2/ims-validation-endpoint
 ```
@@ -213,6 +216,7 @@ curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeiorunti
 #### Client ID validation
 
 `client_id` validation can be enabled by adding `x-client-ids` with a list of clients that are allowed to invoke the action. The clientId list has to be added to the `security definition` object in the Swagger. Also make sure to add the security definition key to the method `security` object, otherwise the validation won't be enabled for that method: 
+
 ```json
 {
     "basePath": "/v2",
@@ -242,13 +246,16 @@ curl -i -H "Authorization: Bearer <ims_access_token>" https://guest.adobeiorunti
     }
 }
 ```
+
 This configuration allows the action to accept requests with access tokens that have the client IDs `zookeeper` OR `dogwalker`. Requests that do not have the client ID in the access token will be rejected with the following error message: 
+
 ```json
 {
   "error_code":"403201",
   "message":"Client ID not allowed to call this service"
 }
 ```
+
 > Note that both `scope` and `client_id` validation can be enabled at the same time. In this case, the request will be rejected if the access token does not have the required scope AND client ID.
 > 
 > In case no validation is enabled for the endpoint's verb, by removing the `security` object from the method definition, the action can be invoked publicly without any restrictions on the API url.
@@ -285,17 +292,21 @@ Endpoints can also be configured to only allow/block requests from specific IP a
 This configuration allows the action to accept requests from clients with the IP addresses "192.150.10.210" or "192.168.0.1", and block requests from "192.150.10.10". 
 
 Requests that do not have the requests originating from the IP addresses in the whitelist will be rejected with the following error message:
+
 ```json
 {
   "error_code":"403013",
   "message":"Access from your IP address is not authorized"
 }
 ```
+
 Requests that have the requests originating from the IP addresses in the disallow list, will be rejected with the following error message:
+
 ```json
 {
   "error_code":"403012",
   "message":"Access from your IP address is not authorized"
 }
 ```
+
 > Make sure that the `my-require-gw-validation-web-action` is configured to be a web action with `-a require-gw-validation true`, otherwise the action can be accessed publicly without any restrictions on the non api url. 

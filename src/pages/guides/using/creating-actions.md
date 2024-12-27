@@ -4,7 +4,7 @@ For your code to execute as an *action* on Adobe I/O Runtime, your code has to c
 - You either call your function *main* or you export the entry point as *main*. This is the function that will be executed when it is invoked.
 - Your function accepts valid JSON objects as input and produces valid JSON objects as output, if needed
 
-You have to configure **aio CLI** on your machine to create and invoke actions. Refer to the [aio CLI](../tools/cli_install.md) page for how to install and configure it. 
+You have to configure **aio CLI** on your machine to create and invoke actions. Refer to the [aio CLI](../tools/cli-install.md) page for how to install and configure it. 
 
 Let&rsquo;s assume you have this function available on your machine:
 ```javascript
@@ -172,7 +172,7 @@ or
 ```
 curl https://[your namespace].adobeioruntime.net/api/v1/web/default/test -X GET
 ```
-**Note** the change in the URL here in comparison to what the `aio` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `aio` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing_web_actions.md) page.
+**Note** the change in the URL here in comparison to what the `aio` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `aio` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing-web-actions.md) page.
 
 ### Successful response
 
@@ -276,7 +276,7 @@ You need to do three things to deploy a ZIP action: create a manifest file, crea
 
 ### wskdeploy
 
- If you need to install `wskdeploy`, check the page [Setting up the wskdeploy CLI](../tools/wskdeploy_install.md).
+ If you need to install `wskdeploy`, check the page [Setting up the wskdeploy CLI](../tools/wskdeploy-install.md).
 
 ### Package.json file
 

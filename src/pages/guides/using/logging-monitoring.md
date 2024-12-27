@@ -3,14 +3,19 @@
 The `AIO` CLI offers a number of tools you can use to debug your actions while running them on Adobe I/O Runtime.
 
 You can retrieve the latest activations in a namespace by running:
+
 ```
 aio rt:activation:list
 ```
+
 Having an activation ID, you can retrieve the activation result running:
+
 ```
 aio rt:activation:get <activation ID>
 ```
+
 If you send data to logs from your actions (using `console.log()` in your code), you&rsquo;ll get this information as part of the activation record, inside the `logs` field. The shortcut command to get the logs is:
+
 ```
 aio rt:activation:logs <activation ID>
 //output sample
@@ -25,6 +30,7 @@ The exceptions are asynchronous actions that are invoked in a non-blocking fashi
 so that you can extract the response of the action at a later time. 
 
 However, during development it is important to have access to all activation results. You can enable this by setting in the request the extra logging header to `on`: 
+
 ```
 X-OW-EXTRA-LOGGING: on
 ``` 
@@ -54,6 +60,7 @@ One tool that made it easy to do this is [Epsagon](https://epsagon.com/?utm_sour
 Another tool that can be used to monitor your actions is New Relic, which offers a Node.js agent that can be used to monitor your actions. Check this [guide](https://docs.newrelic.com/docs/agents/nodejs-agent/getting-started/introduction-new-relic-nodejs) to learn more.
 
 For example if you want to send to New Relic the execution time for one action, you could build your action code as follows:
+
 ```
 const newrelic = require('newrelic');
 
@@ -69,7 +76,8 @@ function main(params) {
     newrelic.recordMetric('Custom/RunEndpointDuration', durationInMilliseconds);
 }
 ```
-You need to package the new relic agent as part of your action code and deploy the action as [.zip file](creating_actions#deploying-zip-actions). 
+
+You need to package the new relic agent as part of your action code and deploy the action as [.zip file](creating-actions#deploying-zip-actions). 
 
 
 ## Debugging Locally

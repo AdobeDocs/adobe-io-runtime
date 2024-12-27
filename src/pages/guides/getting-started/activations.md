@@ -119,4 +119,4 @@ aio rt:activation:logs c8c4f354c1824f2c84f354c182ef2cdb
 error: Unable to get logs for activation 'c8c4f354c1824f2c84f354c182ef2cdb': The requested resource does not exist. (code nCPo4KRbYmvOTcwPQVfDJdrwtJpv1c3d)
 ```
 
-This should give you enough tools to debug your first actions. If you want to read more, take a look at the [Logging and Monitoring](../guides/logging_monitoring.md 'Logging and Monitoring') page.
+This should give you enough tools to debug your first actions. If you want to read more, take a look at the [Logging and Monitoring](../using/logging-monitoring.md 'Logging and Monitoring') page.

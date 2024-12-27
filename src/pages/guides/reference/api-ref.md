@@ -13,6 +13,7 @@ Adobe I/O Runtime supports the following API endpoints for interacting programma
 Returns the details of the namespace associated with the specified organization and integration.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -41,9 +42,11 @@ description: Namespace Details
 
 
 ### POST /runtime/admin/namespaces/{orgId}/{intId}
+
 Creates a new namespace and returns the details of the newly created namespace. If namespace already exists it returns the details of the namespace.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -52,6 +55,7 @@ Creates a new namespace and returns the details of the newly created namespace. 
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
 |Code|Description|
 |--- |--- |
@@ -71,9 +75,11 @@ description: Namespace Details
 
 
 ### DELETE /runtime/admin/namespaces/{orgId}/{intId}
+
 Deletes the namespace associated with the specified organization and integration.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -82,15 +88,18 @@ Deletes the namespace associated with the specified organization and integration
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
 | Code | Description |
 |---|---|
 | _default_ | Successful operation |
 
 ### GET /runtime/namespaces/{orgId}/{intId}/actions
+
 Returns the list of actions associated with the specified organization and integration.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -99,7 +108,9 @@ Returns the list of actions associated with the specified organization and integ
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
+
 |Code|Description|
 |--- |--- |
 |200|Successful operation Example value:
@@ -191,9 +202,11 @@ url         string
 
 
 ### POST /runtime/namespaces/{orgId}/{intId}/actions
+
 Creates a new action.
 
 #### _Parameters:_
+
 |Name|Description|
 |--- |--- |
 |orgId (string: path)|Organization ID|
@@ -288,6 +301,7 @@ url         string
 
 
 #### _Responses:_
+
 Response content type: `application/json`
 | Code | Description |
 |---|---|
@@ -297,6 +311,7 @@ Response content type: `application/json`
 Returns the details of an action.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -306,6 +321,7 @@ Returns the details of an action.
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
 |Code|Description|
 |--- |--- |
@@ -379,9 +395,11 @@ url         string
 
 
 ### POST /runtime/namespaces/{orgId}/{intId}/actions/{name}
+
 Executes an action.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -391,7 +409,9 @@ Executes an action.
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
+
 |Code|Description|
 |--- |--- |
 |200|Successful operation Example value:
@@ -457,9 +477,11 @@ response    {
 
 
 ### PUT /runtime/namespaces/{orgId}/{intId}/actions/{name}
+
 Updates an action.
 
 #### _Parameters:_
+
 |Name|Description|
 |--- |--- |
 |orgId (string: path)|Organization ID|
@@ -554,15 +576,19 @@ url         string
 
 
 #### _Responses:_
+
 Response content type: `application/json`
+
 | Code | Description |
 |---|---|
 | _default_ | Successful operation |
 
 ### DELETE /runtime/namespaces/{orgId}/{intId}/actions/{name}
+
 Deletes an action.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -572,21 +598,25 @@ Deletes an action.
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
 | Code | Description |
 |---|---|
 | _default_ | Successful operation |
 
 ### GET /runtime/system/actions
+
 Returns a list of built-in actions.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `Authorization` (`string`: _header_) | Authorization token in format: `Bearer {token}` |
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
 |Code|Description|
 |--- |--- |
@@ -679,9 +709,11 @@ url         string
 
 
 ### POST /runtime/namespaces/{orgId}/{intId}/handleEventRegistration
+
 Registers an event registration and assigns a given action to the event.
 
 #### _Parameters:_
+
 |Name|Description|
 |--- |--- |
 |orgId (string: path)|Organization ID|
@@ -745,6 +777,7 @@ registration_id     string
 
 
 #### _Responses:_
+
 Response content type: `application/json`
 |Code|Description|
 |--- |--- |
@@ -803,9 +836,11 @@ registration_id     string
 
 
 ### DELETE /runtime/namespaces/{orgId}/{intId}/handleEventDeletion/{clientId}/{registrationId}
+
 Deletes an event registration.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -818,15 +853,18 @@ Deletes an event registration.
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
 | Code | Description |
 |---|---|
 | _default_ | Successful operation |
 
 ### PUT /runtime/namespaces/{orgId}/{intId}/handleEventUpdate/{clientId}/{registrationId}
+
 Updates an event registration.
 
 #### _Parameters:_
+
 |Name|Description|
 |--- |--- |
 |orgId (string: path)|Organization ID|
@@ -892,6 +930,7 @@ registration_id     string
 
 
 #### _Responses:_
+
 Response content type: `application/json`
 |Code|Description|
 |--- |--- |
@@ -953,6 +992,7 @@ registration_id     string
 Updates the status of an event registration.
 
 #### _Parameters:_
+
 | Name | Description |
 |---|---|
 | `orgId` (`string`: _path_) | Organization ID |
@@ -966,7 +1006,9 @@ Updates the status of an event registration.
 | `X-Api-Key` (`string`: _header_) | Api key |
 
 #### _Responses:_
+
 Response content type: `application/json`
+
 |Code|Description|
 |--- |--- |
 |200|Successful operation Example value:

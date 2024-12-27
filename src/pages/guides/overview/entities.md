@@ -7,9 +7,9 @@ Actions are stateless functions that run on Adobe I/O Runtime. For example, an a
 
 For more information, see the following topics:
 
-- [Creating Actions](../using/creating_actions.md)
-- [Securing Web Actions](../using/securing_web_actions.md)
-- [CI/CD Pipeline](../using/ci-cd_pipeline.md)
+- [Creating Actions](../using/creating-actions.md)
+- [Securing Web Actions](../using/securing-web-actions.md)
+- [CI/CD Pipeline](../using/ci-cd-pipeline.md)
 
 ## Namespaces
 All entities in Adobe I/O Runtime are organized into namespaces. A namespace is merely a label used as a prefix on entity names to organize them. Each organization on Runtime gets its own namespace, and all entities created in Runtime for that organization get that namespace applied as a prefix. 
@@ -27,7 +27,7 @@ For more information, see this topic:
 In OpenWhisk, you can use packages to bundle together a set of related actions and share them with others. A package can include actions and feeds.
 
 - [Pre-installed Packages](../reference/prepackages.md)
-- [Using Packages](../using/using_packages.md)
+- [Using Packages](../using/using-packages.md)
 
 ## Sequences and Compositions
 A powerful feature of Adobe I/O Runtime is the ability to compose actions together. Two types of composed actions are possible:

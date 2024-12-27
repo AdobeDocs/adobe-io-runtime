@@ -59,7 +59,7 @@ Container lifecycle:
 *	A cold start refers to a situation when the system is under load and has no prewarm or warm containers to use for the invocation. The request is buffered and the system will create a new container by either recycling an idle container or creating a new container
 
 ## Let’s Talk Numbers – Understanding the System Settings
-There are some system limits that influence your application design: https://github.com/AdobeDocs/adobeio-runtime/blob/master/guides/system_settings.md
+There are some system limits that influence your application design: [https://github.com/AdobeDocs/adobeio-runtime/blob/master/guides/system_settings.md](https://github.com/AdobeDocs/adobeio-runtime/blob/master/guides/system_settings.md)
 
 Some of these are worth to be highlighted:
 
