@@ -45,6 +45,7 @@ The flow above describes what is happening inside of a cluster but we have multi
 Let’s zoom in on what exactly happens when an action invocation request is accepted by I/O Runtime (ActivationId was issued). There are mainly two concepts that are relevant to a developer: activation lifecycle and container lifecycle - activation is our terminology for an action invocation and container is what is used to run the action.
 
 Activation lifecycle:
+
 * For async invocation (non-blocking) system returns 202 immediately with an ActivationId. Client will be using the ActivationId to pull the result
 * For blocking invocations system returns either:
   * `200` and the result
