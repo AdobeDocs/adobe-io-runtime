@@ -13,4 +13,3 @@ Adobe I/O Runtime consists of more than simply deploying individual actions and 
 * [System Settings](system-settings.md): see the system settings and constraints 
 * [CI/CD Pipeline](ci-cd-pipeline.md): understand the tools you have to create a CI/CD Pipeline
 * [Troubleshooting](troubleshooting.md): common issues and solutions
-<!-- * [Using Actions with Adobe I/O Events](guides/actions_events.md): learn how to process Adobe I/O events with actions -->
