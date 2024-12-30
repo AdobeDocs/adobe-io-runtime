@@ -59,6 +59,7 @@ Container lifecycle:
 *	A cold start refers to a situation when the system is under load and has no prewarm or warm containers to use for the invocation. The request is buffered and the system will create a new container by either recycling an idle container or creating a new container
 
 ## Let’s Talk Numbers – Understanding the System Settings
+
 There are some system limits that influence your application design: [https://github.com/AdobeDocs/adobeio-runtime/blob/master/guides/system_settings.md](https://github.com/AdobeDocs/adobeio-runtime/blob/master/guides/system_settings.md)
 
 Some of these are worth to be highlighted:
@@ -132,8 +133,6 @@ I/O Runtime fully delivers on the serverless promise, but success requires devel
 At the same time, this is just the beginning for Adobe I/O Runtime and you are encouraged to help enhance the platform and help to guide its future. The following sections provide multiple ways for you to engage with the Adobe I/O Runtime team and suggest improvements to the platform and its documentation.
 
 ### Social media
-
-You can follow the Adobe I/O team on [Twitter](https://twitter.com/adobeio), [Medium](https://medium.com/adobetech/tagged/platform), and [Youtube](https://www.youtube.com/channel/UCDtYqOjS9Eq9gacLcbMwhhQ).
 
 ### Support
 
