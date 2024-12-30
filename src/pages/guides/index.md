@@ -134,6 +134,8 @@ At the same time, this is just the beginning for Adobe I/O Runtime and you are e
 
 ### Social media
 
+You can follow the Adobe I/O team on [Twitter](https://twitter.com/adobeio), [Medium](https://medium.com/adobetech/tagged/platform).
+
 ### Support
 
 If you have issues with Adobe I/O Runtime, you can use the [Adobe I/O Runtime Forum](https://forums.adobe.com/community/adobe-io/adobe-io-runtime).
