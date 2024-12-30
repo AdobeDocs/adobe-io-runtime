@@ -1,4 +1,4 @@
-<Hero slots="heading, title"/>
+<HeroSimple slots="heading, title"/>
 
 # Adobe I/O Runtime Developer Guide
 
