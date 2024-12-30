@@ -47,6 +47,4 @@ Let’s zoom in on what exactly happens when an action invocation request is acc
 Activation lifecycle:
 
 * For async invocation (non-blocking) system returns 202 immediately with an ActivationId. Client will be using the ActivationId to pull the result
-* For blocking invocations system returns either:
-* In the case of invoking too many actions per minute, the requests are throttled and the system returns 429. It is the client responsibility to scale back and retry later, because the system is not buffering the request for later processing. See more about these limits in the next sections
 
