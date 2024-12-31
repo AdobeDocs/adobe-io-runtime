@@ -26,7 +26,7 @@ Response content type: `application/json`
 
 | Code | Description |
 |------|-------------|
-| 200  | Successful operation. Example value:  `json { "name": "string", "auth": "string" } `|
+| 200  | Successful operation. Example value:  `json { "name": "string", "auth": "string" } `  **Model:**|
 
 ### POST /runtime/admin/namespaces/{orgId}/{intId}
 
