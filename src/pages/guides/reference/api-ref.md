@@ -57,12 +57,12 @@ Creates a new namespace and returns the details of the newly created namespace. 
 | `X-Api-Key` (`string`: _header_)   | API key                                                                |
 
 #### _Responses:_
-
 Response content type: `application/json`
 
 | Code | Description |
 |------|-------------|
 | 200  | Successful operation. Example value: `json { "name": "string", "auth": "string" } ` Model: `NamespaceDTO` Description: Namespace Details Fields: - `name` (string): Namespace name - `auth` (string): Auth associated with Namespace |
+
 
 ### DELETE /runtime/admin/namespaces/{orgId}/{intId}
 
