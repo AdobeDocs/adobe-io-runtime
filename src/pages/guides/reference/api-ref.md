@@ -102,5 +102,5 @@ Response content type: `application/json`
 
 | Code | Description                                                                                        |
 |------|----------------------------------------------------------------------------------------------------|
-| 200  | Successful operation. Example value:[{"name": "string","code": "string","namespace": "string","version": "string","params": [{"key": "string","value": {}}],"annotations": [{"key": "string","value": {}}],"limits": {"timeout":"string","memory": "string","logs": "string"},"exec": {"kind": "string","binary": false,"components"["string"]},"url": "string"}]                                                                               |
+| 200  | Successful operation. Example value:[{"name": "string","code": "string","namespace": "string","version": "string","params": [{"key": "string","value": {}}],"annotations": [{"key": "string","value": {}}],"limits": {"timeout":"string","memory": "string","logs": "string"},"exec": {"kind": "string","binary": false,"components"string},"url": "string"}]                                                                               |
 
