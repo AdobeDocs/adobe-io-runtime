@@ -100,7 +100,6 @@ Returns the list of actions associated with the specified organization and integ
 #### _Responses:_
 Response content type: `application/json`
 
-| Code | Description |
-|------|-------------|
+| Code | Description                         |
+|------|-------------------------------------|
 | 200  | Successful operation. Example value |
-
