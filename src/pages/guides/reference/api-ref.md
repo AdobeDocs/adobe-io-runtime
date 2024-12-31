@@ -127,3 +127,17 @@ Response content type: `application/json`
 
 ### GET /runtime/namespaces/{orgId}/{intId}/actions/{name}
 Returns the details of an action.
+
+#### _Parameters:_
+
+| Name                      | Description                                |
+|---------------------------|--------------------------------------------|
+| `orgId` (`string`: _path_) | Organization ID                           |
+| `intId` (`string`: _path_) | Integration ID                            |
+| `name` (`string`: _path_)  | Action name                               |
+| `Authorization` (`string`: _header_) | Authorization token in format: `Bearer {token}` |
+| `X-Api-Key` (`string`: _header_) | API key                                  |
+
+#### _Responses:_
+Response content type: `application/json`
+
