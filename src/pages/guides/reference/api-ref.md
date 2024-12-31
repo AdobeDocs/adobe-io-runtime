@@ -119,3 +119,11 @@ Creates a new action.
 | `X-Api-Key` (`string`: _header_) | API key |
 
 #### _Responses:_
+Response content type: `application/json`
+
+| Code        | Description            |
+|-------------|------------------------|
+| _default_   | Successful operation   |
+
+### GET /runtime/namespaces/{orgId}/{intId}/actions/{name}
+Returns the details of an action.
