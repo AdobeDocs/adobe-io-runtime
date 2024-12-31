@@ -1,8 +1,8 @@
 <HeroSimple slots="heading, title"/>
 
-# Resources and support
+# Resources and Support
 
-Adobe I/O Runtime is built on top of Apache OpenWhisk. This is why many of the resources written for Apache OpenWhisk apply to Adobe I/O Runtime, too: blogs, documentation and references, and so forth.
+Adobe I/O Runtime is built on top of Apache OpenWhisk. This is why many of the resources written for Apache OpenWhisk apply to Adobe I/O Runtime, too: blogs, documentation, and references, and so forth.
 
 ## Resources
 
