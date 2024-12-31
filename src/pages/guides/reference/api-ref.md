@@ -77,3 +77,5 @@ Deletes the namespace associated with the specified organization and integration
 | `Authorization` (`string`: _header_) | Authorization token in the format: `Bearer {token}`               |
 | `X-Api-Key` (`string`: _header_)   | API key                                                                |
 
+#### _Responses:_
+Response content type: `application/json`
