@@ -1,8 +1,8 @@
 <HeroSimple slots="heading, title"/>
 
-# Resources and Support
+# Adobe I/O Runtime Developer Guide
 
-Adobe I/O Runtime is built on top of Apache OpenWhisk. This is why many of the resources written for Apache OpenWhisk apply to Adobe I/O Runtime, too: blogs, documentation, and references, and so forth.
+This documentation provides an overview of Adobe I/O Runtime as well as guides, reference documentation, and tools to help you begin developing your own integrations.
 
 ## Resources
 
