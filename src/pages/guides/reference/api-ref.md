@@ -97,3 +97,6 @@ Returns the list of actions associated with the specified organization and integ
 | `Authorization` (`string`: _header_) | Authorization token in the format: `Bearer {token}`               |
 | `X-Api-Key` (`string`: _header_)   | API key                                                                |
 
+#### _Responses:_
+Response content type: `application/json`
+
