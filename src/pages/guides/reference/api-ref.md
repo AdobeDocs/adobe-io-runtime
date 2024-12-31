@@ -145,3 +145,18 @@ Response content type: `application/json`
 |------|-------------|
 | 200  | Successful operation. Example value: `{ "name": "string", "namespace": "string", "activationId": "string", "annotations": [ { "key": "string", "value": {} } ], "duration": 0, "version": "string", "response": {} }` Model:`[ActionDTO { description: OpenWhisk Action name string Action name code string Action code namespace string Action namespace version string Action version params [Action params KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] annotations [Action annotations KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] limits LimitsDTO { description: OpenWhisk Action Limits timeout string Action timeout memory string Action memory limit logs string Action logs } exec ExecDTO { description: OpenWhisk Action exec details kind string Action kind binary boolean default: false Is action binary components [ Action components in case of sequence string] } url string Action url }]` |
 
+### POST /runtime/namespaces/{orgId}/{intId}/actions/{name}
+Executes an action.
+
+#### _Parameters:_
+
+| Name                          | Description                                                |
+|-------------------------------|------------------------------------------------------------|
+| `orgId` (`string`: _path_)     | Organization ID                                           |
+| `intId` (`string`: _path_)     | Integration ID                                            |
+| `name` (`string`: _path_)      | Action name                                               |
+| `Authorization` (`string`: _header_) | Authorization token in format: `Bearer {token}`           |
+| `X-Api-Key` (`string`: _header_) | API key                                                    |
+
+#### _Responses:_
+Response content type: `application/json`
