@@ -84,19 +84,5 @@ Response content type: `application/json`
 |-----------|------------------------|
 | _default_ | Successful operation   |
 
-### GET /runtime/namespaces/{orgId}/{intId}/actions
 
-Returns the list of actions associated with the specified organization and integration.
-
-#### _Parameters:_
-
-| Name                         | Description                                                             |
-|------------------------------|-------------------------------------------------------------------------|
-| `orgId` (`string`: _path_)    | Organization ID                                                        |
-| `intId` (`string`: _path_)    | Integration ID                                                         |
-| `Authorization` (`string`: _header_) | Authorization token in the format: `Bearer {token}`               |
-| `X-Api-Key` (`string`: _header_)   | API key                                                                |
-
-#### _Responses:_
-Response content type: `application/json`
 
