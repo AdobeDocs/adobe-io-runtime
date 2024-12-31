@@ -79,3 +79,4 @@ Deletes the namespace associated with the specified organization and integration
 
 #### _Responses:_
 Response content type: `application/json`
+
