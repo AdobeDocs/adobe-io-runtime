@@ -24,9 +24,9 @@ Returns the details of the namespace associated with the specified organization 
 #### _Responses:_
 Response content type: `application/json`
 
-| Code | Description                                                                                          |
-|------|------------------------------------------------------------------------------------------------------|
-| 200  | Successful operation. Example value:  `json { "name": "string", "auth": "string" }` **Model:** tree2|
+| Code | Description                                                                                    |
+|------|------------------------------------------------------------------------------------------------|
+| 200  | Successful operation. Example value:  `json { "name": "string", "auth": "string" }` Molll: tree|
 
 ### POST /runtime/admin/namespaces/{orgId}/{intId}
 
