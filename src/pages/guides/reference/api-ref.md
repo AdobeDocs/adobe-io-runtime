@@ -41,3 +41,4 @@ Creates a new namespace and returns the details of the newly created namespace. 
 | `intId` (`string`: _path_)  | Integration ID                                                         |
 | `Authorization` (`string`: _header_) | Authorization token in the format: `Bearer {token}`               |
 | `X-Api-Key` (`string`: _header_)   | API key                                                                |
+
