@@ -1,4 +1,4 @@
-<HeroSimple slots="heading, text" />
+<HeroSimple slots="heading, title" />
 
 # Resources and support
 
