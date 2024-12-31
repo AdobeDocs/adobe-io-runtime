@@ -6,6 +6,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 ### Node.js V22.6.0
 
+```
     "express": "4.18.2",
     "openwhisk": "3.21.7",
     "body-parser": "1.20.2",
@@ -13,9 +14,11 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "node-fetch": "3.3.2",
     "dnscache": "1.0.2",
     "prom-client": "14.2.0"
+```
 
 ### Node.js v20.7.0
 
+```
     "express": "4.18.2",
     "openwhisk": "3.21.7",
     "body-parser": "1.20.2",
@@ -23,9 +26,11 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "node-fetch": "3.3.2",
     "dnscache": "1.0.2",
     "prom-client": "14.2.0"
+```
 
 ### Node.js v18.14.2
 
+```
     "express": "4.18.2",
     "openwhisk": "3.21.7",
     "body-parser": "1.20.2",
@@ -33,9 +38,11 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "node-fetch": "3.3.1",
     "dnscache": "1.0.2",
     "prom-client": "14.2.0"
+```
 
 ### Node.js v16.17.0
 
+```
     "express": "4.18.1",
     "openwhisk": "3.21.6",
     "body-parser": "1.20.0",
@@ -43,9 +50,11 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "node-fetch": "3.2.4",
     "dnscache": "1.0.2",
     "prom-client": "13.2.0"
+```
 
 ### Node.js v14.20.0
 
+```
     "express": "4.17.1",
     "openwhisk": "3.21.6",
     "body-parser": "1.19.0",
@@ -54,7 +63,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
     "node-fetch": "2.6.7",
     "dnscache": "1.0.2",
     "prom-client": "12.0.0"
-
+```
 
 This is how you can specify explicitly a kind:
 ```
