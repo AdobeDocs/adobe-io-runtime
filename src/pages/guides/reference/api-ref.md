@@ -76,3 +76,4 @@ Deletes the namespace associated with the specified organization and integration
 | `intId` (`string`: _path_)    | Integration ID                                                         |
 | `Authorization` (`string`: _header_) | Authorization token in the format: `Bearer {token}`               |
 | `X-Api-Key` (`string`: _header_)   | API key                                                                |
+
