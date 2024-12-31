@@ -62,4 +62,4 @@ Response content type: `application/json`
 
 | Code | Description |
 |------|-------------|
-| 200  | Successful operation. Example value: `json { "name": "string", "auth": "string" } ` *Model:* `NamespaceDTO` *Description:* Namespace Details *Fields:* - `name` (string): Namespace name - `auth` (string): Auth associated with Namespace |
+| 200  | Successful operation. Example value: `json { "name": "string", "auth": "string" } ` Model: `NamespaceDTO` Description: Namespace Details Fields: - `name` (string): Namespace name - `auth` (string): Auth associated with Namespace |
