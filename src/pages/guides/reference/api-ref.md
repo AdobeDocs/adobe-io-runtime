@@ -26,7 +26,7 @@ Response content type: `application/json`
 
 | Code | Description                                                                                |
 |------|--------------------------------------------------------------------------------------------|
-| 200  | Successful operation. Example value:  `json { "name": "string", "auth": "string" } ` Model: **Model:** `NamespaceDTO` |
+| 200  | Successful operation. Example value:  `json { "name": "string", "auth": "string" } ` Model: **Model:** `NamespaceDTO` **Description:** Namespace Details **Fields:** - `name` (string): Namespace name - `auth` (string): Auth associated with Namespace |
 
 ### POST /runtime/admin/namespaces/{orgId}/{intId}
 
@@ -41,4 +41,9 @@ Creates a new namespace and returns the details of the newly created namespace. 
 | `intId` (`string`: _path_)  | Integration ID                                                         |
 | `Authorization` (`string`: _header_) | Authorization token in the format: `Bearer {token}`               |
 | `X-Api-Key` (`string`: _header_)   | API key                                                                |
+
+
+### POST /runtime/admin/namespaces/{orgId}/{intId}
+
+Creates a new namespace and returns the details of the newly created namespace. If namespace already exists it returns the details of the namespace.
 
