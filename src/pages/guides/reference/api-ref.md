@@ -100,8 +100,6 @@ Returns the list of actions associated with the specified organization and integ
 #### _Responses:_
 Response content type: `application/json`
 
-| Code | Description                                                                                        |
-|------|----------------------------------------------------------------------------------------------------|
-| 200  | Successful operation. Example value:[{"name": "string","code": "string","namespace": "string","version": "string","params": [{"key": "string","value": {}}],"annotations": [{"key": "string","value": {}}],"limits": {"timeout":"string","memory": "string","logs": "string"},"exec": {"kind": "string","binary": false,"components"string},"url": "string"}]                                                                                                       |
-
-### POST /runtime/namespaces/{orgId}/{intId}/actions
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation. Example value: [ { "name": "string", "code": "string", "namespace": "string", "version": "string", "params": [ { "key": "string", "value": {} } ], "annotations": [ { "key": "string", "value": {} } ], "limits": { "timeout": "string", "memory": "string", "logs": "string" }, "exec": { "kind": "string", "binary": false, "components": [ "string" ] }, "url": "string" } ] Model: [ActionDTO { description: OpenWhisk Action name string Action name code string Action code namespace string Action namespace version string Action version params [Action params KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] annotations [Action annotations KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] limits LimitsDTO { description: OpenWhisk Action Limits timeout string Action timeout memory string Action memory limit logs string Action logs } exec ExecDTO { description: OpenWhisk Action exec details kind string Action kind binary boolean default: false Is action binary components [ Action components in case of sequence string] } url string Action url }] |
