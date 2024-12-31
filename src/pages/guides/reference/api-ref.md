@@ -47,3 +47,19 @@ Creates a new namespace and returns the details of the newly created namespace. 
 
 Creates a new namespace and returns the details of the newly created namespace. If namespace already exists it returns the details of the namespace.
 
+#### _Parameters:_
+
+| Name                       | Description                                                             |
+|----------------------------|-------------------------------------------------------------------------|
+| `orgId` (`string`: _path_)  | Organization ID                                                        |
+| `intId` (`string`: _path_)  | Integration ID                                                         |
+| `Authorization` (`string`: _header_) | Authorization token in the format: `Bearer {token}`               |
+| `X-Api-Key` (`string`: _header_)   | API key                                                                |
+
+#### _Responses:_
+
+Response content type: `application/json`
+
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation. Example value: `json { "name": "string", "auth": "string" } ` *Model:* `NamespaceDTO` *Description:* Namespace Details *Fields:* - `name` (string): Namespace name - `auth` (string): Auth associated with Namespace |
