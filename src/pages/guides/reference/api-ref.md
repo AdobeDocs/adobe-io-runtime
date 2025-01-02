@@ -399,3 +399,5 @@ Updates an event registration.
 |                                           | `runtime_action` (`string`): Action to handle event                                                   |
 |                                           | `registration_id` (`string`): Event registration ID                                                   |
 
+#### _Responses:_
+Response content type: `application/json`
