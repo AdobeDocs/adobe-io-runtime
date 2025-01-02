@@ -352,52 +352,44 @@ Updates an event registration.
 
 #### _Parameters:_
 
-| Name                                      | Description                                                                                           |
-|-------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| `orgId` (`string`: _path_)                | Organization ID                                                                                        |
-| `intId` (`string`: _path_)                | Integration ID                                                                                        |
-| `clientId` (`string`: _path_)             | IMS client ID                                                                                         |
-| `registrationId` (`string`: _path_)       | Registration ID                                                                                        |
-| `X-Ams-Consumer-Id` (`string`: _header_)  | AMS consumer ID                                                                                       |
-| `X-Ams-Application-Id` (`string`: _header_)| AMS application ID                                                                                   |
-| `Authorization` (`string`: _header_)      | Authorization token in format: `Bearer {token}`                                                        |
-| `X-Api-Key` (`string`: _header_)          | API key                                                                                               |
-| `body` (body)                             | Example value:                                                                                       |
-|                                           | `                                                                                                   |
-|                                           | {                                                                                                     |
-|                                           |   "id": "string",                                                                                     |
-|                                           |   "name": "string",                                                                                   |
-|                                           |   "description": "string",                                                                            |
-|                                           |   "client_id": "string",                                                                              |
-|                                           |   "type": "string",                                                                                   |
-|                                           |   "integration_status": "string",                                                                     |
-|                                           |   "delivery_type": "string",                                                                          |
-|                                           |   "webhook_url": "string",                                                                            |
-|                                           |   "events_of_interest": [                                                                             |
-|                                           |     {                                                                                                 |
-|                                           |       "event_code": "string",                                                                          |
-|                                           |       "provider": "string"                                                                             |
-|                                           |     }                                                                                                 |
-|                                           |   ],                                                                                                  |
-|                                           |   "runtime_action": "string",                                                                          |
-|                                           |   "registration_id": "string"                                                                          |
-|                                           | }                                                                                                     |
-|                                           | `                                                                                                   |
-| `Parameter content type`                 | application/json                                                                                      |
-| `Model: EventDTO`                         | Adobe I/O Event Details                                                                                |
-|                                           | `id` (`string`): Event ID                                                                              |
-|                                           | `name` (`string`): Event name                                                                          |
-|                                           | `description` (`string`): Event code                                                                   |
-|                                           | `client_id` (`string`): Event namespace                                                                |
-|                                           | `type` (`string`): Event type                                                                          |
-|                                           | `integration_status` (`string`): Event integration status                                            |
-|                                           | `delivery_type` (`string`): Event delivery type                                                      |
-|                                           | `webhook_url` (`string`): Webhook URL                                                                  |
-|                                           | `events_of_interest` (`array`): Events of interest to listen to                                        |
-|                                           |   - `event_code` (`string`): Event code                                                                |
-|                                           |   - `provider` (`string`): Event provider                                                              |
-|                                           | `runtime_action` (`string`): Action to handle event                                                   |
-|                                           | `registration_id` (`string`): Event registration ID                                                   |
+| Name | Description                                                     |
+|------|-----------------------------------------------------------------|
+| 200  | Successful operation Example value:                             |
+|      | ```json                                                         |
+|      | {                                                               |
+|      |   "id": "string",                                               |
+|      |   "name": "string",                                             |
+|      |   "description": "string",                                      |
+|      |   "client_id": "string",                                        |
+|      |   "type": "string",                                             |
+|      |   "integration_status": "string",                               |
+|      |   "delivery_type": "string",                                    |
+|      |   "webhook_url": "string",                                      |
+|      |   "events_of_interest": [                                       |
+|      |     {                                                           |
+|      |       "event_code": "string",                                   |
+|      |       "provider": "string"                                      |
+|      |     }                                                           |
+|      |   ],                                                            |
+|      |   "runtime_action": "string",                                   |
+|      |   "registration_id": "string"                                   |
+|      | }                                                               |
+|      | ```                                                             |
+| **Model**: `EventDTO`                                             | Adobe I/O Event Details                                         |
+| `id`                          | Event ID                                                         |
+| `name`                        | Event name                                                       |
+| `description`                 | Event code                                                       |
+| `client_id`                   | Event namespace                                                  |
+| `type`                        | Event type                                                       |
+| `integration_status`         | Event integration status                                         |
+| `delivery_type`              | Event delivery type                                              |
+| `webhook_url`                 | Webhook URL                                                      |
+| `events_of_interest`         | Events of interest to listen to                                  |
+| `event_code`                  | Event code (inside `events_of_interest`)                         |
+| `provider`                    | Event provider (inside `events_of_interest`)                     |
+| `runtime_action`             | Action to handle event                                           |
+| `registration_id`            | Event registration ID                                            |
+
 
 #### _Responses:_
 Response content type: `application/json`
