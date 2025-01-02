@@ -234,92 +234,27 @@ Registers an event registration and assigns a given action to the event.
 
 #### _Parameters:_
 
-| Name                              | Description                                                     |
-|-----------------------------------|-----------------------------------------------------------------|
-| `orgId` (`string`: path)          | Organization ID                                                |
-| `intId` (`string`: path)          | Integration ID                                                 |
-| `body` (body)                     | Example value:                                                  |
-|                                   | ```json                                                         |
-|                                   | {                                                               |
-|                                   |   "id": "string",                                               |
-|                                   |   "name": "string",                                             |
-|                                   |   "description": "string",                                      |
-|                                   |   "client_id": "string",                                        |
-|                                   |   "type": "string",                                             |
-|                                   |   "integration_status": "string",                               |
-|                                   |   "delivery_type": "string",                                    |
-|                                   |   "webhook_url": "string",                                      |
-|                                   |   "events_of_interest": [                                       |
-|                                   |     {                                                           |
-|                                   |       "event_code": "string",                                   |
-|                                   |       "provider": "string"                                      |
-|                                   |     }                                                           |
-|                                   |   ],                                                            |
-|                                   |   "runtime_action": "string",                                   |
-|                                   |   "registration_id": "string"                                   |
-|                                   | }                                                               |
-|                                   | ```                                                             |
-|                                   | Parameter content type: `application/json`                      |
-| **Model**: `EventDTO`             | Adobe I/O Event Details                                         |
-| `id`                               | Event ID                                                        |
-| `name`                             | Event name                                                      |
-| `description`                      | Event code                                                      |
-| `client_id`                        | Event namespace                                                 |
-| `type`                             | Event type                                                      |
-| `integration_status`              | Event integration status                                        |
-| `delivery_type`                   | Event delivery type                                             |
-| `webhook_url`                      | Webhook URL                                                     |
-| `events_of_interest`              | Events of interest to listen to                                 |
-| `event_code`                       | Event code (inside `events_of_interest`)                        |
-| `provider`                         | Event provider (inside `events_of_interest`)                    |
-| `runtime_action`                  | Action to handle event                                          |
-| `registration_id`                 | Event registration ID                                           |
-| `Authorization` (`string`: header) | Authorization token in format: `Bearer {token}`                 |
-| `X-Ams-Consumer-Id` (`string`: header) | AMS consumer ID                                              |
-| `X-Ams-Application-Id` (`string`: header) | AMS application ID                                          |
-| `X-Api-Key` (`string`: header)    | API key                                                         |
+| Name                          | Description                                                |
+|-------------------------------|------------------------------------------------------------|
+| `orgId` (`string`: _path_)     | Organization ID                                           |
+| `intId` (`string`: _path_)     | Integration ID                                            |
+| `name` (`string`: _path_)      | Action name                                               |
+| `body` (body)                  | Action form. Example value: `{ "name": "string", "code": "string", "namespace": "string", "version": "string", "params": [ { "key": "string", "value": {} } ], "annotations": [ { "key": "string", "value": {} } ], "limits": { "timeout": "string", "memory": "string", "logs": "string" }, "exec": { "kind": "string", "binary": false, "components": [ "string" ] }, "url": "string" }` Parameter content type: `application/json` Model: `[ActionDTO { description: OpenWhisk Action name string Action name code string Action code namespace string Action namespace version string Action version params [Action params KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] annotations [Action annotations KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] limits LimitsDTO { description: OpenWhisk Action Limits timeout string Action timeout memory string Action memory limit logs string Action logs } exec ExecDTO { description: OpenWhisk Action exec details kind string Action kind binary boolean default: false Is action binary components [ Action components in case of sequence string] } url string Action url }]` |
+| `Authorization` (`string`: _header_) | Authorization token in format: `Bearer {token}`            |
+| `X-Api-Key` (`string`: _header_)     | API key                                                    |
 
 #### _Responses:_
 
 Response content type: `application/json`
 
-| Code | Description                                                     |
-|------|-----------------------------------------------------------------|
-| 200  | Successful operation Example value:                             |
-|      | ```json                                                         |
-|      | {                                                               |
-|      |   "id": "string",                                               |
-|      |   "name": "string",                                             |
-|      |   "description": "string",                                      |
-|      |   "client_id": "string",                                        |
-|      |   "type": "string",                                             |
-|      |   "integration_status": "string",                               |
-|      |   "delivery_type": "string",                                    |
-|      |   "webhook_url": "string",                                      |
-|      |   "events_of_interest": [                                       |
-|      |     {                                                           |
-|      |       "event_code": "string",                                   |
-|      |       "provider": "string"                                      |
-|      |     }                                                           |
-|      |   ],                                                            |
-|      |   "runtime_action": "string",                                   |
-|      |   "registration_id": "string"                                   |
-|      | }                                                               |
-|      | ```                                                             |
-| **Model**: `EventDTO`                                             | Adobe I/O Event Details                                         |
-| `id`                          | Event ID                                                         |
-| `name`                        | Event name                                                       |
-| `description`                 | Event code                                                       |
-| `client_id`                   | Event namespace                                                  |
-| `type`                        | Event type                                                       |
-| `integration_status`         | Event integration status                                         |
-| `delivery_type`              | Event delivery type                                              |
-| `webhook_url`                 | Webhook URL                                                      |
-| `events_of_interest`         | Events of interest to listen to                                  |
-| `event_code`                  | Event code (inside `events_of_interest`)                         |
-| `provider`                    | Event provider (inside `events_of_interest`)                     |
-| `runtime_action`             | Action to handle event                                           |
-| `registration_id`            | Event registration ID                                            |
+| Name                          | Description                                                |
+|-------------------------------|------------------------------------------------------------|
+| `orgId` (`string`: _path_)     | Organization ID                                           |
+| `intId` (`string`: _path_)     | Integration ID                                            |
+| `name` (`string`: _path_)      | Action name                                               |
+| `body` (body)                  | Action form. Example value: `{ "name": "string", "code": "string", "namespace": "string", "version": "string", "params": [ { "key": "string", "value": {} } ], "annotations": [ { "key": "string", "value": {} } ], "limits": { "timeout": "string", "memory": "string", "logs": "string" }, "exec": { "kind": "string", "binary": false, "components": [ "string" ] }, "url": "string" }` Parameter content type: `application/json` Model: `[ActionDTO { description: OpenWhisk Action name string Action name code string Action code namespace string Action namespace version string Action version params [Action params KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] annotations [Action annotations KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] limits LimitsDTO { description: OpenWhisk Action Limits timeout string Action timeout memory string Action memory limit logs string Action logs } exec ExecDTO { description: OpenWhisk Action exec details kind string Action kind binary boolean default: false Is action binary components [ Action components in case of sequence string] } url string Action url }]` |
+| `Authorization` (`string`: _header_) | Authorization token in format: `Bearer {token}`            |
+| `X-Api-Key` (`string`: _header_)     | API key                                                    |
 
 ### DELETE /runtime/namespaces/{orgId}/{intId}/handleEventDeletion/{clientId}/{registrationId}
 
@@ -352,44 +287,41 @@ Updates an event registration.
 
 #### _Parameters:_
 
-| Name | Description                                                     |
-|------|-----------------------------------------------------------------|
-| 200  | Successful operation Example value:                             |
-|      | ```json                                                         |
-|      | {                                                               |
-|      |   "id": "string",                                               |
-|      |   "name": "string",                                             |
-|      |   "description": "string",                                      |
-|      |   "client_id": "string",                                        |
-|      |   "type": "string",                                             |
-|      |   "integration_status": "string",                               |
-|      |   "delivery_type": "string",                                    |
-|      |   "webhook_url": "string",                                      |
-|      |   "events_of_interest": [                                       |
-|      |     {                                                           |
-|      |       "event_code": "string",                                   |
-|      |       "provider": "string"                                      |
-|      |     }                                                           |
-|      |   ],                                                            |
-|      |   "runtime_action": "string",                                   |
-|      |   "registration_id": "string"                                   |
-|      | }                                                               |
-|      | ```                                                             |
-| **Model**: `EventDTO`                                             | Adobe I/O Event Details                                         |
-| `id`                          | Event ID                                                         |
-| `name`                        | Event name                                                       |
-| `description`                 | Event code                                                       |
-| `client_id`                   | Event namespace                                                  |
-| `type`                        | Event type                                                       |
-| `integration_status`         | Event integration status                                         |
-| `delivery_type`              | Event delivery type                                              |
-| `webhook_url`                 | Webhook URL                                                      |
-| `events_of_interest`         | Events of interest to listen to                                  |
-| `event_code`                  | Event code (inside `events_of_interest`)                         |
-| `provider`                    | Event provider (inside `events_of_interest`)                     |
-| `runtime_action`             | Action to handle event                                           |
-| `registration_id`            | Event registration ID                                            |
-
+| Name                          | Description                                                |
+|-------------------------------|------------------------------------------------------------|
+| `orgId` (`string`: _path_)     | Organization ID                                           |
+| `intId` (`string`: _path_)     | Integration ID                                            |
+| `name` (`string`: _path_)      | Action name                                               |
+| `body` (body)                  | Action form. Example value: `{ "name": "string", "code": "string", "namespace": "string", "version": "string", "params": [ { "key": "string", "value": {} } ], "annotations": [ { "key": "string", "value": {} } ], "limits": { "timeout": "string", "memory": "string", "logs": "string" }, "exec": { "kind": "string", "binary": false, "components": [ "string" ] }, "url": "string" }` Parameter content type: `application/json` Model: `[ActionDTO { description: OpenWhisk Action name string Action name code string Action code namespace string Action namespace version string Action version params [Action params KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] annotations [Action annotations KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] limits LimitsDTO { description: OpenWhisk Action Limits timeout string Action timeout memory string Action memory limit logs string Action logs } exec ExecDTO { description: OpenWhisk Action exec details kind string Action kind binary boolean default: false Is action binary components [ Action components in case of sequence string] } url string Action url }]` |
+| `Authorization` (`string`: _header_) | Authorization token in format: `Bearer {token}`            |
+| `X-Api-Key` (`string`: _header_)     | API key                                                    |
 
 #### _Responses:_
 Response content type: `application/json`
+
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation. Example value: `{ "name": "string", "code": "string", "namespace": "string", "version": "string", "params": [ { "key": "string", "value": {} } ], "annotations": [ { "key": "string", "value": {} } ], "limits": { "timeout": "string", "memory": "string", "logs": "string" }, "exec": { "kind": "string", "binary": false, "components": [ "string" ] }, "url": "string" }` Model: `[ActionResultDTO { description: OpenWhisk Action invocation result name string Action name code string Action code namespace string Action namespace version string Action version annotations [Action annotations KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] duration integer($int32) Duration version string Action Version response { description: Action invocation response } }]` |
+
+### POST /runtime/namespaces/{orgId}/{intId}/handleEventStatus/{clientId}/{registrationId}/{status}
+Updates the status of an event registration.
+
+| Name | Description |
+|------|-------------|
+| `orgId` (`string`: _path_) | Organization ID |
+| `intId` (`string`: _path_) | Integration ID |
+| `clientId` (`string`: _path_) | IMS client ID |
+| `registrationId` (`string`: _path_) | ID of registration |
+| `status` (`string`: _path_) | Status of the registration |
+| `X-Ams-Consumer-Id` (`string`: _header_) | AMS consumer ID |
+| `X-Ams-Application-Id` (`string`: _header_) | AMS application ID |
+| `Authorization` (`string`: _header_) | Authorization token in format: `Bearer {token}` |
+| `X-Api-Key` (`string`: _header_) | API key |
+
+#### _Responses:_
+
+Response content type: `application/json`
+
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation. Example value: `{ "name": "string", "code": "string", "namespace": "string", "version": "string", "params": [ { "key": "string", "value": {} } ], "annotations": [ { "key": "string", "value": {} } ], "limits": { "timeout": "string", "memory": "string", "logs": "string" }, "exec": { "kind": "string", "binary": false, "components": [ "string" ] }, "url": "string" }` Model: `[ActionResultDTO { description: OpenWhisk Action invocation result name string Action name code string Action code namespace string Action namespace version string Action version annotations [Action annotations KeyValuePairDTO { description: OpenWhisk Action param key string Param Name value { description: Param value } }] duration integer($int32) Duration version string Action Version response { description: Action invocation response } }]` |
