@@ -1,6 +1,6 @@
 # Using aio CLI
 
-```
+```bash
 USAGE
   $ aio runtime
 
