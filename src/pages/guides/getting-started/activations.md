@@ -16,7 +16,7 @@ Assuming that you&rsquo;ve invoked an action called `hello`, this is how you ret
 
 The result will be a list of activation IDs (if any) and the action invoked for each:
 
-```
+```js
 e9932762894d4ccf932762894d6ccff4 hello            
 c76dbe66e9b04ad5adbe66e9b06ad541 hello            
 []...]
@@ -24,7 +24,7 @@ c76dbe66e9b04ad5adbe66e9b06ad541 hello
 
 You can retrieve the whole activation record by running `aio rt:activation:get <activation id>`:
 
-```
+```js
 aio rt:activation:get e9932762894d4ccf932762894d6ccff4
 ok: got activation e9932762894d4ccf932762894d6ccff4
 {
@@ -82,7 +82,7 @@ ok: got activation e9932762894d4ccf932762894d6ccff4
 
 Or you can extract a specific part from the activation record:
 
-```
+```bash
 // just the result
 aio rt:activation:result <activation ID>
 
@@ -100,7 +100,7 @@ so that you can extract the response of the action at a later time.
 You can still view the number of executions, please see the [Logging and Monitoring](https://github.com/AdobeDocs/adobeio-runtime/blob/master/guides/logging_monitoring.md) section. 
 
 However, during development it is important to have access to all activation results. You can enable this by setting in the request the extra logging header to `on`: 
-```
+```bash
 X-OW-EXTRA-LOGGING: on
 ``` 
 
@@ -110,7 +110,7 @@ X-OW-EXTRA-LOGGING: on
 ## Retrieving Activations for Non-blocking Calls
 
 When you execute a non-blocking action (async action), the action returns immediately the activation ID. If you query for the result or logs before the action finished the execution you get an error:
-```
+```bash
 aio rt:activation:get 1d24121f91384740a4121f91389740f0
 error: Unable to get activation '1d24121f91384740a4121f91389740f0': The requested resource does not exist. (code myM2aaCufgIcnjnrbNIHztNmhL2HvFia)
 
