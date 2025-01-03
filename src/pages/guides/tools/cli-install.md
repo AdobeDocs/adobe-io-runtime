@@ -4,18 +4,18 @@ The `aio` CLI helps you to manage the `.wskprops` file as you use different name
 
 You need `npm` installed in order to install it. Before you start, make sure you have the latest version of Node and npm installed.
 
-```
+```bash
 npm install -g @adobe/aio-cli
 ```
 
 After this, you can run help to see all the commands and verify that you are all set:
 
-```
+```bash
 aio help
 ```
 
 If you want to update to the latest versions of any updated plugins, please reinstall the cli:
-```
+```bash
 npm install -g @adobe/aio-cli
 ```
 
