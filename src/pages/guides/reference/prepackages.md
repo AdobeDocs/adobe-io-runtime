@@ -2,19 +2,19 @@
 
 These are the packages that are pre-installed and available to any I/O Runtime user:
 
-```
+```bash
 /whisk.system/alarms                                                  
 ```
 
 You can get details about the content of a package by running this command:
 
-```
+```bash
 aio rt:package:get /whisk.system/alarms
 ```
 
 You can execute any of the actions defined in a shared package by using the fully qualified name. For example:
 
-```
+```bash
 aio rt:action:invoke /whisk.system/alarms/alarm
 ```
 
@@ -39,7 +39,7 @@ The alarms package contains:
 
 To create a trigger on an interval-based schedule that will fire every 10 minutes until January 31, 2020 (`my-interval` is the name of the trigger):
 
-```
+```bash
 aio rt:trigger:create my-interval \
   --feed /whisk.system/alarms/interval \
   --param minutes 10 \
@@ -49,7 +49,7 @@ aio rt:trigger:create my-interval \
 
 To create a trigger that fires once:
 
-```
+```bash
 aio rt:trigger:create my-interval \
   --feed /whisk.system/alarms/once \
   --param trigger_payload "{\"name\":\"Vlad\",\"place\":\"Transylvania\"}" \
@@ -58,7 +58,7 @@ aio rt:trigger:create my-interval \
 ```
 
 Finally, to create a trigger that fires on a time-based schedule using cron (it fires every hour):
-```
+```bash
 aio rt:trigger:create my-interval \
   --feed /whisk.system/alarms/alarm \
   --param cron "0 * * * *" \
