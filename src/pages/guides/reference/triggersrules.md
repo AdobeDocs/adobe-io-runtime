@@ -45,7 +45,7 @@ Creating triggers is easy. Consider a trigger to update a user&rsquo;s location;
 
 `aio rt:trigger:create updateLoc`
 
-```
+```bash
 ok: created trigger updateLoc
 ```
 
@@ -53,7 +53,7 @@ And, just as with packages and actions, you can list the triggers you&rsquo;ve c
 
 `aio  rt:trigger:list`
 
-```
+```bash
 triggers
 /yourNamespace/updateLoc                                              private
 ```
@@ -62,7 +62,7 @@ That was simple; but then, all you&rsquo;ve really done here is create a label f
 
 `aio rt:trigger:fire updateLoc --param name Jocasta latitude 38.316667 longitude 23.316667`
 
-```
+```bash
 ok: triggered updateLoc with id 94dddb5ef8ca46e9ba4648eeb9bda80f
 ```
 
@@ -87,7 +87,7 @@ This creates a rule named `greetLoc` that executes `helloLoc` every time the tri
 
 `aio rt:trigger:fire updateLoc --param name Jocasta latitude 38.316667 longitude 23.316667`
 
-```
+```bash
 ok: triggered updateLoc with id 00e0dd4cce3f43768dabb99d67731b50
 ```
 
@@ -99,14 +99,14 @@ Your `hello` action should be first on the list. If the list is long, though, yo
 
 `aio rt:activation:list --limit 1 helloLoc`
 
-```
+```bash
 activations
 a48069e1da3c4aa9bc48ac979c5ee140             helloLoc
 ```
 To see the results of this activation:
 
 `aio rt:activation:result a48069e1da3c4aa9bc48ac979c5ee140`
-```
+```js
 {
     payload: "Hello, Jocasta, I see you are at latitude 38.316667, longitude 23.316667"
 }
@@ -125,7 +125,6 @@ Triggers and rules stand outside packages; you cannot place either in a package.
 
 `aio rt:rule:create greetLoc updateLoc /manageLoc/helloLoc`
 
-`
 
 
 
