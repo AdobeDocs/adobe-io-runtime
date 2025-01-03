@@ -4,19 +4,19 @@ The `AIO` CLI offers a number of tools you can use to debug your actions while r
 
 You can retrieve the latest activations in a namespace by running:
 
-```
+```bash
 aio rt:activation:list
 ```
 
 Having an activation ID, you can retrieve the activation result running:
 
-```
+```bash
 aio rt:activation:get <activation ID>
 ```
 
 If you send data to logs from your actions (using `console.log()` in your code), you&rsquo;ll get this information as part of the activation record, inside the `logs` field. The shortcut command to get the logs is:
 
-```
+```bash
 aio rt:activation:logs <activation ID>
 //output sample
 2018-11-14T22:23:00.002Z       stdout: 1542234180001: param = John Doe
@@ -31,7 +31,7 @@ so that you can extract the response of the action at a later time.
 
 However, during development it is important to have access to all activation results. You can enable this by setting in the request the extra logging header to `on`: 
 
-```
+```bash
 X-OW-EXTRA-LOGGING: on
 ``` 
 
@@ -61,7 +61,7 @@ Another tool that can be used to monitor your actions is New Relic, which offers
 
 For example if you want to send to New Relic the execution time for one action, you could build your action code as follows:
 
-```
+```javascript
 const newrelic = require('newrelic');
 
 function main(params) {
