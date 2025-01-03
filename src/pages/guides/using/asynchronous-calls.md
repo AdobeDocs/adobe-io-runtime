@@ -7,7 +7,7 @@ Because web actions and APIs are always executed synchronous, you will have to s
 ## Option 1: web action that calls the actual action async
 
 First, let's create the worker action. We will use a setTimeout function to simulate a long running code. 
-```
+```javascript
 // worker.js
 function main(args) {
     return new Promise(function(resolve, reject) {
@@ -27,12 +27,12 @@ exports.main = main;
 ```
 
 Now that we have the code, we can create the action. Note the `-t` flag. You need this if you want to change the default timeout. In this case, we know that the action needs about 100,000 milliseconds to complete, so we will set the value to 120,000 milliseconds (2 minutes) to be sure that the action completes the work before the timeout.
-```
+```json
 aio rt:action:create my-worker worker.js -t 120000
 ```
 
 Next, we will create a web action that calls the action above. For this we will use the OpenWhisk Node module that makes it easier. This module is part of I/O Runtime Node.js environment, so you don't have to pack the module with your code. 
-```
+```javascript
 //web-action.js
 let openwhisk = require("openwhisk");
  
@@ -51,14 +51,14 @@ function main(args) {
 exports.main = main;
 ```
 Let's create the web action now:
-```
+```json
 aio rt:action:create test web-action.js --web true
 ```
 
 Now, when you invoke the web action, you will get the ActvationId for the `worker` action. You will use the activationId to retrieve the result.
 
 Here is a sample invocation. Note the `.json` extension appended to the URI. This instructs the system to return the result as JSON.
-```
+```json
 curl https://adobeioruntime.net/api/v1/web/YOUR-NAMESPACE-HERE/default/test.json
 {
   "activationId": "0123456789"
@@ -70,7 +70,7 @@ curl https://adobeioruntime.net/api/v1/web/YOUR-NAMESPACE-HERE/default/test.json
 The second option is to create a trigger and a rule that calls the worker action. This will work as long as you can make the call using a POST method. If you need a GET, then you have to use Option 1.
 
 Here is the code (we will use the `my-worker` action from earlier):
-```
+```json
 // First, you create a trigger
 aio rt:trigger:create my-worker-trigger
 
@@ -78,11 +78,11 @@ aio rt:trigger:create my-worker-trigger
 aio rt:rule:create async-rule my-worker-trigger my-worker
 ```
 What we got so far: when our trigger is executed (my-worker-trigger), in turn will execute the action (my-worker). Here is how you can execute it. Please note the authentication header. You will need to use the same authentication as the one used by the namespace where you created these actions/trigger/rule.
-```
+```json
 curl https://adobeioruntime.net/api/v1/namespaces/_/triggers/my-worker-trigger -X POST -H "Authorization: Basic NAMESPACE AUTHORIZATION"
 ```
 Tip: you can find the URI and the authorization for a trigger (or secured web action) by adding `-v` (verbose) to the commands to get an trigger (or action):
-```
+```json
 aio rt:trigger:get my-worker-trigger -v
 ```
 Retrieving the action activationId, and not the trigger activationId is a bit trickier in this case. You use the trigger activationId to retrieve the logs and in the logs you will find the action activationId that you can use to read the result.
