@@ -5,23 +5,23 @@ By default, a web action can be invoked by anyone knowing the action&rsquo;s URL
 ## Basic Authentication
 
 Here is how you can enable Basic Authentication for a web action:
-```
+```json
 // create a web action with Basic Authentication on
 aio rt:action:create my-secure-web-action main.js --web true --web-secure this-is-the-secret-hash
 ```
 or
-```
+```json
 // update an existing web action to enable Basic Authenticationn or change the secret
 aio rt:action:update my-secure-web-action main.js --web true --web-secure this-is-the-secret-hash
 ```
 
 Once you&rsquo;ve enabled Basic Authentication, you&rsquo;ll have to pass *X-Require-Wisk-Auth* header, and the secret you set, when invoking the web action. Assuming that your web action is created in the default package, this is how you&rsquo;ll invoke it:
-```
+```json
 curl -X GET -H "X-Require-Whisk-Auth: <this-is-the-secret-hash>" https://[your-namespaces].adobeioruntime.net/api/v1/web/default/my-secure-web-action
 ```
 
 If you fail in adding the authentication header or the secret is wrong, you will get an error:
-```
+```json
 {
   "error": "Authentication is possible but has failed or not yet been provided.",
   "code": "OWGYkWwCUT7Ta6hWpfZWTQqRsfvcFTku"
@@ -31,12 +31,12 @@ If you fail in adding the authentication header or the secret is wrong, you will
 ## Oauth (using the Adobe Identity Management System)
 Here is how you can enable IMS Authentication for a web action:
 
-```
+```json
 // create a web action with Require Validation on
 aio rt:action:create my-requir-validation-web-action main.js --web true -a require-gw-validation true
 ```
 or
-```
+```json
 // update an existing web action to enable Require Validation
 aio rt:action:update my-require-validation-web-action main.js --web true -a require-gw-validation true
 ```
@@ -46,7 +46,7 @@ To interact with the action, it's necessary to set up a security configuration i
 
 # Non Web Actions
 If your action is not a web action, you can still use your namespace credentials, base64 encoded, to call any of the actions in your namespace, as follows:
-```
+```json
 curl -X POST -H "Authorization: Basic <base64-namepsace-auth>" https://[your-namespaces].adobeioruntime.net/api/v1/default/my-secure-action
 ```
     
