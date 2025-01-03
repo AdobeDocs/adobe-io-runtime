@@ -19,26 +19,26 @@ exports.main = main;
 
 You can create an action called *test* using this command:
 
-```
+```json
 aio rt:action:create test first-function.js
 
 ```
 You can update an action at any time using the following command:
-```
+```json
 aio rt:action:update test first-function.js
 ```
 If you don&rsquo;t need an action anymore, you can delete it:
-```
+```json
 aio rt:action:delete test
 ```
 
 If you want to save an action that is deployed to your machine, then you can use this command:
-```
+```json
 aio rt:action:get test --save 
 ```
 
 Listing all the available actions in your current namespace is as simple as running this command:
-```
+```json
 aio rt:action:list
 ```
 
@@ -46,15 +46,15 @@ aio rt:action:list
 
 Now, that you have an action, you can call it using the following command (in this example the action name is *test*):
 
-```
+```json
 aio rt:action:invoke test --result
 ```
 Note the flag *--result* used in the command. This flag outputs the result of the invocation. Without it, instead of seeing the result of the invocation, you&rsquo;d get the activation ID. To get the result, you&rsquo;d use this ID to retrieve the result like this:
-```
+```json
 aio rt:activation:get <activation ID>
 ```
 When you invoke an action, as in the example above, the invocation is not blocking (it is async). If you want to execute it in a blocking style and, as a result, get the activation record instead of just getting an activation ID, you have to add the *--blocking* flag to the command:
-```
+```json
 aio rt:action:invoke test --blocking
 ```
 
@@ -63,7 +63,7 @@ aio rt:action:invoke test --blocking
 Actions can receive parameters when are being executed. First, any parameters you sent to the action will be available through the *params* variable. If you send two parameters called *first-name* and *last-name*, they will be available as *params.first-name* and *params.last-name*.
 
 Second, let&rsquo;s see how you can invoke the action with parameters. Our function sample from above uses a parameter called *name*. This is how you can set the parameter when invoking the action:
-```
+```json
 aio rt:action:invoke test --param name "John Doe" --result
 ```
 
@@ -82,7 +82,7 @@ If you run the CLI command for getting an action or package, you’d get a listi
 ### Default parameters set on action
 
 Let&rsquo;s assume that you want the default value of your parameter to be "Runtime". You can set this value when creating the action, or if the action already exists, updating the action. In both cases you add the *--param" flag:
-```
+```json
 // creation time
 aio rt:action:create test first-function.js --param name "Runtime"
 
@@ -99,7 +99,7 @@ Now, you can run the action without any parameters, and it will use the default 
 When you create an action, it is always created in a package. If you don&rsquo;t specify a package, the *default* package is used. Similar to how you set default parameters at the action level, you can specify default parameters at the package level.
 
 The difference is that the params set at the package level will be used for all the actions you create in that package.
-```
+```json
 // creation time
 aio rt:package:create my-package --param name "Runtime"
 
@@ -123,7 +123,7 @@ Coming back to our sample function that expects one parameter, *name*, you&rsquo
 }
 ```
 Then, you use the *--param-file* flag when creating actions, creating packages, or invoking actions.
-```
+```json
 // update action
 aio rt:action:update test first-function.js --param-file my-params.json
 
@@ -135,7 +135,7 @@ aio rt:action:invoke test --param-file my-params.json
 
 Sometimes, an application needs to ensure that the default parameters are final (or immutable), and a calling client can&rsquo;t override them. You can achieve this by adding the `final` annotation - `-a final true`:
 
-```
+```json
 aio rt:action:update test first-function.js --web true --param name "Runtime" -a final true
 ```
 
@@ -146,32 +146,32 @@ This mechanism works for all type of actions including web actions.
 So far, we&rsquo;ve been invoking actions only from the CLI. While this might be good for trying out your actions, as you design actions for production systems, you might need to be able to invoke actions via HTTP REST calls. This would enable you to invoke the actions from your web application. 
 
 You create a web action by adding the *--web* flag to the `aio` action command:
-```
+```json
 // creation time
 aio rt:action:create test first-function.js --web true
 
 // update
 aio rt:action:update test first-function.js --web true
-```
+```json
 Notice the *true* value used in the command. If you set that value to *false*, then you disable a web action.
 
 To call the action as a web action, you need to know the full path to the action. You can find the path by adding the *--url* flag to the action command:
-```
+```json
 aio rt:action:get test --url
 ```
 This will give you something like:
-```
+```json
 ok: got action test
 https://adobeioruntime.net/api/v1/web/[your namespace]/default/test
 ```
 In the URL above, the `default` in the path stands for the `default` package: if you don&rsquo;t create your actions explicitly in a package, then they get under the `default` package.
 
 You can invoke the action like this:
-```
+```json
 curl -L https://adobeioruntime.net/api/v1/web/[your namespace]/default/test -X GET
 ```
 or
-```
+```json
 curl https://[your namespace].adobeioruntime.net/api/v1/web/default/test -X GET
 ```
 **Note** the change in the URL here in comparison to what the `aio` returns. This is due some additional protections Runtime provides to segregate namespaces from each other when invoking web actions. The `aio` generated link will still work but it will return a 308 redirect to your namespace's subdomain on Runtime. For a further discussion of this please see the [Securing Web Actions](securing-web-actions.md) page.
@@ -292,7 +292,7 @@ The last step is creating the manifest file that will be used by wskdeploy to cr
 
 This is the folder structure:
 
-```
+```json
 --/actions
 --/actions/node_modules/
 --/actions/index.js
@@ -302,7 +302,7 @@ This is the folder structure:
 
 Here is an example manifest.yaml:
 
-```
+```json
 packages:
     # this is the package name
     test:
@@ -320,18 +320,18 @@ packages:
 
 Now you are ready to deploy by running the `wskdeploy` command from the same folder where `manifest.yaml` is:
 
-```
+```json
 wskdeploy
 ```
 
 This should deploy an action called *test-zip* under a package called *test*. You can invoke it like this:
 
-```
+```json
 aio rt:action:invoke test/test-zip --result
 ```
 
 If you want to remove this action, you run `wskdeploy` with the *undeploy* flag:
-```
+```json
 wskdeploy undeploy
 ```
 
