@@ -6,7 +6,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 ### Node.js V22.6.0
 
-```
+```json
     "express": "4.18.2",
     "openwhisk": "3.21.7",
     "body-parser": "1.20.2",
@@ -18,7 +18,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 ### Node.js v20.7.0
 
-```
+```json
     "express": "4.18.2",
     "openwhisk": "3.21.7",
     "body-parser": "1.20.2",
@@ -30,7 +30,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 ### Node.js v18.14.2
 
-```
+```json
     "express": "4.18.2",
     "openwhisk": "3.21.7",
     "body-parser": "1.20.2",
@@ -42,7 +42,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 ### Node.js v16.17.0
 
-```
+```json
     "express": "4.18.1",
     "openwhisk": "3.21.6",
     "body-parser": "1.20.0",
@@ -54,7 +54,7 @@ The following npm modules are pre-installed (if your action uses any of these mo
 
 ### Node.js v14.20.0
 
-```
+```json
     "express": "4.17.1",
     "openwhisk": "3.21.6",
     "body-parser": "1.19.0",
@@ -66,11 +66,11 @@ The following npm modules are pre-installed (if your action uses any of these mo
 ```
 
 This is how you can specify explicitly a kind:
-```
+```bash
 aio rt:action:create actionName fromFile.js --kind nodejs:20 
 ```
 or
-```
+```bash
 aio rt:action:create actionName fromFile.js --kind nodejs:18 
 ```
 These images are on Docker Hub:
