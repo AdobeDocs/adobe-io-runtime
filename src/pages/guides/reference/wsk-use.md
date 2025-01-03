@@ -2,7 +2,7 @@
 
 You can use the `--help` flag to navigate the list of supported commands:
 
-```
+```bash
 wsk --help
       ____      ___                   _    _ _     _     _
        /\   \    / _ \ _ __   ___ _ __ | |  | | |__ (_)___| | __
@@ -40,11 +40,11 @@ Use "wsk [command] --help" for more information about a command.
 ``` 
 
 Suppose you want to get help on how to work with actions. You&rsquo;d run:
-```
+```bash
 wsk action  --help
 ```
 This renders:
-```
+```bash
 work with actions
 Usage:
   wsk action [command]
@@ -59,11 +59,11 @@ Available Commands:
 ```
 
 Now that you know the command you need for create an action, you can get help on this:
-```
+```bash
 wsk action create --help
 ```
 This renders:
-```
+```bash
 create a new action
 Usage:
   wsk action create ACTION_NAME ACTION [flags]
