@@ -14,7 +14,7 @@ Packages not only bundle actions and feeds; they provide the means to share a co
 
 This creates a package in your namespace. You&rsquo;ll get the following acknowledgement:
 
-```
+```bash
 ok: created package hellopackage
 ```
 
@@ -24,7 +24,7 @@ You can now get a summary of the package:
 
 This produces the following result:
 
-```
+```bash
 package /<yourNamespace>/hellopackage
    (parameters: none defined)
 ```
@@ -33,7 +33,7 @@ package /<yourNamespace>/hellopackage
 
 The package you created is empty; you haven&rsquo;t added any actions yet. To add an action to the package, use the source code from the `hello` action created in [Deploying your first Adobe I/O Runtime function](../gettingstarted/deploy.md 'Deploying your first function'). Here is the code for that action:
 
-```
+```javascript
 function main(params) {
   return { payload: 'Hello ' + params.name };
 }
@@ -45,7 +45,7 @@ Add this action to the package with the following command:
 
 Here&rsquo;s the response from the CLI:
 
-```
+```bash
 ok: created action hellopackage/hello
 ```
 
@@ -53,7 +53,7 @@ This is just like creating an action by itself; you merely need to preface the a
 
 Now, if you get a summary again, you&rsquo;ll see the following:
 
-```
+```bash
 package /<yourNamespace>/hellopackage
    (parameters: none defined)
  action /<yourNamespace>/hellopackage/hello
@@ -84,7 +84,7 @@ Notice in the package summary the statements `(parameters: none defined)`. You c
 
 `aio rt:package:update hellopackage --param name Patricia`
 
-```
+```json
 ok: updated package hellopackage
 ```
 
@@ -102,7 +102,7 @@ You can see what parameters have been added to a package (note the `summary` fla
 
 In the response, you&rsquo;ll see:
 
-```
+```bash
 ok: got package hellopackage
 ...
 "parameters": [
@@ -120,7 +120,7 @@ You can also verify that your actions inherit the parameters you set for the pac
 
 You&rsquo;ll see in the response:
 
-```
+```bash
 ok: got action hello
 ...
 "parameters": [
@@ -134,7 +134,7 @@ ok: got action hello
 
 If you get the package summary again, you&rsquo;ll see the default parameters listed:
 
-```
+```bash
 package /<yourNamespace>/hellopackage: Returns a result based on parameter name
    (parameters: *name)
  action /<yourNamespace>/hellopackage/hello
@@ -167,7 +167,7 @@ You can also override a package&rsquo;s default parameters for a given action by
 
 `aio rt:action:update hellopackage/hello --param name Christine`
 
-```
+```bash
 ok: updated action hellopackage/hello
 ```
 
@@ -177,7 +177,7 @@ Depending on how you use your package, you may find you need to invoke an action
 
 `aio rt:package:bind hellopackage helloMyName --param name`&nbsp;_`<your name>`_
 
-```
+```bash
 ok: created binding helloMyName
 ```
 
@@ -213,7 +213,7 @@ Over time, you&rsquo;ll develop many packages, and you may want to see them all.
 
 This lists all the packages in the given namespace. Run it on yours now, and you should see both your package and the binding you created:
 
-```
+```bash
 packages
 /<yourNamespace>/hellopackage                                            private
 /<yourNamespace>/helloMyName                                             private
@@ -225,7 +225,7 @@ Once you&rsquo;re sure your package is ready for others to use, you can share it
 
 `aio rt:package:update hellopackage --shared yes`
 
-```
+```bash
 ok: updated package hellopackage
 ```
 
@@ -233,7 +233,7 @@ You can easily verify your package is shared:
 
 `aio rt:package:get hellopackage`
 
-```
+```bash
 ok: got package hellopackage
 ...
 "publish": true
@@ -242,7 +242,7 @@ ok: got package hellopackage
 
 If you list your packages again, the package you shared will be listed as such:
 
-```
+```bash
 packages
 /<yourNamespace>/hellopackage                                            shared
 /<yourNamespace>/helloMyName                                             private
@@ -258,7 +258,7 @@ You can easily verify your package is private:
 
 `aio rt:package:get hellopackage`
 
-```
+```bash
 ...
 "publish": false
 ...
@@ -266,7 +266,7 @@ You can easily verify your package is private:
 
 If you list your packages again, the package you made private will be listed as such:
 
-```
+```bash
 packages
 /<yourNamespace>/hellopackage                                            private
 /<yourNamespace>/helloMyName                                             private
