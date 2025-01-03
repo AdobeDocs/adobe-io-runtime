@@ -18,8 +18,10 @@ exports.main = main;
 ```
 
 You can create an action called *test* using this command:
+
 ```
 aio rt:action:create test first-function.js
+
 ```
 You can update an action at any time using the following command:
 ```
