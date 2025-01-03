@@ -7,7 +7,7 @@ The default value is `200` and it means that 200 invocation can happen in the sa
 This enables you to avoid cold-start issues. When the system doesn't have any containers left, it has to create new ones. This cold-start adds a lot of latency to your application.
 
 You can set any value between `1` and `500`. In the example below, the limit is set to `100`:
-```
+```json
 aio rt:action:create actionName fileName.js -c 100
 ```
 
@@ -31,7 +31,7 @@ The system has a pool of containers with these settings waiting to be used for a
 The second instrument you have to maximize throughput is caching the action response. When you cache an action response, for the time the cache is valid, you can invoke the action without increasing the counter used by minuteRate or concurrent action invocations per namespace. In this situations, your action is not actually executed, instead the system serves the result from cache.
 
 You use the Cache-Control dirrective in order to configure the cache. Below is an example of an action that sets the cache with a TTL of `30 minutes`. In the response object you'll find an entry with `X-Cache: HIT` or `X-Cache: MISS` (depending on the answer being returned from cache or not). 
-```
+```javascript
 function main(args) {
    return {
        body: "OK",
@@ -44,7 +44,7 @@ function main(args) {
 ```
 
 One way to verify if a response is returned from the cache or not is by checking for the following header:
-```
+```json
 X-GW-Cache: HIT
 ```
 
@@ -60,7 +60,7 @@ For example you here is some action that responds to certain header fields when 
 `curl -H "storeId: 1234" https://runtime-namespace-1.adobeioruntime.net/api/v1/web/store?query={products(pageSize: 10,filter:{ id:{ eq:"abcedefg"}}){items{name}}}`
 
 Could produce a response:
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 Vary: storeId
