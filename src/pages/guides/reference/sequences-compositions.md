@@ -10,7 +10,7 @@ If you want to execute a tree of actions, where you want to be able to evaluate 
 
 Assuming that you have two actions created in a package called `my-package`:
 
-```
+```bash
 /my-package/actionA
 /my-package/actionB
 ```
@@ -38,7 +38,7 @@ When you want to orchestrate a more complex flow without having to jam all the c
 ### Install Composer
 
 You’ll need to install the Composer Node.js package in order to use this feature:
-```
+```bash
 npm install -g openwhisk-composer
 ```
 
@@ -48,19 +48,19 @@ Using this package you can create the JSON file needed for deploying a compositi
 3.	You run `deploy` command to deploy the composition using the JSON file you generated at the previous step
 
 For, example let’s assume you have three actions deployed called `a`, `b`, and `c` and you want to create a composition that executes `a` and in case of success, executes `b`, if not it executes `c`. You use the composer package to define this composition in a JavaScript file (`myComp.js'): 
-```
+```js
 const composer = require('openwhisk-composer')
 
 module.exports = composer.if(‘a’, ‘b’, ‘c’)
 ```
 
 Now, that you have the composition defined you can generate the JSON definition needed for deployment:
-```
+```js
 compose myComp.js > myComp.json
 ```
 
 Time to deploy:
-```
+```json
 deploy compositionA myComp.json
 ```
 
