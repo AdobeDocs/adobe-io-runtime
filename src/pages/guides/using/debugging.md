@@ -10,13 +10,13 @@ Be aware that in the unlikely event that the agent is killed by I/O Runtime whil
 
 You'll need Node.js, version 10 or newer, and a local [Docker environment](https://www.docker.com/products/docker-desktop). You can grab `wskdebug` from this [GitHub repo](https://github.com/adobe/wskdebug) or use npm to install it:
 
-```
+```bash
 npm install -g @adobe/wskdebug
 ```
 
 Next, assuming that you have Docker configured locally, you need to run the wskdebug in Terminal in order to pull on your machine the latest image used by I/O Runtime to execute Node.js actions:
 
-```
+```bash
  wskdebug --inspect-brk=11932 <ACTION NAME> <FULL PATH TO THE SOURCE FILE> -l 
 ```
 
@@ -24,7 +24,7 @@ Next, assuming that you have Docker configured locally, you need to run the wskd
 
 Before you can debug your action code, open the source file for your action and create the [launch.json](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations) with this content:
 
-```
+```json
 "configurations": [
         {
             "type": "node",
