@@ -44,7 +44,7 @@ Now that the action is created, it&rsquo;s ready to be invoked via an HTTP call 
 
 Now that you&rsquo;ve got an action and invoked it, how is it actually processed? As an HTTP request, of course. Since the Runtime (OpenWhisk) system is an open REST API and completely HTTP-based, the invoke you sent in the CLI is translated into an HTTP request against Runtime. The command translates roughly into the following POST:
 
-```
+```bash
 POST /api/v1/namespaces/$userNamespace/actions/helloAction
 Host: $openwhiskEndpoint
 ```
