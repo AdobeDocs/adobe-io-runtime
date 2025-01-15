@@ -1,5 +1,7 @@
 # Creating REST APIs
 
+> Note: IO Runtime cleans up custom APIs that have not been accessed for 90 days.
+
 You can create REST APIs from web actions you&rsquo;ve deployed to Adobe I/O Runtime. Let&rsquo;s assume that you&rsquo;ve created four actions to manage CRUD operations for the `pet` entity:
 
 
@@ -26,7 +28,7 @@ Let&rsquo;s see how you can create this API, assuming you have the web actions a
 
 When creating or updating a REST API, it can take up to 5 minutes to see the changes. 
 
-## Using wsk CLI
+## Using AIO CLI
 
 Using the `aio rt:api:create` command, you create each API endpoint one-by-one. This command allows you to set a base path, path, method, and response type. We will set:
 
