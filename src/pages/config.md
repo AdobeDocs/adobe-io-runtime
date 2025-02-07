@@ -1,11 +1,8 @@
 - pathPrefix:
     - /runtime/docs/
 
-- home:
-    - [Adobe I/O Runtime](/runtime)
-    - [Adobe I/O Runtime](/runtime)
-
 - pages:
+    - [Adobe I/O Runtime](https://developer.adobe.com/runtime/)
     - [Overview](index.md)
     - [Guides](guides/index.md)
     - [Support](support/index.md)
