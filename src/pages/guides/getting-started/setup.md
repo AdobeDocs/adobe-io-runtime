@@ -30,7 +30,7 @@ In the Developer Console:
 * Create a new `Project`
 * Choose one of the workspaces, for example `Production` and then click `Add service` and choose `Runtime` 
 * Go to back to `Workspace overview` page and, at the top of the page, click on the `Download all` button. This will download the configuration file for this project -> workspace
-* Open this file in a text editor and search for the `runtime` > `namespaces` entry. This is where you will find the namespace `name` and `auth` values you can use to set the .wskprops file or configue the `aio` CLI (see the next sections). 
+* Open this file in a text editor and search for the `runtime` > `namespaces` entry. This is where you will find the namespace `name` and `auth` values you can use to set the .wskprops file or configure the `aio` CLI (see the next sections). 
 
 ### Configuring the wsk CLI with a .wskprops file
 
