@@ -40,7 +40,7 @@ let openwhisk = require("openwhisk");
 function main(args) {
     let ow = openwhisk();
     return ow.actions.invoke({
-                    name: 'worker', // the name of the action to invoke
+                    name: 'my-worker', // the name of the action to invoke
                     blocking: false, // this is the flag that instructs to execute the worker asynchronous
                     result: false,
                     params: args
