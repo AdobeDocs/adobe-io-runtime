@@ -2,8 +2,7 @@
     - /runtime/docs/
 
 - home:
-    - [Adobe I/O Runtime](/runtime)
-    - [Adobe I/O Runtime](/runtime)
+    - [Adobe I/O Runtime](https://developer.adobe.com/runtime/)
 
 - pages:
     - [Overview](index.md)
