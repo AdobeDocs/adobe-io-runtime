@@ -40,11 +40,11 @@ esac
 if [ "$ENV" == "stage" ] && [ "$OPERATION" == "preview" ]
 then
     args="--header \"x-content-source-authorization: ${CONTENT_REPO_BRANCH}\""
-else
+else 
     args=""
 fi
 
-process()
+process() 
 {
     filename=$1
     path="${PATH_PREFIX:1}/${filename#$ROOT/}"
@@ -65,8 +65,8 @@ process()
     if [ "$failure" != "" ]
     then
         failures="${failures}\n${cmd}\n${failure}\n"
-    fi
-
+    fi 
+    
     # write failures to stderr so it can be accessed outside this subshell later
     echo $failures > 2
 }
@@ -83,7 +83,7 @@ summarize() {
     if [ "${failures}" == "" ]
     then
         echo "Success!"
-    else
+    else 
         echo "Failures:"
         echo -e "${failures}"
     fi

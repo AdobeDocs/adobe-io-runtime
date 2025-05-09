@@ -18,7 +18,7 @@ You can execute any of the actions defined in a shared package by using the full
 aio rt:action:invoke /whisk.system/alarms/alarm
 ```
 
-Alternatively, you can bind any of this packages to your namespace; see the [Packages page](../reference/packages.md). When you bind a package, you can set your own default parameters (if there are any parameters) and run the actions as being local to your namespace.
+Alternatively, you can bind any of this packages to your namespace; see the [Packages page](packages.md). When you bind a package, you can set your own default parameters (if there are any parameters) and run the actions as being local to your namespace.
 
 ## Using the alarms package
 
