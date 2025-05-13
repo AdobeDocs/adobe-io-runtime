@@ -1,0 +1,109 @@
+type: navigation
+order: 1
+title: ADP Runtime documentation
+pages:
+  - title: Overview
+    url: /src/pages/index.md
+  
+  - title: Guides
+    url: /src/pages/guides/index.md
+    pages:
+      - title: Quickstart Guide
+        url: /src/pages/guides/index.md
+      
+      - title: Overview
+        url: /src/pages/guides/overview/index.md
+        pages:
+          - title: What is Adobe I/O Runtime
+            url: /src/pages/guides/overview/what_is_runtime.md
+          - title: Use cases
+            url: /src/pages/guides/overview/usecases.md
+          - title: How Adobe I/O Runtime Works
+            url: /src/pages/guides/overview/howitworks.md
+          - title: Adobe I/O Runtime Entities
+            url: /src/pages/guides/overview/entities.md
+          - title: Getting Access
+            url: /src/pages/guides/overview/getting_access.md
+      
+      - title: Getting Started with Adobe I/O Runtime
+        url: /src/pages/guides/getting-started/index.md
+        pages:
+          - title: Setting up Your Environment
+            url: /src/pages/guides/getting-started/setup.md
+          - title: Deploying your First Adobe I/O Runtime Function
+            url: /src/pages/guides/getting-started/deploy.md
+          - title: Retrieve Action Invocation Results
+            url: /src/pages/guides/getting-started/activations.md
+      
+      - title: Using Adobe I/O Runtime
+        url: /src/pages/guides/using/index.md
+        pages:
+          - title: Creating Actions
+            url: /src/pages/guides/using/creating_actions.md
+          - title: Asynchronous Calls
+            url: /src/pages/guides/using/asynchronous_calls.md
+          - title: Throughput Tuning
+            url: /src/pages/guides/using/throughput_tuning.md
+          - title: Security Guide
+            url: /src/pages/guides/using/security_general.md
+          - title: Securing Web Actions
+            url: /src/pages/guides/using/securing_web_actions.md
+          - title: Creating REST APIs
+            url: /src/pages/guides/using/creating_rest_apis.md
+          - title: Using Packages
+            url: /src/pages/guides/using/using_packages.md
+          - title: Logging & Monitoring
+            url: /src/pages/guides/using/logging_monitoring.md
+          - title: Debugging
+            url: /src/pages/guides/using/debugging.md
+          - title: System Settings
+            url: /src/pages/guides/using/system_settings.md
+          - title: CI/CD Pipeline
+            url: /src/pages/guides/using/ci-cd_pipeline.md
+          - title: Troubleshooting
+            url: /src/pages/guides/using/troubleshooting.md
+      
+      - title: Adobe I/O Runtime reference documentation
+        url: /src/pages/guides/reference/index.md
+        pages:
+          - title: Using aio CLI
+            url: /src/pages/guides/reference/cli_use.md
+          - title: Using the wsk CLI
+            url: /src/pages/guides/reference/wsk_use.md
+          - title: Environment Variables
+            url: /src/pages/guides/reference/environment_variables.md
+          - title: Multiple Regions
+            url: /src/pages/guides/reference/multiple_regions.md
+          - title: Pre-installed packages
+            url: /src/pages/guides/reference/prepackages.md
+          - title: Runtimes
+            url: /src/pages/guides/reference/runtimes.md
+          - title: API Reference
+            url: /src/pages/guides/reference/api_ref.md
+          - title: Triggers & Rules
+            url: /src/pages/guides/reference/triggersrules.md
+          - title: Sequences & Compositions
+            url: /src/pages/guides/reference/sequences_compositions.md
+          - title: Packages
+            url: /src/pages/guides/reference/packages.md
+          - title: Feeds
+            url: /src/pages/guides/reference/feeds.md
+      
+      - title: Tools
+        url: /src/pages/guides/tools/index.md
+        pages:
+          - title: Setting up the aio CLI
+            url: /src/pages/guides/tools/cli_install.md
+          - title: Setting up the wsk CLI
+            url: /src/pages/guides/tools/wsk_install.md
+          - title: Setting up the wskdeploy CLI
+            url: /src/pages/guides/tools/wskdeploy_install.md
+  
+  - title: Support
+    url: /src/pages/support/index.md
+    pages:
+      - title: Resources & support
+        url: /src/pages/support/index.md
+        pages:
+          - title: FAQ
+            url: /src/pages/support/faq.md
