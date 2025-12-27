@@ -38,20 +38,15 @@ When you have action invocations that fail, sometimes the best way to understand
 The following are the possible values and the meaning for `error` in `response.status`:
 * `success`: everything is okay (status is true)
 * `action developer error`: A container or action code error occurred, e.g. failed to start action (status is false). This is usually the case if the nodejs action code has a syntax error or missing dependencies
-* `application error`: Action ran, but there was an error thrown in the action code (deliberatly or not) that was handled by I/O Runtime (status is false).
+* `application error`: Action ran, but there was an error thrown in the action code (deliberately or not) that was handled by I/O Runtime (status is false).
 * `whisk internal error`: Action did not run, an internal I/O Runtime system error occurred while starting the action, more info in `response.status.result.error`
 
 ## 3rd-Party Tools
 
-I/O Runtime doesn’t offer a configuration to send activations and logs to an external system, something like Splunk, Datadog or New Relic. This is something we are considering to offer in the future. 
-
 Although there is no out-of-the-box integration, there are still ways you can push data from I/O Runtime to an external tool in order to monitor and debug your actions. 
 
-#### Epsagon
-One tool that made it easy to do this is [Epsagon](https://epsagon.com/?utm_source=adobe.io&utm_medium=referral&utm_campaign=adobe_io_docs). Epsagon built an integration for OpenWhisk based systems (I/O Runtime is built on top of the open source project OpenWhisk) that makes super easy to see your activations, errors, latency information and logs in their system. Check this [guide](https://docs.epsagon.com/docs/openwhisk?utm_source=adobe.io&utm_medium=referral&utm_campaign=adobe_io_docs) or this [video presentation](https://www.youtube.com/watch?v=4iprbivqrxQ&t=1517s) if you want to find more.
-
 #### New Relic
-Another tool that can be used to monitor your actions is New Relic, which offers a Node.js agent that can be used to monitor your actions. Check this [guide](https://docs.newrelic.com/docs/agents/nodejs-agent/getting-started/introduction-new-relic-nodejs) to learn more.
+A tool that can be used to monitor your actions is New Relic, which offers a Node.js agent that can be used to monitor your actions. Check this [guide](https://docs.newrelic.com/docs/agents/nodejs-agent/getting-started/introduction-new-relic-nodejs) to learn more.
 
 For example if you want to send to New Relic the execution time for one action, you could build your action code as follows:
 ```
