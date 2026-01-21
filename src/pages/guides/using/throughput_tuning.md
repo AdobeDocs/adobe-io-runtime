@@ -30,7 +30,7 @@ The system has a pool of containers with these settings waiting to be used for a
 
 The second instrument you have to maximize throughput is caching the action response. When you cache an action response, for the time the cache is valid, you can invoke the action without increasing the counter used by minuteRate or concurrent action invocations per namespace. In this situations, your action is not actually executed, instead the system serves the result from cache.
 
-You use the Cache-Control dirrective in order to configure the cache. Below is an example of an action that sets the cache with a TTL of `30 minutes`. In the response object you'll find an entry with `X-Cache: HIT` or `X-Cache: MISS` (depending on the answer being returned from cache or not). 
+You use the Cache-Control directive in order to configure the cache. Below is an example of an action that sets the cache with a TTL of `30 minutes`. In the response object you'll find an entry with `X-Cache: HIT` or `X-Cache: MISS` (depending on the answer being returned from cache or not). 
 ```
 function main(args) {
    return {
@@ -47,6 +47,8 @@ One way to verify if a response is returned from the cache or not is by checking
 ```
 X-GW-Cache: HIT
 ```
+
+Only requests sent to `/api/v1/web/` with 200, 301 and 302 response codes can be cached.
 
 <InlineAlert slots="text"/>
 
