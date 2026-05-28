@@ -4,6 +4,24 @@ Adobe I/O Runtime supports the three latest Node.js versions (see the [Node.js r
 
 The following npm modules are pre-installed (if your action uses any of these modules, you don&rsquo;t have to package them together with action code):
 
+### Node.js v26.1.0
+
+    "express": "4.22.2",
+    "openwhisk": "3.21.9",
+    "body-parser": "1.20.5",
+    "redis": "4.7.1",
+    "dnscache": "1.0.2",
+    "prom-client": "14.2.0"
+
+### Node.js v24.0.1
+
+    "express": "4.21.1",
+    "openwhisk": "3.21.8",
+    "body-parser": "1.20.3",
+    "redis": "4.6.13",
+    "dnscache": "1.0.2",
+    "prom-client": "14.2.0"
+
 ### Node.js V22.6.0
 
     "express": "4.18.2",
@@ -65,8 +83,10 @@ or
 aio rt:action:create actionName fromFile.js --kind nodejs:18 
 ```
 These images are on Docker Hub:
-1. [Node 22](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v22/tags)
-2. [Node 20](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v20/tags)
-3. [Node 18](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v18/tags)
-4. [Node 16](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v16/tags)
-5. [Node 14](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v14/tags)
+1. [Node 26](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v26/tags)
+2. [Node 24](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v24/tags)
+3. [Node 22](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v22/tags)
+4. [Node 20](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v20/tags)
+5. [Node 18](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v18/tags)
+6. [Node 16](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v16/tags)
+7. [Node 14](https://hub.docker.com/r/adobeapiplatform/adobe-action-nodejs-v14/tags)
